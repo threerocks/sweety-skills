@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#f7fbff"/>
+<rect x="0" y="0" width="1080" height="280" rx="0" fill="#2563eb"/>
+<circle cx="930" cy="145" r="86" fill="#93c5fd" opacity="0.35"/>
+<circle cx="845" cy="95" r="28" fill="#dbeafe" opacity="0.7"/>
+<text class="title" x="72" y="95" fill="#ffffff">AI来了 2026年03月 05 -</text>
+<text class="title" x="72" y="165" fill="#ffffff"> 最强跨学料｜AI种的“黑科技”番茄</text>
+<rect x="72" y="340" width="936" height="240" rx="32" fill="#ffffff"/>
+<text class="body" x="110" y="418">AI 不会自己拿着锄头种菜，但它能帮助人分析</text>
+<text class="body" x="110" y="472">温度、光照、水分和生长数据，让农民或研究人员</text>
+<text class="body" x="110" y="526">更快找到更适合植物的条件。</text>
+<text class="small" x="74" y="640">本讲重点</text>
+<rect x="72" y="680" width="936" height="180" rx="32" fill="#e0f2fe"/>
+<text class="body" x="110" y="750">1. 传感器采集数据</text>
+<text class="body" x="110" y="800">2. AI帮忙找规律</text>
+<text class="body" x="110" y="850">3. 人来做关键决定</text>
+<rect x="72" y="920" width="936" height="320" rx="32" fill="#ffffff"/>
+<text class="subtitle" x="110" y="985">今天先记住这句话</text>
+<text class="small" x="110" y="1045">一颗番茄看起来普普通通，可如果有人说它是 AI </text>
+<text class="small" x="110" y="1089">帮忙种出来的，味道还特别好，你可能会忍不住追问：</text>
+<text class="small" x="110" y="1133">AI 到底做了什么，难道是它亲手去种地吗？</text>
+<rect x="72" y="1288" width="250" height="70" rx="20" fill="#2563eb"/>
+<text class="cardTitle" x="114" y="1334" fill="#ffffff">AI CAT KIDS</text>
+</svg>

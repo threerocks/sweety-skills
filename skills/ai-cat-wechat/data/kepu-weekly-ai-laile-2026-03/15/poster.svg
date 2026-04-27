@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#f7fbff"/>
+<rect x="0" y="0" width="1080" height="280" rx="0" fill="#2563eb"/>
+<circle cx="930" cy="145" r="86" fill="#93c5fd" opacity="0.35"/>
+<circle cx="845" cy="95" r="28" fill="#dbeafe" opacity="0.7"/>
+<text class="title" x="72" y="95" fill="#ffffff">AI来了 2026年03月 15 -</text>
+<text class="title" x="72" y="165" fill="#ffffff"> AI朋友圈｜同学总对我恶作剧，我该</text>
+<text class="title" x="72" y="235" fill="#ffffff">怎么办？</text>
+<rect x="72" y="340" width="936" height="240" rx="32" fill="#ffffff"/>
+<text class="body" x="110" y="418">AI 可以帮你整理想法，却不能替你处理真实的</text>
+<text class="body" x="110" y="472">人际关系。面对持续恶作剧，最重要的是分清玩笑</text>
+<text class="body" x="110" y="526">和伤害，并及时求助。</text>
+<text class="small" x="74" y="640">本讲重点</text>
+<rect x="72" y="680" width="936" height="180" rx="32" fill="#e0f2fe"/>
+<text class="body" x="110" y="750">1. 先看自己的感受</text>
+<text class="body" x="110" y="800">2. 再表达边界</text>
+<text class="body" x="110" y="850">3. 必要时找大人帮忙</text>
+<rect x="72" y="920" width="936" height="320" rx="32" fill="#ffffff"/>
+<text class="subtitle" x="110" y="985">今天先记住这句话</text>
+<text class="small" x="110" y="1045">有些孩子会把烦恼悄悄问 AI，比如“同学总捉弄我</text>
+<text class="small" x="110" y="1089">怎么办”。AI 也许会给出几个建议，但真正能帮助</text>
+<text class="small" x="110" y="1133">你的，往往是把感受说清楚，并在现实里找到值得信任</text>
+<text class="small" x="110" y="1177">的大人。</text>
+<rect x="72" y="1288" width="250" height="70" rx="20" fill="#2563eb"/>
+<text class="cardTitle" x="114" y="1334" fill="#ffffff">AI CAT KIDS</text>
+</svg>

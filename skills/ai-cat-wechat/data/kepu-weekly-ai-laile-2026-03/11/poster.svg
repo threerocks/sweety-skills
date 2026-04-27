@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#f7fbff"/>
+<rect x="0" y="0" width="1080" height="280" rx="0" fill="#2563eb"/>
+<circle cx="930" cy="145" r="86" fill="#93c5fd" opacity="0.35"/>
+<circle cx="845" cy="95" r="28" fill="#dbeafe" opacity="0.7"/>
+<text class="title" x="72" y="95" fill="#ffffff">AI来了 2026年03月 11 -</text>
+<text class="title" x="72" y="165" fill="#ffffff"> 数智奇案｜哪幅画是 AI 的“数字</text>
+<text class="title" x="72" y="235" fill="#ffffff">赝品”</text>
+<rect x="72" y="340" width="936" height="240" rx="32" fill="#ffffff"/>
+<text class="body" x="110" y="418">AI 生成图像不只是新奇玩法，它也会带来真假</text>
+<text class="body" x="110" y="472">混淆、风格模仿和误导传播的问题。辨认真假，本</text>
+<text class="body" x="110" y="526">质上是在训练自己的视觉判断和信息意识。</text>
+<text class="small" x="74" y="640">本讲重点</text>
+<rect x="72" y="680" width="936" height="180" rx="32" fill="#e0f2fe"/>
+<text class="body" x="110" y="750">1. 看细节</text>
+<text class="body" x="110" y="800">2. 看来源</text>
+<text class="body" x="110" y="850">3. 别急着下结论</text>
+<rect x="72" y="920" width="936" height="320" rx="32" fill="#ffffff"/>
+<text class="subtitle" x="110" y="985">今天先记住这句话</text>
+<text class="small" x="110" y="1045">如果两幅画摆在你面前，一幅是人画的，一幅是 AI</text>
+<text class="small" x="110" y="1089"> 生成的，你会怎么猜？很多孩子会马上进入侦探模式</text>
+<text class="small" x="110" y="1133">，可越是好玩的题目，越适合顺手再学一点严肃的判断</text>
+<text class="small" x="110" y="1177">力。</text>
+<rect x="72" y="1288" width="250" height="70" rx="20" fill="#2563eb"/>
+<text class="cardTitle" x="114" y="1334" fill="#ffffff">AI CAT KIDS</text>
+</svg>

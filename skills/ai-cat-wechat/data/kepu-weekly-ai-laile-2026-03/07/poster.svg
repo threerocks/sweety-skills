@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#f7fbff"/>
+<rect x="0" y="0" width="1080" height="280" rx="0" fill="#2563eb"/>
+<circle cx="930" cy="145" r="86" fill="#93c5fd" opacity="0.35"/>
+<circle cx="845" cy="95" r="28" fill="#dbeafe" opacity="0.7"/>
+<text class="title" x="72" y="95" fill="#ffffff">AI来了 2026年03月 07 -</text>
+<text class="title" x="72" y="165" fill="#ffffff"> 漫画AI｜识花软件引发的风波</text>
+<rect x="72" y="340" width="936" height="240" rx="32" fill="#ffffff"/>
+<text class="body" x="110" y="418">识别软件适合帮我们快速找到方向，但最后的判断</text>
+<text class="body" x="110" y="472">不能完全交给它。尤其当结果关系到安全、作业或</text>
+<text class="body" x="110" y="526">科普传播时，更要核对。</text>
+<text class="small" x="74" y="640">本讲重点</text>
+<rect x="72" y="680" width="936" height="180" rx="32" fill="#e0f2fe"/>
+<text class="body" x="110" y="750">1. 软件会猜</text>
+<text class="body" x="110" y="800">2. 猜中很方便</text>
+<text class="body" x="110" y="850">3. 猜错要会核对</text>
+<rect x="72" y="920" width="936" height="320" rx="32" fill="#ffffff"/>
+<text class="subtitle" x="110" y="985">今天先记住这句话</text>
+<text class="small" x="110" y="1045">如果你拍一朵花，手机立刻告诉你它叫什么名字，你会</text>
+<text class="small" x="110" y="1089">不会一下子就信了？很多时候，这种顺手可得的答案最</text>
+<text class="small" x="110" y="1133">容易让人放松警惕。</text>
+<rect x="72" y="1288" width="250" height="70" rx="20" fill="#2563eb"/>
+<text class="cardTitle" x="114" y="1334" fill="#ffffff">AI CAT KIDS</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#f7fbff"/>
+<rect x="0" y="0" width="1080" height="280" rx="0" fill="#2563eb"/>
+<circle cx="930" cy="145" r="86" fill="#93c5fd" opacity="0.35"/>
+<circle cx="845" cy="95" r="28" fill="#dbeafe" opacity="0.7"/>
+<text class="title" x="72" y="95" fill="#ffffff">AI来了 2026年03月 13 -</text>
+<text class="title" x="72" y="165" fill="#ffffff"> 数据侦探｜AI 如何送外卖</text>
+<rect x="72" y="340" width="936" height="240" rx="32" fill="#ffffff"/>
+<text class="body" x="110" y="418">平台算法擅长在很多条件里快速做分配，但它不是</text>
+<text class="body" x="110" y="472">“神秘黑箱”四个字就能解释完的。理解算法，也</text>
+<text class="body" x="110" y="526">是理解现实世界里效率和人的关系。</text>
+<text class="small" x="74" y="640">本讲重点</text>
+<rect x="72" y="680" width="936" height="180" rx="32" fill="#e0f2fe"/>
+<text class="body" x="110" y="750">1. 算法在计算</text>
+<text class="body" x="110" y="800">2. 骑手在行动</text>
+<text class="body" x="110" y="850">3. 技术和人一起完成服务</text>
+<rect x="72" y="920" width="936" height="320" rx="32" fill="#ffffff"/>
+<text class="subtitle" x="110" y="985">今天先记住这句话</text>
+<text class="small" x="110" y="1045">下单后，屏幕上常会跳出一句话：正在为您分配骑手。</text>
+<text class="small" x="110" y="1089">这短短几个字像魔法一样，让人觉得系统什么都知道。</text>
+<text class="small" x="110" y="1133">可它到底是在怎么算的呢？</text>
+<rect x="72" y="1288" width="250" height="70" rx="20" fill="#2563eb"/>
+<text class="cardTitle" x="114" y="1334" fill="#ffffff">AI CAT KIDS</text>
+</svg>

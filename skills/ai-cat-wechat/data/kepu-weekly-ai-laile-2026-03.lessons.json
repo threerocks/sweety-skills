@@ -1,0 +1,907 @@
+{
+  "lessons": [
+    {
+      "item_no": 1,
+      "title": "重磅趣头条｜数字人获北京“身份证”",
+      "summary": "这一讲从北京经开区给虚拟偶像发出全国首个身份认证切入，带孩子理解数字人是什么、为什么需要身份标识，以及遇到数字人内容时怎样先辨认再相信。",
+      "opening_scene": "刷短视频时，你可能见过会唱歌、会直播、会讲课的数字人。它们看起来像真人，却不一定是真人在镜头前说话。到了 2026 年，北京甚至给虚拟偶像发出了身份认证。这条新闻最有意思的地方，不是它多像科幻片，而是它在提醒我们：数字世界里的角色，也需要被清楚标记。",
+      "big_idea": "数字人可以帮我们做很多事情，但越像真人，越要学会辨认。给数字人建立身份标识，不是为了让它们变成“真人”，而是为了让大家知道它是谁、从哪来、该由谁负责。",
+      "explanation_sections": [
+        {
+          "heading": "数字人到底是什么",
+          "body": "可以把数字人理解成由图像、声音、动作和程序一起拼出来的虚拟角色。有的数字人只是提前录好动作再播放，有的会结合生成式 AI 实时回答问题。它们能当主播、做客服、拍短片，也能在科普、文旅和教育场景里出现。"
+        },
+        {
+          "heading": "为什么数字人也要有“身份证”",
+          "body": "因为数字人越做越像真人，别人就更难分辨它背后到底是谁在运营、内容能不能信、出了问题该找谁负责。身份认证和统一标识的作用，就像给数字世界贴上一张说明卡，帮助大家追溯来源、减少冒充和误导。"
+        },
+        {
+          "heading": "中小学生最实用的防坑动作",
+          "body": "看到数字人内容时，先问三个问题：它有没有明确标出是虚拟角色；背后有没有机构、平台或创作者信息；它说的话能不能在权威来源里查到。这样做不是不相信技术，而是把好奇心和判断力一起带上。"
+        }
+      ],
+      "takeaways": [
+        "数字人不是活人，而是被技术生成和驱动的虚拟角色。",
+        "数字人越像真人，身份标识就越重要。",
+        "遇到数字人内容，先辨认来源，再判断可信度。"
+      ],
+      "misconceptions": [
+        "数字人有身份证，就等于它和真人完全一样。",
+        "只要画面很真、声音很像，就说明内容一定可靠。"
+      ],
+      "discussion_questions": [
+        "如果一个数字人用很像老师的声音讲话，你会先看什么信息来判断它是否可信？",
+        "你觉得数字人最适合帮人做哪些事，哪些事暂时还不适合完全交给它？"
+      ],
+      "at_home_try": [
+        "找一段数字人视频，和家人一起标出里面哪些线索能帮助你识别它是虚拟角色。",
+        "挑一句数字人说的话，再去权威网站核对它是不是真的。"
+      ],
+      "poster_points": [
+        "先看它是谁",
+        "再看它从哪来",
+        "最后判断能不能信"
+      ],
+      "visual_brief": {
+        "poster_prompt": "面向8到15岁中小学生的少年科普杂志插图，主题是数字人获得身份认证。明亮蓝青配色，主角是一位友好的虚拟主持人与一张发光身份卡，画面中有放大镜、认证标识、信息来源卡片。强调数字人不是活人、需要身份标识、要学会辨认来源。风格像高质量少儿科技杂志，不幼稚，不成人商业海报。",
+        "cover_prompt": "少年科普封面风格，数字人和身份标识主题，科技感但亲切，适合8到15岁读者。",
+        "inline_prompt": "科普版式插图，展示数字人由图像、声音、动作和程序组成，并配有辨认来源的小提示。"
+      },
+      "evidence": [
+        {
+          "source_label": "北京市科委新闻",
+          "source_type": "官方新闻",
+          "source_title": "北京经开区发出全国首个虚拟偶像身份认证",
+          "source_url": "https://kw.beijing.gov.cn/xwdt/kcyx/xwdtscyqld/202602/t20260202_4484338.html"
+        },
+        {
+          "source_label": "首都之窗",
+          "source_type": "官方转载",
+          "source_title": "工业和信息化部拟制定标准规范数字人身份标识",
+          "source_url": "https://www.beijing.gov.cn/ywdt/zybwdt/202601/t20260124_4461165.html"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 2,
+      "title": "热搜云图｜“开”着飞机去上学",
+      "summary": "这一讲借热搜标题带孩子认识飞行汽车和 eVTOL 的真实进展，学习怎样把夸张说法拆成已经试飞、开始示范运营和离日常通学还很远三层判断。",
+      "opening_scene": "看到“开着飞机去上学”这种标题，很多人第一反应是：未来是不是马上就要来了？可真正重要的问题不是激动一下，而是问清楚：这是新闻标题里的想象，还是已经能安全地天天使用的交通工具？",
+      "big_idea": "面对未来交通新闻，既要保留好奇，也要学会分层判断。今天的 eVTOL 已经在试飞和示范运营上前进了一大步，但离普通孩子每天坐它去上学，还差安全规则、噪音控制、起降点和成本这些关卡。",
+      "explanation_sections": [
+        {
+          "heading": "什么是飞行汽车和 eVTOL",
+          "body": "不少报道里说的“飞行汽车”，更准确的名字其实是 eVTOL，也就是电动垂直起降飞行器。它们更像会起降的小型飞行器，而不是普通汽车突然长出翅膀。NASA 和 FAA 都把这类新交通放进“先进空中交通”研究里，中国的 EH216-S 这类机型也已经拿到适航相关证书并开始示范载人飞行。"
+        },
+        {
+          "heading": "为什么离“开去上学”还有距离",
+          "body": "一个交通工具要真正进入日常生活，不只看能不能飞，还要看安全、噪音、价格、起降地点、法规和天气影响。NASA 公开研究里连“坐起来会不会不舒服”和“噪音会不会打扰城市”都要测，FAA 也强调必须先安全接入现有空域。所以，热搜里的想象建立在真实技术上，但离天天通学还需要很长的准备。"
+        }
+      ],
+      "takeaways": [
+        "能飞起来，只是未来交通的第一步。",
+        "判断一项新技术，要同时看安全、成本、噪音和规则。",
+        "热搜标题常常跑得比现实更快。"
+      ],
+      "poster_points": [
+        "会飞不等于能天天用",
+        "技术要看安全和规则",
+        "热搜和现实要分开看"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年科技杂志插图，一架像校车和小型飞行器结合的 eVTOL 停在校园外，周围有安全、天气、规则三个提示牌，明亮天空蓝和橙色，面向8到15岁。"
+      },
+      "evidence": [
+        {
+          "source_label": "FAA",
+          "source_type": "官方说明",
+          "source_title": "Advanced Air Mobility | Air Taxis",
+          "source_url": "https://www.faa.gov/air-taxis"
+        },
+        {
+          "source_label": "NASA",
+          "source_type": "官方任务页",
+          "source_title": "Advanced Air Mobility",
+          "source_url": "https://www.nasa.gov/mission/aam"
+        },
+        {
+          "source_label": "亿航",
+          "source_type": "官方公告",
+          "source_title": "EHang’s EH216-S eVTOL Operators Obtain Air Operator Certificates",
+          "source_url": "https://ir.ehang.com/news-releases/news-release-details/ehangs-eh216-s-evtol-operators-obtain-air-operator-certificates/"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 3,
+      "title": "前沿沸点｜机器人背着我们偷偷办了场春晚？",
+      "summary": "这一讲从机器人参与大型表演出发，解释舞台上的“自动化”背后仍然离不开人类的编排、训练和协作。",
+      "opening_scene": "当你看到机器人在舞台上跳舞、表演甚至和主持人配合时，很容易冒出一个问题：是不是机器人已经能自己把一整场晚会办好了？这个问题很酷，但答案没有那么简单。",
+      "big_idea": "舞台上的机器人看起来很独立，背后其实站着一整支人的团队。真正有意思的，不是机器悄悄取代人，而是人怎样把机器变成可靠的伙伴。",
+      "explanation_sections": [
+        {
+          "heading": "舞台机器人靠什么工作",
+          "body": "它们通常依赖动作控制、路径规划、传感器、定位系统和大量预先训练。2026 年春晚《武BOT》这类节目里，机器人能完成后空翻、器械动作和整齐队形，但这些表现不是“临场自由发挥”，而是经过反复排练、动作校准和安全测试后才上台的。"
+        },
+        {
+          "heading": "为什么说这是一场人机协作",
+          "body": "机器人负责稳定重复的动作，人负责创意、编排、应急和整体节奏。央视对节目揭秘时也强调，人形机器人是和武术演员同台完成表演。越是看起来“像自己完成”的机器表演，越说明背后的工程、导演和现场团队配合得细。"
+        }
+      ],
+      "takeaways": [
+        "机器人的精彩表现，离不开人的编排和训练。",
+        "自动化不等于完全无人。",
+        "大型活动里最重要的是稳定的人机配合。"
+      ],
+      "poster_points": [
+        "台上是机器人",
+        "台后是工程团队",
+        "精彩来自协作"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年科普杂志插图，春节舞台上几个机器人在灯光中表演，台后是工程师控制台和编导手稿，红金与科技蓝结合，强调人机协作。"
+      },
+      "evidence": [
+        {
+          "source_label": "央视网",
+          "source_type": "官方节目页",
+          "source_title": "[2026央视春晚]武术《武BOT》 表演：宇树科技 河南塔沟武术学校",
+          "source_url": "https://tv.cctv.com/2026/02/16/VIDE8iJGOBgER82fCqBN5LwU260216.shtml"
+        },
+        {
+          "source_label": "央视网",
+          "source_type": "官方报道",
+          "source_title": "春晚揭秘｜人机共“武”展示国术风华 “硬核”科技展现中国具身智能实力",
+          "source_url": "https://news.cctv.com/2026/02/17/ARTIJBH6GnVZml0q2Rj1sYlu260217.shtml"
+        },
+        {
+          "source_label": "新华网",
+          "source_type": "官方媒体报道",
+          "source_title": "以“武”会春 宇树机器人春晚秀出“赛博功夫”",
+          "source_url": "https://www.news.cn/tech/20260218/6f849602c15142f893c0063ed0c8945b/c.html"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 4,
+      "title": "引爆未来｜月球 Wi-Fi、牙齿听音乐、AI 朋友圈",
+      "summary": "这一讲把几条看起来像科幻新闻的题目放在一起，带孩子区分“已经在研究”“还在试验”“主要是想象”的不同层次。",
+      "opening_scene": "看到月球 Wi-Fi、用牙齿听音乐、AI 有朋友圈这些说法时，大脑会先被点亮一下。可越是让人惊讶的技术新闻，越适合慢下来问一句：这到底已经做到哪一步了？",
+      "big_idea": "面对前沿科技新闻，最重要的能力不是马上相信或马上否定，而是学会给它分级：已经有明确科研项目、正在试验，还是主要停留在概念和想象里。",
+      "explanation_sections": [
+        {
+          "heading": "三条消息，处在三个不同阶段",
+          "body": "“月球 Wi-Fi”背后是 NASA 的 LunaNet，目标是在月球附近建立像互联网一样能互联互通的通信和导航框架，这是真实的航天任务方向。“牙齿听音乐”更接近骨传导或经牙齿传振的听觉技术，说明振动确实可能把声音信息送进听觉系统，但离人人日常佩戴还不是一回事。至于“AI 朋友圈”，更像多智能体系统互相交流、分工和模拟社会互动的研究想法，和人类真正的朋友圈并不一样。"
+        },
+        {
+          "heading": "判断时要抓住哪三个线索",
+          "body": "先看有没有实验、论文或真实任务支撑，再看是在小范围测试还是已经普及，最后看新闻是不是把概念说得太满。这样一来，未来新闻就不只是“哇”，而会变成“我知道它现在走到了哪一步”。"
+        }
+      ],
+      "takeaways": [
+        "前沿技术新闻要学会分层判断。",
+        "有研究不等于已经普及。",
+        "科幻感越强，越要去找实验和任务依据。"
+      ],
+      "poster_points": [
+        "先找实验",
+        "再看距离日常有多远",
+        "别被标题带着跑"
+      ],
+      "visual_brief": {
+        "poster_prompt": "未来科技杂志拼贴感插图，月球通信天线、牙齿听音乐的震动示意、AI 聊天气泡三个场景组合，面向8到15岁，像少年科幻科普杂志。"
+      },
+      "evidence": [
+        {
+          "source_label": "NASA",
+          "source_type": "官方说明",
+          "source_title": "SCaN Lunar Support - LunaNet",
+          "source_url": "https://www.nasa.gov/scan-lunar-support/"
+        },
+        {
+          "source_label": "NASA",
+          "source_type": "官方说明",
+          "source_title": "Living and Working on the Moon",
+          "source_url": "https://www.nasa.gov/feature/living-and-working-on-the-moon/"
+        },
+        {
+          "source_label": "Nature",
+          "source_type": "科研论文",
+          "source_title": "Vibration direction sensitivity of the cochlea with bone conduction stimulation in guinea pigs",
+          "source_url": "https://www.nature.com/articles/s41598-021-82268-3"
+        },
+        {
+          "source_label": "Google Research",
+          "source_type": "官方研究博客",
+          "source_title": "Towards a science of scaling agent systems: When and why agent systems work",
+          "source_url": "https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 5,
+      "title": "最强跨学料｜AI种的“黑科技”番茄",
+      "summary": "这一讲用一颗番茄，把农业、数据、传感器和 AI 串起来，让孩子理解跨学科不是把知识堆在一起，而是让不同学科一起解决问题。",
+      "opening_scene": "一颗番茄看起来普普通通，可如果有人说它是 AI 帮忙种出来的，味道还特别好，你可能会忍不住追问：AI 到底做了什么，难道是它亲手去种地吗？",
+      "big_idea": "AI 不会自己拿着锄头种菜，但它能帮助人分析温度、光照、水分和生长数据，让农民或研究人员更快找到更适合植物的条件。",
+      "explanation_sections": [
+        {
+          "heading": "番茄为什么和 AI 扯上了关系",
+          "body": "现代农业会使用摄像头、温室传感器、土壤和营养监测设备来收集数据。AI 的作用，是帮助人从这些数据里找规律，比如什么时候该浇水、怎样调整温度、哪些植株长得更好。荷兰瓦赫宁根大学的 Autonomous Greenhouse Challenge 就让不同团队用算法远程管理温室，连番茄这种作物也能在真实温室里进行自动化种植比赛。"
+        },
+        {
+          "heading": "这件事为什么叫跨学科",
+          "body": "因为这里不只用到了计算机，还用到了生物、农业、环境和工程。植物要长得好，离不开懂植物的人；算法要调得准，离不开会建模的人；设备要可靠，又需要工程技术。孩子从这类案例里最该学到的是：现实问题常常不是一门学科单独解决的。"
+        }
+      ],
+      "takeaways": [
+        "AI 在农业里更像分析助手。",
+        "数据和传感器能帮助人照顾植物。",
+        "跨学科是几种知识一起解决一个真实问题。"
+      ],
+      "poster_points": [
+        "传感器采集数据",
+        "AI帮忙找规律",
+        "人来做关键决定"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年科普杂志插图，温室里一颗发光红番茄，周围有温度、水分、光照数据面板和友好机器人小助手，清新绿色与番茄红配色。"
+      },
+      "evidence": [
+        {
+          "source_label": "WUR",
+          "source_type": "官方项目页",
+          "source_title": "Autonomous Greenhouse Challenge",
+          "source_url": "https://www.wur.nl/en/research/plant/autonomous-greenhouse-challenge"
+        },
+        {
+          "source_label": "WUR",
+          "source_type": "官方项目页",
+          "source_title": "Autonomous Greenhouse Challenge 4th Edition",
+          "source_url": "https://www.wur.nl/en/research-results/research-institutes/plant-research/greenhouse-horticulture/show-greenhouse/autonomous-greenhouse-challenge-4th-edition.htm?id=37"
+        },
+        {
+          "source_label": "WUR",
+          "source_type": "科研论文",
+          "source_title": "Autonomous Greenhouse Cultivation of Dwarf Tomato: Performance Evaluation of Intelligent Algorithms for Multiple-Sensor Feedback",
+          "source_url": "https://research.wur.nl/en/publications/autonomous-greenhouse-cultivation-of-dwarf-tomato-performance-eva"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 6,
+      "title": "巧用思维｜用“漏斗分析法”找出店铺隐形漏洞",
+      "summary": "这一讲把抽象的漏斗分析法讲成孩子能听懂的流程观察法，让他们知道复杂问题可以按步骤拆开来看。",
+      "opening_scene": "同一条街上，两家店卖的东西差不多，一家总是排队，另一家却冷冷清清。遇到这种现象，很多人只会说“它家不行”，可更有用的做法是继续往下追问：到底是哪一步出了问题？",
+      "big_idea": "漏斗分析法的关键，不是记住“漏斗”这个词，而是学会把一个过程分成几步，看看人是在哪一步慢慢流失的。它本来常被企业和网站用来分析用户流程，但孩子也完全能把这套方法用在校园活动和生活问题上。",
+      "explanation_sections": [
+        {
+          "heading": "什么叫漏斗",
+          "body": "可以把它想成一个大口小口的容器。很多人一开始会看见店铺，但不是所有人都会进去；进去了，也不是所有人都会买；买了，也不是所有人还会再来。每往下一步，人都会少一点。Google Analytics 的 Funnel exploration 就是在看：一件事分成几步以后，大家最容易卡在哪一步。"
+        },
+        {
+          "heading": "孩子也能用这套方法",
+          "body": "你可以用它分析课堂活动、社团招新、校园义卖，甚至自己写作业为什么越写越慢。先把过程拆开，再找损失最大的一步，就更容易找到真正的漏洞。比如义卖卖不动，问题可能不是“东西不好”，而是根本没人停下来，或者看了价格就走了。"
+        }
+      ],
+      "takeaways": [
+        "复杂问题可以拆成几个连续步骤来看。",
+        "先找掉得最多的一步，而不是哪里都一起改。",
+        "思维工具不是大人的专利，孩子也能用。"
+      ],
+      "poster_points": [
+        "先拆步骤",
+        "再看哪一步掉得最多",
+        "最后改最关键的地方"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年商业思维科普插图，一个彩色漏斗连接店铺门口、进店、下单、回购四个节点，有学生观察记录本，清晰活泼。"
+      },
+      "evidence": [
+        {
+          "source_label": "Google Analytics",
+          "source_type": "官方帮助文档",
+          "source_title": "[GA4] Funnel exploration",
+          "source_url": "https://support.google.com/analytics/answer/9327974?hl=en-EN"
+        },
+        {
+          "source_label": "Google Analytics",
+          "source_type": "官方帮助文档",
+          "source_title": "Get started with Explorations",
+          "source_url": "https://support.google.com/analytics/answer/7579450?hl=en"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 7,
+      "title": "漫画AI｜识花软件引发的风波",
+      "summary": "这一讲用漫画式案例告诉孩子：识别软件很方便，但方便不等于永远正确，越像“马上就能给答案”的工具，越要记得保留判断。",
+      "opening_scene": "如果你拍一朵花，手机立刻告诉你它叫什么名字，你会不会一下子就信了？很多时候，这种顺手可得的答案最容易让人放松警惕。",
+      "big_idea": "识别软件适合帮我们快速找到方向，但最后的判断不能完全交给它。尤其当结果关系到安全、作业或科普传播时，更要核对。",
+      "explanation_sections": [
+        {
+          "heading": "识花软件为什么会出错",
+          "body": "因为花朵会受角度、光线、拍摄距离和生长阶段影响，有些植物长得很像，而模型只能根据它见过的数据去猜一个最像的答案。Pl@ntNet 这类工具也会明确告诉用户：最好拍同一株植物的多个部位，比如叶子、花和果实，模型给出的只是按置信度排序的候选结果。"
+        },
+        {
+          "heading": "最好的用法是什么",
+          "body": "把它当成一个提示工具。它先帮你缩小范围，你再去看植物手册、园区标识、老师讲解或可靠资料。像 Pl@ntNet 这样的系统，后面还会有社区校对和纠错，所以最好的用法不是“拍一下就宣布答案”，而是“先得到线索，再认真核对”。"
+        }
+      ],
+      "takeaways": [
+        "识别工具很方便，但不保证百分之百正确。",
+        "越重要的问题，越要多查一步。",
+        "工具给方向，判断还在自己手里。"
+      ],
+      "poster_points": [
+        "软件会猜",
+        "猜中很方便",
+        "猜错要会核对"
+      ],
+      "visual_brief": {
+        "poster_prompt": "漫画感少年科普插图，学生用手机识花，屏幕上出现两个不同答案，一旁有放大镜和植物图鉴，轻松但有判断感。"
+      },
+      "evidence": [
+        {
+          "source_label": "Pl@ntNet",
+          "source_type": "官方文档",
+          "source_title": "How the identification model works",
+          "source_url": "https://docs.plantnet.org/en/understand/how-the-identification-model-works"
+        },
+        {
+          "source_label": "Pl@ntNet",
+          "source_type": "官方教程",
+          "source_title": "Identify a plant",
+          "source_url": "https://docs.plantnet.org/en/tutorials/identify-a-plant/"
+        },
+        {
+          "source_label": "Pl@ntNet",
+          "source_type": "官方介绍",
+          "source_title": "About Pl@ntNet",
+          "source_url": "https://plantnet.org/en/about/"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 8,
+      "title": "疯狂实验室｜驶向未来的“生命方舟”",
+      "summary": "这一讲带孩子认识植物种质资源保存的意义，把研究所讲成一艘守护未来生命可能性的方舟。",
+      "opening_scene": "电影里会有装满生命样本的方舟，现实里真的有人在做类似的事。只是他们保存的不是外星人，而是来自世界各地的重要植物资源。",
+      "big_idea": "保存植物样本，不只是为了看起来很厉害，而是为了在未来面对疾病、气候变化和粮食挑战时，手里还有珍贵的生命线索。昆明的中国西南野生生物种质资源库，就是现实世界里非常像“生命方舟”的地方。",
+      "explanation_sections": [
+        {
+          "heading": "为什么研究所像“生命方舟”",
+          "body": "因为它会长期保存种子、植物材料和相关数据。有些植物在野外可能越来越少，可只要保存和研究还在，未来就还有恢复和利用的机会。中国西南野生生物种质资源库由昆明植物研究所建设，长期收集、保藏和共享野生植物种子、DNA 和离体材料，所以它常被称作野生生物的“诺亚方舟”。"
+        },
+        {
+          "heading": "这和孩子有什么关系",
+          "body": "你今天吃到的食物、看到的绿化、未来可能用到的新材料和药物，都可能和植物资源保存有关。它听起来遥远，其实和每个人的生活相连。因为一旦某些植物在野外受损，库里的样本和数据就可能成为重新研究、恢复和利用的重要起点。"
+        }
+      ],
+      "takeaways": [
+        "植物研究所保存的是未来的可能性。",
+        "保护植物资源，也是在保护我们的生活选择。",
+        "科学研究有时看起来安静，却会影响很长远的未来。"
+      ],
+      "poster_points": [
+        "保存种子",
+        "记录信息",
+        "守住未来"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年自然科学杂志插图，玻璃温室像未来方舟，里面有种子库、植物标本柜和研究员，绿色与金色结合，神秘但温暖。"
+      },
+      "evidence": [
+        {
+          "source_label": "种质资源库",
+          "source_type": "官方服务页",
+          "source_title": "服务项目----中国西南野生生物种质资源库",
+          "source_url": "https://gbows.kib.cas.cn/fwxm/index.html"
+        },
+        {
+          "source_label": "昆明植物所",
+          "source_type": "官方转载",
+          "source_title": "野生生物的“诺亚方舟”——中国西南野生生物种质资源库",
+          "source_url": "https://www.kib.cas.cn/xwzx/cmsm/202107/t20210708_6129088.html"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 9,
+      "title": "大咖专栏｜我们为何要费力地保护一粒种子",
+      "summary": "这一讲用一粒种子的旅程，把生态保护、农业未来和科学研究讲成孩子能感受到的真实问题。",
+      "opening_scene": "一粒种子小得几乎能从指缝里溜走。可如果你认真想一想，就会发现它可能关系到未来能种什么、吃什么，甚至能不能应对新的环境变化。",
+      "big_idea": "保护一粒种子，并不是把它藏起来，而是在为未来保留一条重新开始的可能性。",
+      "explanation_sections": [
+        {
+          "heading": "种子为什么重要",
+          "body": "种子里藏着植物延续生命的密码。不同的种子，意味着不同的味道、抗病性、适应环境的能力。种子种类越丰富，未来面对变化时的办法就越多。昆明的种质资源库在保存种子时，还会同时保存标本、图像和野外数据，这样每一粒种子都不是“孤零零地放进去”，而是带着自己的身份信息。"
+        },
+        {
+          "heading": "为什么要“费力”保护",
+          "body": "因为真正重要的资源往往需要长期、细致和安静的守护。保存条件、分类记录、定期检测，每一步都很琐碎，但少了任何一步，未来可能就少了一种选择。比如种子入库前要经历登记、干燥、清理、质量检测和活力检测，最后才会进入低温冷库。"
+        }
+      ],
+      "takeaways": [
+        "一粒种子很小，但它连接着未来。",
+        "保护种子就是保护多样性和选择权。",
+        "科学工作很多时候是长期守护。"
+      ],
+      "poster_points": [
+        "种子很小",
+        "价值很大",
+        "未来靠长期守护"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年自然科普风，一粒发光的种子被放大成宇宙般的世界，周围有农田、森林和实验室，温暖绿色与泥土色。"
+      },
+      "evidence": [
+        {
+          "source_label": "种质资源库",
+          "source_type": "官方新闻",
+          "source_title": "一批重要野生植物种子首次保存于中国西南野生生物种质资源库",
+          "source_url": "https://gbows.kib.cas.cn/xwdt/202007/t20200713_502833.html"
+        },
+        {
+          "source_label": "昆明植物所",
+          "source_type": "官方转载",
+          "source_title": "中国西南野生生物种质资源库：野生生物的“诺亚方舟”",
+          "source_url": "https://www.kib.cas.cn/xwzx/cmsm/202109/t20210914_6202624.html"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 10,
+      "title": "人物志｜王兴兴与风靡全球的机器人",
+      "summary": "这一讲通过王兴兴的成长故事，告诉孩子一门成绩不代表全部能力，真正重要的是长期兴趣、动手实践和把问题做深的耐心。",
+      "opening_scene": "很多人物故事最容易被记住的，往往是一个夸张标签。可真正值得孩子读的，不是某个吸睛数字，而是一个人怎样把自己的热爱做成长期积累。",
+      "big_idea": "成长不是只有一把尺子。成绩重要，但兴趣、实践、持续投入和解决真实问题的能力，同样能塑造一个人。",
+      "explanation_sections": [
+        {
+          "heading": "为什么这个故事会打动人",
+          "body": "因为它提醒我们，人不是靠某一次考试被完全定义的。官方资料里，王兴兴的路径更值得看的是：读研时就开始做 XDog，后来把研究兴趣做成了宇树科技，长期钻机器人关节、电机、控制和产品化。"
+        },
+        {
+          "heading": "孩子真正该学到什么",
+          "body": "不是拿这类故事给自己找借口，而是明白：如果你真的喜欢一件事，就要长期做、反复练、不断改。新华社专访里，他谈得更多的是长期做研发、把产品做出来，而不是把成功归结成一句传奇口号。"
+        }
+      ],
+      "takeaways": [
+        "一次成绩不能定义一个人的全部能力。",
+        "真正的热爱，要靠长期练习支撑。",
+        "兴趣和行动结合起来，才会慢慢长出真正的本事。"
+      ],
+      "poster_points": [
+        "别只看一次分数",
+        "看长期积累",
+        "看他把兴趣做成了什么"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年人物志插图，年轻机器人创业者与灵活机器人同框，背景有草图、零件和实验台，积极向上但不过度鸡汤。"
+      },
+      "evidence": [
+        {
+          "source_label": "宇树科技",
+          "source_type": "官方人物页",
+          "source_title": "王兴兴",
+          "source_url": "https://www.unitree.com/operate/boss/"
+        },
+        {
+          "source_label": "宇树科技",
+          "source_type": "官方公司介绍",
+          "source_title": "About Unitree",
+          "source_url": "https://www.unitree.com/mobile/about"
+        },
+        {
+          "source_label": "新华网",
+          "source_type": "官方媒体专访",
+          "source_title": "宇树科技王兴兴：做一棵照亮别人的“科技树”",
+          "source_url": "https://www.news.cn/tech/20250621/c6cbaff7fa484e8283f8030cf467ff54/c.html"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 11,
+      "title": "数智奇案｜哪幅画是 AI 的“数字赝品”",
+      "summary": "这一讲把 AI 生成图像的真假辨认，讲成孩子能参与的“侦探游戏”，同时引出版权、误导和视觉判断的问题。",
+      "opening_scene": "如果两幅画摆在你面前，一幅是人画的，一幅是 AI 生成的，你会怎么猜？很多孩子会马上进入侦探模式，可越是好玩的题目，越适合顺手再学一点严肃的判断力。",
+      "big_idea": "AI 生成图像不只是新奇玩法，它也会带来真假混淆、风格模仿和误导传播的问题。辨认真假，本质上是在训练自己的视觉判断和信息意识。",
+      "explanation_sections": [
+        {
+          "heading": "为什么叫“数字赝品”",
+          "body": "因为有些图像会故意模仿某种风格、某位作者，甚至模仿“看起来很像真实证据”的样子。它不一定是纸面上的假画，却可能在数字世界里制造错误印象。现在越来越多平台开始用 Content Credentials 这样的数字“来历标签”，告诉你这张图是不是 AI 生成、经过什么编辑。"
+        },
+        {
+          "heading": "孩子能从哪里看出问题",
+          "body": "可以先观察细节是否自洽，比如手指、光影、透视、重复纹理和不合理的小地方；再看图片有没有来源说明、有没有创作者署名、是否附带生成或编辑信息。真正成熟的判断，不只是“我眼睛能不能猜中”，还要学会看一张图有没有可追溯的来历。"
+        }
+      ],
+      "takeaways": [
+        "看起来真，不等于真。",
+        "辨认图像真假，要看细节和来源。",
+        "AI 图像很有趣，也需要被认真使用。"
+      ],
+      "poster_points": [
+        "看细节",
+        "看来源",
+        "别急着下结论"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年侦探风科普插图，两幅画挂在墙上，一位学生拿放大镜观察细节，画面有手指、光影和来源标签提示，蓝绿配色。"
+      },
+      "evidence": [
+        {
+          "source_label": "Adobe",
+          "source_type": "官方说明",
+          "source_title": "Content Credentials overview",
+          "source_url": "https://helpx.adobe.com/creative-cloud/help/content-credentials.html"
+        },
+        {
+          "source_label": "Adobe Firefly",
+          "source_type": "官方说明",
+          "source_title": "Content Credentials overview",
+          "source_url": "https://helpx.adobe.com/firefly/using/content-credentials.html"
+        },
+        {
+          "source_label": "Adobe",
+          "source_type": "官方说明",
+          "source_title": "Types of information in Content Credentials",
+          "source_url": "https://helpx.adobe.com/creative-cloud/apps/adobe-content-authenticity/content-credentials/types-of-information.html"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 12,
+      "title": "未来职业｜绿色产业里的隐藏机会",
+      "summary": "这一讲从垃圾回收和电池回收切入，让孩子看到“冷门”职业背后其实藏着环境治理、资源循环和新技术的巨大空间。",
+      "opening_scene": "很多孩子一听“垃圾回收”就觉得这行业不够酷，可如果你知道一块电池背后连着巨大的回收产业，一家公司能把废品重新变成资源，眼光可能就会立刻改变。",
+      "big_idea": "真正重要的职业，不一定都长在最热闹的地方。绿色产业里那些看起来低调的工作，往往正连接着未来城市、能源和环境。"
+      ,
+      "explanation_sections": [
+        {
+          "heading": "为什么绿色产业值得关注",
+          "body": "因为我们用掉的资源不会凭空消失。塑料、金属、电池和各种废弃物，如果能被更聪明地回收再利用，就能减少浪费，也会催生新的技术和岗位。IEA 的报告就指出，电池金属回收正在快速增长，回收能力、政策和产业链都在扩张。"
+        },
+        {
+          "heading": "孩子怎样理解这些职业",
+          "body": "别把它们只看成“收废品”。它们还涉及分类系统、化学处理、智能设备、数据管理和供应链。换句话说，这是一个既需要技术，也需要责任感的未来赛道。IRENA 和 ILO 也长期统计绿色能源就业，说明“绿色工作”已经不是边角岗位，而是全球在增长的一大类职业。"
+        }
+      ],
+      "takeaways": [
+        "冷门不等于没有前途。",
+        "绿色产业背后也有很多高技术岗位。",
+        "未来职业常常藏在真实社会问题里。"
+      ],
+      "poster_points": [
+        "回收不是终点",
+        "再利用才是价值",
+        "绿色产业也是未来科技"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年职业科普插图，垃圾回收站和电池回收工厂被画成未来能源基地，角色有工程师、分拣员和数据面板，绿色与明黄配色。"
+      },
+      "evidence": [
+        {
+          "source_label": "IEA",
+          "source_type": "官方报告",
+          "source_title": "Recycling of Critical Minerals",
+          "source_url": "https://www.iea.org/reports/recycling-of-critical-minerals"
+        },
+        {
+          "source_label": "IEA",
+          "source_type": "官方报告摘要",
+          "source_title": "Executive summary – Recycling of Critical Minerals",
+          "source_url": "https://www.iea.org/reports/recycling-of-critical-minerals/executive-summary"
+        },
+        {
+          "source_label": "IRENA",
+          "source_type": "官方报告",
+          "source_title": "Renewable energy and jobs: Annual review 2023",
+          "source_url": "https://www.irena.org/Publications/2023/Sep/Renewable-energy-and-jobs-Annual-review-2023"
+        },
+        {
+          "source_label": "IRENA",
+          "source_type": "官方新闻",
+          "source_title": "Renewables Jobs See First Slowdown Amid Global Deployment Growth",
+          "source_url": "https://www.irena.org/News/pressreleases/2026/Jan/Renewables-Jobs-See-First-Slowdown-Amid-Global-Deployment-Growth"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 13,
+      "title": "数据侦探｜AI 如何送外卖",
+      "summary": "这一讲借“正在为您分配骑手”的日常提示，解释平台算法如何在时间、距离和效率之间做选择，也提醒孩子看到数据背后的人。",
+      "opening_scene": "下单后，屏幕上常会跳出一句话：正在为您分配骑手。这短短几个字像魔法一样，让人觉得系统什么都知道。可它到底是在怎么算的呢？",
+      "big_idea": "平台算法擅长在很多条件里快速做分配，但它不是“神秘黑箱”四个字就能解释完的。理解算法，也是理解现实世界里效率和人的关系。",
+      "explanation_sections": [
+        {
+          "heading": "系统会看哪些信息",
+          "body": "它可能会参考骑手位置、商家出餐速度、路况、订单距离、天气和同时在线的任务。看起来像一句简单提示，背后其实是一连串快速计算。美团技术团队公开文章里就提到，配送系统会同时做 ETA 预测、路径规划和智能调度。"
+        },
+        {
+          "heading": "为什么要同时看到“算法”和“人”",
+          "body": "因为再聪明的系统，最后执行的人还是骑手。平台会在体验、效率和成本之间做平衡，但真实世界里还会遇到电梯、下雨、堵车、找楼号这些细节。孩子在读这类内容时，不只要看到技术多厉害，也要看到技术怎样影响真实工作者。"
+        }
+      ],
+      "takeaways": [
+        "算法是帮平台快速做选择的工具。",
+        "效率很重要，但人同样重要。",
+        "理解数据，也是在理解现实生活。"
+      ],
+      "poster_points": [
+        "算法在计算",
+        "骑手在行动",
+        "技术和人一起完成服务"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年数据侦探风插图，城市地图上有订单、骑手位置、路线和时间标签，一位学生像侦探一样观察算法线索，明亮蓝黄配色。"
+      },
+      "evidence": [
+        {
+          "source_label": "美团技术团队",
+          "source_type": "官方技术博客",
+          "source_title": "机器学习在美团配送系统的实践：用技术还原真实世界",
+          "source_url": "https://tech.meituan.com/2018/12/13/machine-learning-in-distribution-practice.html"
+        },
+        {
+          "source_label": "美团技术团队",
+          "source_type": "官方技术博客",
+          "source_title": "美团外卖骑手背后的AI技术",
+          "source_url": "https://tech.meituan.com/2018/03/29/herenqing-ai-con.html"
+        },
+        {
+          "source_label": "美团技术团队",
+          "source_type": "官方技术博客",
+          "source_title": "美团配送系统架构演进实践",
+          "source_url": "https://tech.meituan.com/2018/07/26/peisong-sys-arch-evolution.html"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 14,
+      "title": "人机协作｜当AI遇上几何，就变“笨”了？",
+      "summary": "这一讲从 AI 在几何问题上的局限入手，帮助孩子建立批判性思维：机器很强，但强项和短板并不一样，人要学会在关键处接住它。",
+      "opening_scene": "有时候 AI 写作文看起来头头是道，可一碰到几何图形、空间关系和严格证明，反而会突然“卡壳”。这恰好是一个很好的提醒：机器不是在哪一项任务上都一样聪明。",
+      "big_idea": "会回答很多问题，不代表就能稳定处理每一种问题。批判性思维的意思，不是处处怀疑，而是知道什么时候该多核对一步。",
+      "explanation_sections": [
+        {
+          "heading": "为什么几何会难住 AI",
+          "body": "因为几何不只靠语言流畅，还要看图形关系、空间判断和严格推理。最近一些研究发现，大模型在几何约束推理、图形识别和视觉数学任务上会暴露明显短板。模型如果只是按“像答案的样子”去组织语言，就可能在真正关键的地方犯错。"
+        },
+        {
+          "heading": "孩子怎样和 AI 协作",
+          "body": "可以先让 AI 帮你整理思路、列方法，再自己回到图形、条件和步骤里核对。这样它就像一个陪练，而不是替你做最终判断的人。面对几何题，最该保住的是你自己的画图、标条件和逐步验证能力。"
+        }
+      ],
+      "takeaways": [
+        "AI 的强项和短板并不一样。",
+        "遇到几何和严格推理题，尤其要核对。",
+        "批判性思维就是在关键地方多看一步。"
+      ],
+      "poster_points": [
+        "会说不等于会证",
+        "几何要看条件和图形",
+        "关键判断仍然在人"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年数学科普插图，几何图形漂浮在画面中，AI 机器人看着复杂三角形略显困惑，一位学生拿铅笔重新标注条件，蓝白清爽风格。"
+      },
+      "evidence": [
+        {
+          "source_label": "ACL Anthology",
+          "source_type": "论文",
+          "source_title": "Forgotten Polygons: Multimodal Large Language Models are Shape-Blind",
+          "source_url": "https://aclanthology.org/2025.findings-acl.620/"
+        },
+        {
+          "source_label": "ACL Anthology",
+          "source_type": "论文",
+          "source_title": "Knowledge Crosswords: Geometric Knowledge Reasoning with Large Language Models",
+          "source_url": "https://aclanthology.org/2024.findings-acl.154/"
+        },
+        {
+          "source_label": "ACL Anthology",
+          "source_type": "论文",
+          "source_title": "GeoPQA: Bridging the Visual Perception Gap in MLLMs for Geometric Reasoning",
+          "source_url": "https://aclanthology.org/2025.findings-emnlp.1400/"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 15,
+      "title": "AI朋友圈｜同学总对我恶作剧，我该怎么办？",
+      "summary": "这一讲把校园相处中的恶作剧问题讲成一份温和但有边界的求助指南，告诉孩子可以向 AI 借思路，但真正重要的是现实中的表达、求助和自我保护。",
+      "opening_scene": "有些孩子会把烦恼悄悄问 AI，比如“同学总捉弄我怎么办”。AI 也许会给出几个建议，但真正能帮助你的，往往是把感受说清楚，并在现实里找到值得信任的大人。",
+      "big_idea": "AI 可以帮你整理想法，却不能替你处理真实的人际关系。面对持续恶作剧，最重要的是分清玩笑和伤害，并及时求助。",
+      "explanation_sections": [
+        {
+          "heading": "先判断这是玩笑还是伤害",
+          "body": "如果一件事让你反复不舒服、影响上学、让你害怕或难堪，它就不只是“开个玩笑”那么简单。StopBullying.gov 对 bullying 的定义也强调了重复发生和力量不平衡。先把自己的感受当回事，是处理问题的第一步。"
+        },
+        {
+          "heading": "怎么做才更有效",
+          "body": "可以先平静表达边界，比如明确说“我不喜欢这样”。如果对方不停下来，就要把情况告诉老师、家长或其他可信任的大人。官方儿童指引也建议用冷静清楚的方式让对方停止，并尽快寻求大人支持。AI 可以帮你想说法，但不能代替真正的支持系统。"
+        }
+      ],
+      "takeaways": [
+        "让你持续难受的恶作剧，不是小事。",
+        "表达边界和及时求助都很重要。",
+        "AI 可以陪你想办法，真正保护你的是现实里的支持。"
+      ],
+      "poster_points": [
+        "先看自己的感受",
+        "再表达边界",
+        "必要时找大人帮忙"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年心理健康科普插图，校园场景中一位学生站在中间，旁边有对话气泡和求助路线图，气氛温和有力量，不说教。"
+      },
+      "evidence": [
+        {
+          "source_label": "StopBullying.gov",
+          "source_type": "官方说明",
+          "source_title": "What Is Bullying",
+          "source_url": "https://www.stopbullying.gov/bullying/what-is-bullying"
+        },
+        {
+          "source_label": "StopBullying.gov",
+          "source_type": "官方儿童指引",
+          "source_title": "What Kids Can Do",
+          "source_url": "https://www.stopbullying.gov/kids/what-you-can-do/index.html"
+        },
+        {
+          "source_label": "StopBullying.gov",
+          "source_type": "官方指引",
+          "source_title": "What to do if you’ve been bullied",
+          "source_url": "https://www.stopbullying.gov/media/783"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    },
+    {
+      "item_no": 16,
+      "title": "魔法学院｜未来植物长什么样儿？",
+      "summary": "这一讲鼓励孩子大胆想象未来植物，同时提醒他们把想象建立在光照、生长环境和生态功能这些真实科学条件上。",
+      "opening_scene": "如果未来的植物会发光、会净化空气、会提醒天气，听起来是不是很像魔法学院里的课堂题目？可真正有趣的地方在于：想象可以很大胆，科学也可以给它加上骨架。",
+      "big_idea": "好的未来想象，不是随便乱飞，而是在真实科学条件上往前多走一步。这样创造力才会更有力量。",
+      "explanation_sections": [
+        {
+          "heading": "为什么未来植物值得想象",
+          "body": "因为植物和能源、城市、食物、环境都有关。只要你认真观察现在的植物已经在做什么，就会发现很多“未来功能”并不是完全空想。NASA 正在研究太空种植和自动化植物舱，目标是让植物在更极端的环境里也能稳定生长。"
+        },
+        {
+          "heading": "怎样把想象变得更科学",
+          "body": "问自己几个问题：它靠什么获取能量，怎样适应环境，会不会影响别的生物，它解决了什么真实问题。这样一来，想象就会从“酷”变成“有道理”。比如未来植物也许会更耐旱、更适合密闭空间、更方便自动化照料，但它依然离不开光、水、营养和生态平衡。"
+        }
+      ],
+      "takeaways": [
+        "大胆想象和科学思考可以一起出现。",
+        "未来植物也要遵守基本生长规律。",
+        "最好的创意，往往既有想象力，也有现实问题意识。"
+      ],
+      "poster_points": [
+        "先想功能",
+        "再想它怎么活",
+        "最后看它解决什么问题"
+      ],
+      "visual_brief": {
+        "poster_prompt": "少年科幻自然插图，几株未来植物在发光校园温室中生长，有会净化空气的叶片、会储能的果实、会变色提示天气的花朵，梦幻但有科学感。"
+      },
+      "evidence": [
+        {
+          "source_label": "NASA",
+          "source_type": "官方说明",
+          "source_title": "Space Crops",
+          "source_url": "https://science.nasa.gov/biological-physical/space-crops"
+        },
+        {
+          "source_label": "NASA",
+          "source_type": "官方文章",
+          "source_title": "Space Gardens",
+          "source_url": "https://www.nasa.gov/missions/station/iss-research/space-gardens/"
+        },
+        {
+          "source_label": "NASA",
+          "source_type": "官方任务页",
+          "source_title": "Advanced Plant Habitat",
+          "source_url": "https://science.nasa.gov/mission/advanced-plant-habitat/"
+        },
+        {
+          "source_label": "用户录入目录",
+          "source_type": "人工录入目录",
+          "source_title": "科普周报《AI来了》2026-03 目录",
+          "source_url": "manual://kepu-weekly-ai-laile/2026-03/toc"
+        }
+      ]
+    }
+  ]
+}

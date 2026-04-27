@@ -1,0 +1,32 @@
+[
+  {
+    "run_id": "20260328-kids-ai来了-2026年03月-01-重磅趣头条-数字人获北京-身份证",
+    "slot": "kids",
+    "track": "kids",
+    "source_kind": "course",
+    "account_alias": "AI猫",
+    "run_date": "2026-03-28",
+    "started_at": "2026-03-28T00:38:56.615Z",
+    "finished_at": "2026-03-28T00:39:09.102Z",
+    "status": "published",
+    "title": "AI来了 2026年03月 01 - 重磅趣头条｜数字人获北京“身份证”",
+    "work_type": "article",
+    "output_dir": "/Users/liulei/projects/sweety-skills-main/ai-cat-wechat-runs/20260328-kids-ai来了-2026年03月-01-重磅趣头条-数字人获北京-身份证",
+    "manifest_path": "/Users/liulei/projects/sweety-skills-main/ai-cat-wechat-runs/20260328-kids-ai来了-2026年03月-01-重磅趣头条-数字人获北京-身份证/publish/manifest.json",
+    "course_id": "kepu-weekly-ai-laile-2026-03",
+    "course_title": "AI来了 2026年03月",
+    "item_no": 1,
+    "fallback_to_article": false,
+    "error": null,
+    "retry_of_run_id": null,
+    "publish_result": {
+      "ok": true,
+      "attempts": 1,
+      "article_type": "news",
+      "media_id": "LpWLHXWWH9ZHgHJyyTThiyPHOPUpcBWYmPwLjkzn0FQ-7X0Dk8COjDxy_Y0ni26-",
+      "draft_media_id": "LpWLHXWWH9ZHgHJyyTThiyPHOPUpcBWYmPwLjkzn0FQ-7X0Dk8COjDxy_Y0ni26-",
+      "fallback_to_article": false,
+      "errors": []
+    }
+  }
+]

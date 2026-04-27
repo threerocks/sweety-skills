@@ -1,0 +1,19 @@
+# ai-cat-wechat project config
+timezone: Asia/Shanghai
+default_output_dir: ai-cat-wechat-runs
+wechat_publish_mode: draft
+image_strategy: poster-first
+slot_times.kids: 08:00
+slot_times.adult: 12:00
+slot_times.evening: 18:00
+slot_times.news: 21:00
+catalog_min_items: 3
+hot_case.lookback_hours: 24
+hot_case.min_score: 70
+hot_case.max_items: 5
+news.lookback_hours: 24
+news.digest_count: 4
+news.min_items: 3
+news.max_items: 5
+poster_to_article_on_publish_failure: true
+image_provider_fallback_order: google,relay,dashscope

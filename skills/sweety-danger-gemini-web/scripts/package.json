@@ -1,0 +1,8 @@
+{
+  "name": "sweety-danger-gemini-web-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "sweety-chrome-cdp": "file:./vendor/sweety-chrome-cdp"
+  }
+}

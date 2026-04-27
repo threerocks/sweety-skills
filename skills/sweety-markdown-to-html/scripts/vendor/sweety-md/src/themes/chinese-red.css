@@ -1,0 +1,141 @@
+/**
+ * 中国红主题 (chinese-red)
+ * 红金配色，传统中国风
+ * 适合节日、文化、传统类内容
+ */
+
+/* ==================== 容器覆盖 ==================== */
+section,
+container {
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", STSong, SimSun, serif;
+}
+
+#output {
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", STSong, SimSun, serif;
+}
+
+/* ==================== 一级标题 ==================== */
+h1 {
+  display: table;
+  padding: 0.4em 1.5em;
+  border-bottom: none;
+  margin: 2em auto 1.5em;
+  color: #fff;
+  background: var(--md-primary-color);
+  border-radius: 4px;
+  font-size: calc(var(--md-font-size) * 1.4);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.15em;
+  box-shadow: 0 2px 8px rgba(193, 39, 45, 0.3);
+}
+
+/* ==================== 二级标题 ==================== */
+h2 {
+  display: block;
+  padding: 0.3em 0;
+  padding-bottom: 0.2em;
+  margin: 3em 8px 1.5em;
+  color: var(--md-primary-color);
+  background: transparent;
+  font-size: calc(var(--md-font-size) * 1.25);
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 2px solid var(--md-primary-color);
+}
+
+h2::before {
+  content: "◆ ";
+  color: #b8860b;
+}
+
+/* ==================== 三级标题 ==================== */
+h3 {
+  padding-left: 10px;
+  border-left: 4px solid var(--md-primary-color);
+  margin: 2em 8px 0.75em;
+  color: #333;
+  font-size: calc(var(--md-font-size) * 1.1);
+  font-weight: 600;
+}
+
+/* ==================== 四级标题 ==================== */
+h4 {
+  margin: 1.5em 8px 0.5em;
+  color: var(--md-primary-color);
+  font-weight: 600;
+}
+
+/* ==================== 段落 ==================== */
+p {
+  margin: 1.5em 8px;
+  letter-spacing: 0.08em;
+  color: #333;
+  line-height: 2;
+}
+
+/* ==================== 引用块 ==================== */
+blockquote {
+  padding: 1em 1.5em;
+  border-left: 4px solid #b8860b;
+  border-radius: 4px;
+  color: #555;
+  background: rgba(184, 134, 11, 0.05);
+  margin-bottom: 1em;
+}
+
+/* ==================== 行内代码 ==================== */
+code {
+  color: var(--md-primary-color);
+  background: rgba(193, 39, 45, 0.06);
+  border-radius: 3px;
+  font-size: 90%;
+}
+
+/* ==================== 图片 ==================== */
+img {
+  border-radius: 4px;
+  border: 2px solid rgba(193, 39, 45, 0.15);
+}
+
+/* ==================== 分隔线 ==================== */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #b8860b, var(--md-primary-color), #b8860b, transparent);
+  margin: 2.5em 0;
+}
+
+/* ==================== 表格 ==================== */
+table {
+  box-shadow: none;
+  border: 1px solid rgba(193, 39, 45, 0.2);
+}
+
+thead {
+  color: #fff;
+}
+
+th {
+  background: var(--md-primary-color);
+  border: 1px solid rgba(193, 39, 45, 0.3);
+  color: #fff;
+  padding: 0.5em 1em;
+}
+
+td {
+  border: 1px solid #e8d5d5;
+  padding: 0.5em 1em;
+}
+
+/* ==================== 链接 ==================== */
+a {
+  color: var(--md-primary-color);
+  text-decoration: none;
+}
+
+/* ==================== 粗体 ==================== */
+strong {
+  color: var(--md-primary-color);
+  font-weight: 700;
+}

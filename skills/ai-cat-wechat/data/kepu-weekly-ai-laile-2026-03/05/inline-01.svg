@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#fffdf7"/>
+<rect x="62" y="72" width="956" height="250" rx="36" fill="#dbeafe"/>
+<text class="title" x="110" y="160" font-size="52">AI来了 2026年03月 05 -</text>
+<text class="title" x="110" y="228" font-size="52"> 最强跨学料｜AI种的“黑科技”番茄</text>
+<rect x="62" y="380" width="956" height="360" rx="36" fill="#ffffff"/>
+<text class="body" x="110" y="470">一颗番茄看起来普普通通，可如果有人说它是 A</text>
+<text class="body" x="110" y="524">I 帮忙种出来的，味道还特别好，你可能会忍不</text>
+<text class="body" x="110" y="578">住追问：AI 到底做了什么，难道是它亲手去种</text>
+<text class="body" x="110" y="632">地吗？</text>
+<rect x="62" y="810" width="956" height="430" rx="36" fill="#eef2ff"/>
+<text class="subtitle" x="110" y="885">读完带走的 3 个判断</text>
+<text class="body" x="110" y="965">1. AI 在农业里更像分析助手。</text>
+<text class="body" x="110" y="1021">2. 数据和传感器能帮助人照顾植物。</text>
+<text class="body" x="110" y="1077">3. 跨学科是几种知识一起解决一个真</text>
+<text class="body" x="110" y="1133">实问题。</text>
+</svg>

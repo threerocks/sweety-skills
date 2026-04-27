@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#fffdf7"/>
+<rect x="62" y="72" width="956" height="250" rx="36" fill="#dbeafe"/>
+<text class="title" x="110" y="160" font-size="52">AI来了 2026年03月 16 -</text>
+<text class="title" x="110" y="228" font-size="52"> 魔法学院｜未来植物长什么样儿？</text>
+<rect x="62" y="380" width="956" height="360" rx="36" fill="#ffffff"/>
+<text class="body" x="110" y="470">如果未来的植物会发光、会净化空气、会提醒天气</text>
+<text class="body" x="110" y="524">，听起来是不是很像魔法学院里的课堂题目？可真</text>
+<text class="body" x="110" y="578">正有趣的地方在于：想象可以很大胆，科学也可以</text>
+<text class="body" x="110" y="632">给它加上骨架。</text>
+<rect x="62" y="810" width="956" height="430" rx="36" fill="#eef2ff"/>
+<text class="subtitle" x="110" y="885">读完带走的 3 个判断</text>
+<text class="body" x="110" y="965">1. 大胆想象和科学思考可以一起出现</text>
+<text class="body" x="110" y="1021">。</text>
+<text class="body" x="110" y="1077">2. 未来植物也要遵守基本生长规律。</text>
+<text class="body" x="110" y="1133">3. 最好的创意，往往既有想象力，也</text>
+<text class="body" x="110" y="1189">有现实问题意识。</text>
+</svg>

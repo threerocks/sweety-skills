@@ -1,0 +1,9 @@
+{
+  "name": "sweety-post-to-weibo-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "sweety-chrome-cdp": "file:./vendor/sweety-chrome-cdp",
+    "sweety-md": "file:./vendor/sweety-md"
+  }
+}

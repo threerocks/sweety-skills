@@ -1,0 +1,14 @@
+{
+  "name": "sweety-url-to-markdown-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "sweety-chrome-cdp": "file:./vendor/sweety-chrome-cdp",
+    "defuddle": "^0.12.0",
+    "jsdom": "^24.1.3",
+    "linkedom": "^0.18.12",
+    "turndown": "^7.2.2",
+    "turndown-plugin-gfm": "^1.0.2"
+  }
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="900" height="383" fill="#eff6ff"/>
+<rect x="0" y="0" width="310" height="383" fill="#2563eb"/>
+<circle cx="780" cy="90" r="76" fill="#bfdbfe" opacity="0.8"/>
+<circle cx="660" cy="280" r="120" fill="#dbeafe" opacity="0.9"/>
+<text class="small" x="56" y="80" fill="#dbeafe">AI来了 2026-03</text>
+<text class="subtitle" x="350" y="118" fill="#0f172a">AI来了 2026年03月 01</text>
+<text class="subtitle" x="350" y="166" fill="#0f172a"> - 重磅趣头条｜数字人获北京“</text>
+<text class="small" x="350" y="235">这一讲从北京经开区给虚拟偶像发出全国首个身份认证切入</text>
+<rect x="350" y="282" width="180" height="44" rx="14" fill="#2563eb"/>
+<text class="small" x="390" y="311" fill="#ffffff">少年科普连载</text>
+</svg>

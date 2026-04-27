@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#fffdf7"/>
+<rect x="62" y="72" width="956" height="250" rx="36" fill="#dbeafe"/>
+<text class="title" x="110" y="160" font-size="52">AI来了 2026年03月 07 -</text>
+<text class="title" x="110" y="228" font-size="52"> 漫画AI｜识花软件引发的风波</text>
+<rect x="62" y="380" width="956" height="360" rx="36" fill="#ffffff"/>
+<text class="body" x="110" y="470">如果你拍一朵花，手机立刻告诉你它叫什么名字，</text>
+<text class="body" x="110" y="524">你会不会一下子就信了？很多时候，这种顺手可得</text>
+<text class="body" x="110" y="578">的答案最容易让人放松警惕。</text>
+<rect x="62" y="810" width="956" height="430" rx="36" fill="#eef2ff"/>
+<text class="subtitle" x="110" y="885">读完带走的 3 个判断</text>
+<text class="body" x="110" y="965">1. 识别工具很方便，但不保证百分之</text>
+<text class="body" x="110" y="1021">百正确。</text>
+<text class="body" x="110" y="1077">2. 越重要的问题，越要多查一步。</text>
+<text class="body" x="110" y="1133">3. 工具给方向，判断还在自己手里。</text>
+</svg>

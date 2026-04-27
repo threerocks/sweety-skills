@@ -1,0 +1,9 @@
+{
+  "output_dir": "/tmp/wechat-format",
+  "vault_root": "/path/to/your/obsidian/vault",
+  "image_search_paths": [],
+  "settings": {
+    "default_theme": "newspaper",
+    "auto_open_browser": true
+  }
+}

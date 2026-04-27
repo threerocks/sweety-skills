@@ -1,0 +1,31 @@
+{
+  "tracks": {
+    "kids": {
+      "track": "kids",
+      "current_course_id": "kepu-weekly-ai-laile-2026-03",
+      "current_item_index": 1,
+      "completed_course_ids": [],
+      "status": "ready",
+      "last_run_at": "2026-03-28T00:39:09.102Z",
+      "last_published_run_id": "20260328-kids-ai来了-2026年03月-01-重磅趣头条-数字人获北京-身份证"
+    },
+    "adult": {
+      "track": "adult",
+      "current_course_id": null,
+      "current_item_index": 0,
+      "completed_course_ids": [],
+      "status": "idle",
+      "last_run_at": null,
+      "last_published_run_id": null
+    },
+    "portfolio": {
+      "track": "portfolio",
+      "current_course_id": null,
+      "current_item_index": 0,
+      "completed_course_ids": [],
+      "status": "idle",
+      "last_run_at": null,
+      "last_published_run_id": null
+    }
+  }
+}

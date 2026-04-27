@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#fffdf7"/>
+<rect x="62" y="72" width="956" height="250" rx="36" fill="#dbeafe"/>
+<text class="title" x="110" y="160" font-size="52">AI来了 2026年03月 01 -</text>
+<text class="title" x="110" y="228" font-size="52"> 重磅趣头条｜数字人获北京“身份证”</text>
+<rect x="62" y="380" width="956" height="360" rx="36" fill="#ffffff"/>
+<text class="body" x="110" y="470">刷短视频时，你可能见过会唱歌、会直播、会讲课</text>
+<text class="body" x="110" y="524">的数字人。它们看起来像真人，却不一定是真人在</text>
+<text class="body" x="110" y="578">镜头前说话。到了 2026 年，北京甚至给虚</text>
+<text class="body" x="110" y="632">拟偶像发出了身份认证。这条新闻最有意思的地方</text>
+<rect x="62" y="810" width="956" height="430" rx="36" fill="#eef2ff"/>
+<text class="subtitle" x="110" y="885">读完带走的 3 个判断</text>
+<text class="body" x="110" y="965">1. 数字人不是活人，而是被技术生成</text>
+<text class="body" x="110" y="1021">和驱动的虚拟角色。</text>
+<text class="body" x="110" y="1077">2. 数字人越像真人，身份标识就越重</text>
+<text class="body" x="110" y="1133">要。</text>
+<text class="body" x="110" y="1189">3. 遇到数字人内容，先辨认来源，再</text>
+<text class="body" x="110" y="1245">判断可信度。</text>
+</svg>

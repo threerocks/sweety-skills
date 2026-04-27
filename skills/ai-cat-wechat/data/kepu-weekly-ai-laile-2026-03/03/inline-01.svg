@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#fffdf7"/>
+<rect x="62" y="72" width="956" height="250" rx="36" fill="#dbeafe"/>
+<text class="title" x="110" y="160" font-size="52">AI来了 2026年03月 03 -</text>
+<text class="title" x="110" y="228" font-size="52"> 前沿沸点｜机器人背着我们偷偷办了场</text>
+<rect x="62" y="380" width="956" height="360" rx="36" fill="#ffffff"/>
+<text class="body" x="110" y="470">当你看到机器人在舞台上跳舞、表演甚至和主持人</text>
+<text class="body" x="110" y="524">配合时，很容易冒出一个问题：是不是机器人已经</text>
+<text class="body" x="110" y="578">能自己把一整场晚会办好了？这个问题很酷，但答</text>
+<text class="body" x="110" y="632">案没有那么简单。</text>
+<rect x="62" y="810" width="956" height="430" rx="36" fill="#eef2ff"/>
+<text class="subtitle" x="110" y="885">读完带走的 3 个判断</text>
+<text class="body" x="110" y="965">1. 机器人的精彩表现，离不开人的编</text>
+<text class="body" x="110" y="1021">排和训练。</text>
+<text class="body" x="110" y="1077">2. 自动化不等于完全无人。</text>
+<text class="body" x="110" y="1133">3. 大型活动里最重要的是稳定的人机</text>
+<text class="body" x="110" y="1189">配合。</text>
+</svg>

@@ -1,0 +1,14 @@
+{
+  "lockfileVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "sweety-danger-x-to-markdown-scripts",
+      "dependencies": {
+        "sweety-chrome-cdp": "file:./vendor/sweety-chrome-cdp",
+      },
+    },
+  },
+  "packages": {
+    "sweety-chrome-cdp": ["sweety-chrome-cdp@file:vendor/sweety-chrome-cdp", {}],
+  }
+}

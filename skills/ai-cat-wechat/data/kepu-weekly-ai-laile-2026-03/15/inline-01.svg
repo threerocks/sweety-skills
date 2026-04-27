@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#fffdf7"/>
+<rect x="62" y="72" width="956" height="250" rx="36" fill="#dbeafe"/>
+<text class="title" x="110" y="160" font-size="52">AI来了 2026年03月 15 -</text>
+<text class="title" x="110" y="228" font-size="52"> AI朋友圈｜同学总对我恶作剧，我该</text>
+<rect x="62" y="380" width="956" height="360" rx="36" fill="#ffffff"/>
+<text class="body" x="110" y="470">有些孩子会把烦恼悄悄问 AI，比如“同学总捉</text>
+<text class="body" x="110" y="524">弄我怎么办”。AI 也许会给出几个建议，但真</text>
+<text class="body" x="110" y="578">正能帮助你的，往往是把感受说清楚，并在现实里</text>
+<text class="body" x="110" y="632">找到值得信任的大人。</text>
+<rect x="62" y="810" width="956" height="430" rx="36" fill="#eef2ff"/>
+<text class="subtitle" x="110" y="885">读完带走的 3 个判断</text>
+<text class="body" x="110" y="965">1. 让你持续难受的恶作剧，不是小事</text>
+<text class="body" x="110" y="1021">。</text>
+<text class="body" x="110" y="1077">2. 表达边界和及时求助都很重要。</text>
+<text class="body" x="110" y="1133">3. AI 可以陪你想办法，真正保护</text>
+<text class="body" x="110" y="1189">你的是现实里的支持。</text>
+</svg>

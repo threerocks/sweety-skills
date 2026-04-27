@@ -1,0 +1,8 @@
+{
+  "name": "sweety-markdown-to-html-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "sweety-md": "file:./vendor/sweety-md"
+  }
+}

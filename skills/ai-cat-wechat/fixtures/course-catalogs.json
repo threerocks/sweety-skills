@@ -1,0 +1,406 @@
+[
+  {
+    "course_id": "kepu-weekly-ai-laile-2026-03",
+    "track": "kids",
+    "course_title": "AI来了 2026年03月",
+    "provider": "科普周报",
+    "catalog_source_url": "skills/ai-cat-wechat/data/kepu-weekly-ai-laile-2026-03.source.json",
+    "source_type": "课程目录",
+    "priority": 1,
+    "catalog_items": [
+      {
+        "item_no": 1,
+        "title": "重磅趣头条｜数字人获北京“身份证”",
+        "core_question": "当数字人开始拥有类似现实身份的标识时，中小学生应该怎样理解数字人是什么、它能做什么，以及怎样辨认和防范风险。",
+        "seed_keywords": [
+          "数字人",
+          "身份证",
+          "虚拟形象",
+          "风险识别"
+        ],
+        "required_source_types": [
+          "官方通报",
+          "权威媒体报道",
+          "儿童科普材料"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [
+          "数字人不是活人",
+          "数字人是如何生成的",
+          "遇到数字人先辨认再相信"
+        ],
+        "source_notes": [
+          "面向 8-15 岁，要把身份和风险讲得具体",
+          "避免成人商业宣传口吻"
+        ]
+      },
+      {
+        "item_no": 2,
+        "title": "热搜云图｜“开”着飞机去上学",
+        "core_question": "当孩子看到“开着飞机去上学”这样的热搜时，怎样区分夸张标题、真实技术和未来可能性。",
+        "seed_keywords": [
+          "飞行汽车",
+          "通勤",
+          "热搜",
+          "技术判断"
+        ],
+        "required_source_types": [
+          "权威媒体报道",
+          "官方资料",
+          "儿童科普材料"
+        ],
+        "default_work_type": "poster",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 3,
+        "title": "前沿沸点｜机器人背着我们偷偷办了场春晚？",
+        "core_question": "当机器人开始参与大型表演和组织活动时，背后到底用了哪些技术，人和机器分别扮演什么角色。",
+        "seed_keywords": [
+          "机器人",
+          "春晚",
+          "自动化",
+          "人机协作"
+        ],
+        "required_source_types": [
+          "权威媒体报道",
+          "官方资料",
+          "案例复盘"
+        ],
+        "default_work_type": "poster",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 4,
+        "title": "引爆未来｜月球 Wi-Fi、牙齿听音乐、AI 朋友圈",
+        "core_question": "面对看起来像科幻小说的未来技术新闻，孩子应该怎样保持好奇，同时学会区分已经做到、正在实验和纯想象。",
+        "seed_keywords": [
+          "月球Wi-Fi",
+          "脑机接口",
+          "AI社交",
+          "未来技术"
+        ],
+        "required_source_types": [
+          "官方资料",
+          "权威媒体报道",
+          "儿童科普材料"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 5,
+        "title": "最强跨学料｜AI种的“黑科技”番茄",
+        "core_question": "AI 参与农业后，番茄为什么可能更好吃，这背后牵涉到哪些跨学科知识。",
+        "seed_keywords": [
+          "AI农业",
+          "番茄",
+          "传感器",
+          "跨学科"
+        ],
+        "required_source_types": [
+          "农业科普材料",
+          "官方资料",
+          "权威媒体报道"
+        ],
+        "default_work_type": "poster",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 6,
+        "title": "巧用思维｜用“漏斗分析法”找出店铺隐形漏洞",
+        "core_question": "为什么有的店铺生意很好，有的却很差，孩子能不能用漏斗分析法理解一步步流失的问题。",
+        "seed_keywords": [
+          "漏斗分析法",
+          "生意",
+          "转化",
+          "问题拆解"
+        ],
+        "required_source_types": [
+          "基础教材",
+          "机构公开课程",
+          "儿童科普材料"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [
+          "把大问题拆成几个小环节",
+          "找出流失最多的一步",
+          "先修最关键的漏洞"
+        ],
+        "source_notes": []
+      },
+      {
+        "item_no": 7,
+        "title": "漫画AI｜识花软件引发的风波",
+        "core_question": "当识花软件给出看似靠谱却可能出错的判断时，孩子怎样理解工具的便利和局限。",
+        "seed_keywords": [
+          "识花软件",
+          "软件误判",
+          "AI工具",
+          "判断"
+        ],
+        "required_source_types": [
+          "儿童科普材料",
+          "机构公开课程",
+          "案例复盘"
+        ],
+        "default_work_type": "poster",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 8,
+        "title": "疯狂实验室｜驶向未来的“生命方舟”",
+        "core_question": "为什么昆明植物研究所要像守护方舟一样长期保存植物资源，这和未来科技、生态安全有什么关系。",
+        "seed_keywords": [
+          "植物研究所",
+          "种质资源",
+          "生态保护",
+          "实验室"
+        ],
+        "required_source_types": [
+          "科研机构资料",
+          "权威媒体报道",
+          "儿童科普材料"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 9,
+        "title": "大咖专栏｜我们为何要费力地保护一粒种子",
+        "core_question": "一粒种子为什么值得被长期保护，它和食物、环境、未来科技有什么联系。",
+        "seed_keywords": [
+          "种子保护",
+          "生物多样性",
+          "未来",
+          "科研"
+        ],
+        "required_source_types": [
+          "科研机构资料",
+          "权威媒体报道",
+          "儿童科普材料"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 10,
+        "title": "人物志｜王兴兴与风靡全球的机器人",
+        "core_question": "当一个人在某门功课上并不突出，却做出了很厉害的机器人，孩子应该怎样看待学习、兴趣和长期积累。",
+        "seed_keywords": [
+          "王兴兴",
+          "机器人",
+          "成长故事",
+          "兴趣"
+        ],
+        "required_source_types": [
+          "权威媒体报道",
+          "公开访谈",
+          "儿童成长材料"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 11,
+        "title": "数智奇案｜哪幅画是 AI 的“数字赝品”",
+        "core_question": "面对 AI 生成图像，孩子怎样判断哪些画面可能是“数字赝品”，又为什么这件事值得警惕。",
+        "seed_keywords": [
+          "AI绘画",
+          "数字赝品",
+          "辨别",
+          "图像真伪"
+        ],
+        "required_source_types": [
+          "官方资料",
+          "权威媒体报道",
+          "儿童科普材料"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 12,
+        "title": "未来职业｜绿色产业里的隐藏机会",
+        "core_question": "为什么看起来冷门的绿色产业，其实藏着很多未来机会，孩子应该怎样理解垃圾回收、电池回收这类工作。",
+        "seed_keywords": [
+          "绿色产业",
+          "垃圾回收",
+          "电池回收",
+          "未来职业"
+        ],
+        "required_source_types": [
+          "权威媒体报道",
+          "官方资料",
+          "职业教育资料"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 13,
+        "title": "数据侦探｜AI 如何送外卖",
+        "core_question": "当平台说“正在为您分配骑手”时，背后的算法到底在做什么，孩子怎样理解数据分配和效率。",
+        "seed_keywords": [
+          "外卖算法",
+          "数据",
+          "分配",
+          "平台"
+        ],
+        "required_source_types": [
+          "权威媒体报道",
+          "机构公开课程",
+          "儿童科普材料"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 14,
+        "title": "人机协作｜当AI遇上几何，就变“笨”了？",
+        "core_question": "为什么 AI 在一些几何问题上看起来并不聪明，这能帮助孩子建立怎样的批判性思维。",
+        "seed_keywords": [
+          "几何",
+          "批判性思维",
+          "AI局限",
+          "人机协作"
+        ],
+        "required_source_types": [
+          "官方文档",
+          "机构公开课程",
+          "儿童科普材料"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 15,
+        "title": "AI朋友圈｜同学总对我恶作剧，我该怎么办？",
+        "core_question": "当孩子把同伴关系问题带给 AI 时，怎样获得启发，同时保留现实求助和自我保护的判断。",
+        "seed_keywords": [
+          "同学关系",
+          "恶作剧",
+          "AI建议",
+          "校园相处"
+        ],
+        "required_source_types": [
+          "儿童心理材料",
+          "教育公开资料",
+          "基础教材"
+        ],
+        "default_work_type": "article",
+        "teaching_points": [],
+        "source_notes": []
+      },
+      {
+        "item_no": 16,
+        "title": "魔法学院｜未来植物长什么样儿？",
+        "core_question": "如果让孩子想象未来植物的样子，怎样把想象和科学依据结合起来，而不是只停在天马行空。",
+        "seed_keywords": [
+          "未来植物",
+          "想象力",
+          "科幻",
+          "科学依据"
+        ],
+        "required_source_types": [
+          "儿童科普材料",
+          "科研机构资料",
+          "公开课程"
+        ],
+        "default_work_type": "poster",
+        "teaching_points": [],
+        "source_notes": []
+      }
+    ],
+    "knowledge_strategy": [
+      "人工录入目录",
+      "权威媒体报道",
+      "官方资料",
+      "儿童科普材料"
+    ],
+    "validated_at": "2026-03-28T00:38:56.601Z",
+    "status": "validated"
+  },
+  {
+    "course_id": "kids-ai-evergreen",
+    "track": "kids",
+    "course_title": "儿童 AI 启蒙常青课",
+    "provider": "公开启蒙课",
+    "catalog_source_url": "seed://kids-ai-evergreen",
+    "source_type": "课程目录",
+    "priority": 99,
+    "evergreen": true,
+    "catalog_items": [
+      {
+        "item_no": 1,
+        "title": "AI 能帮我们做什么",
+        "core_question": "从孩子日常场景出发，AI 到底能帮上哪些忙。",
+        "seed_keywords": [
+          "应用场景",
+          "学习",
+          "创作",
+          "工具"
+        ],
+        "required_source_types": [
+          "儿童科普材料",
+          "机构公开课程",
+          "基础教材"
+        ],
+        "default_work_type": "poster"
+      },
+      {
+        "item_no": 2,
+        "title": "AI 不能替你做的事",
+        "core_question": "哪些地方必须保留人的判断。",
+        "seed_keywords": [
+          "判断",
+          "责任",
+          "核对",
+          "边界"
+        ],
+        "required_source_types": [
+          "儿童科普材料",
+          "基础教材",
+          "机构公开课程"
+        ],
+        "default_work_type": "poster"
+      },
+      {
+        "item_no": 3,
+        "title": "学会提问比背答案更重要",
+        "core_question": "孩子使用 AI 时，为什么问题设计比抄答案更关键。",
+        "seed_keywords": [
+          "提问",
+          "思考",
+          "答案",
+          "学习"
+        ],
+        "required_source_types": [
+          "儿童科普材料",
+          "机构公开课程",
+          "基础教材"
+        ],
+        "default_work_type": "poster"
+      }
+    ],
+    "knowledge_strategy": [
+      "儿童科普材料",
+      "机构公开课程",
+      "基础教材"
+    ],
+    "validated_at": "2026-03-28T00:38:56.602Z",
+    "status": "validated"
+  }
+]

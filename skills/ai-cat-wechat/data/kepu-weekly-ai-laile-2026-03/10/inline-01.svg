@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#fffdf7"/>
+<rect x="62" y="72" width="956" height="250" rx="36" fill="#dbeafe"/>
+<text class="title" x="110" y="160" font-size="52">AI来了 2026年03月 10 -</text>
+<text class="title" x="110" y="228" font-size="52"> 人物志｜王兴兴与风靡全球的机器人</text>
+<rect x="62" y="380" width="956" height="360" rx="36" fill="#ffffff"/>
+<text class="body" x="110" y="470">当你听到“高考英语 28 分，却造出了风靡全</text>
+<text class="body" x="110" y="524">球的机器人”时，很容易只记住那个惊人的数字。</text>
+<text class="body" x="110" y="578">可真正值得孩子读的，不是“偏科也没关系”这么</text>
+<text class="body" x="110" y="632">简单，而是一个人怎样把自己的热爱做成长期积累</text>
+<rect x="62" y="810" width="956" height="430" rx="36" fill="#eef2ff"/>
+<text class="subtitle" x="110" y="885">读完带走的 3 个判断</text>
+<text class="body" x="110" y="965">1. 一次成绩不能定义一个人的全部能</text>
+<text class="body" x="110" y="1021">力。</text>
+<text class="body" x="110" y="1077">2. 真正的热爱，要靠长期练习支撑。</text>
+<text class="body" x="110" y="1133">3. 兴趣和行动结合起来，才会慢慢长</text>
+<text class="body" x="110" y="1189">出真正的本事。</text>
+</svg>

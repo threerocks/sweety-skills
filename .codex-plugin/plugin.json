@@ -1,0 +1,40 @@
+{
+  "name": "sweety-skills",
+  "version": "1.79.2",
+  "description": "Content generation, AI backends, and utility tools for daily work efficiency.",
+  "author": {
+    "name": "Sweety",
+    "email": "sweety@example.com",
+    "url": "https://github.com/threerocks"
+  },
+  "homepage": "https://github.com/threerocks/sweety-skills",
+  "repository": "https://github.com/threerocks/sweety-skills",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "skills",
+    "content",
+    "automation",
+    "publishing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Sweety Skills",
+    "shortDescription": "Content creation, publishing, and utility skills for Codex.",
+    "longDescription": "Sweety Skills packages content generation, AI backend, publishing, and conversion workflows as a Codex plugin. Install it to use the bundled sweety-* skills from Codex.",
+    "developerName": "Sweety",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Automation",
+      "Research"
+    ],
+    "websiteURL": "https://github.com/threerocks/sweety-skills",
+    "defaultPrompt": [
+      "Create an article illustration from this draft.",
+      "Convert this Markdown article to WeChat HTML.",
+      "Prepare a post for X with images."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

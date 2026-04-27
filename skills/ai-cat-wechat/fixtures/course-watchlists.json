@@ -1,0 +1,283 @@
+{
+  "tracks": {
+    "kids": [
+      {
+        "course_id": "kepu-weekly-ai-laile-2026-03",
+        "track": "kids",
+        "provider": "科普周报",
+        "course_title": "AI来了 2026年03月",
+        "catalog_source_url": "skills/ai-cat-wechat/data/kepu-weekly-ai-laile-2026-03.source.json",
+        "source_type": "课程目录",
+        "priority": 1,
+        "knowledge_strategy": [
+          "人工录入目录",
+          "权威媒体报道",
+          "官方资料",
+          "儿童科普材料"
+        ]
+      },
+      {
+        "course_id": "kids-ai-evergreen",
+        "track": "kids",
+        "provider": "公开启蒙课",
+        "course_title": "儿童 AI 启蒙常青课",
+        "catalog_source_url": "seed://kids-ai-evergreen",
+        "source_type": "课程目录",
+        "priority": 99,
+        "evergreen": true,
+        "knowledge_strategy": [
+          "儿童科普材料",
+          "机构公开课程",
+          "基础教材"
+        ],
+        "seed_catalog_items": [
+          {
+            "item_no": 1,
+            "title": "AI 能帮我们做什么",
+            "core_question": "从孩子日常场景出发，AI 到底能帮上哪些忙。",
+            "seed_keywords": ["应用场景", "学习", "创作", "工具"],
+            "required_source_types": ["儿童科普材料", "机构公开课程", "基础教材"],
+            "default_work_type": "poster"
+          },
+          {
+            "item_no": 2,
+            "title": "AI 不能替你做的事",
+            "core_question": "哪些地方必须保留人的判断。",
+            "seed_keywords": ["判断", "责任", "核对", "边界"],
+            "required_source_types": ["儿童科普材料", "基础教材", "机构公开课程"],
+            "default_work_type": "poster"
+          },
+          {
+            "item_no": 3,
+            "title": "学会提问比背答案更重要",
+            "core_question": "孩子使用 AI 时，为什么问题设计比抄答案更关键。",
+            "seed_keywords": ["提问", "思考", "答案", "学习"],
+            "required_source_types": ["儿童科普材料", "机构公开课程", "基础教材"],
+            "default_work_type": "poster"
+          }
+        ]
+      }
+    ],
+    "adult": [
+      {
+        "course_id": "codex-engineering",
+        "track": "adult",
+        "provider": "工程化课程",
+        "course_title": "Codex 工程化实战",
+        "catalog_source_url": "seed://codex-engineering",
+        "source_type": "课程目录",
+        "priority": 1,
+        "knowledge_strategy": [
+          "官方文档",
+          "官方博客",
+          "开源仓库",
+          "技术论文/设计说明"
+        ],
+        "seed_catalog_items": [
+          {
+            "item_no": 1,
+            "title": "记忆系统",
+            "core_question": "工程化 Agent 为什么需要显式记忆层，以及记忆应该存什么，不该存什么。",
+            "seed_keywords": ["记忆系统", "上下文", "持久化", "检索"],
+            "required_source_types": ["官方文档", "官方博客", "技术论文/设计说明"],
+            "default_work_type": "poster",
+            "teaching_points": ["短期记忆和长期记忆", "信息压缩", "召回时机"],
+            "source_notes": ["从工程稳定性解释记忆层", "强调不是存得越多越好", "补充误召回带来的风险"]
+          },
+          {
+            "item_no": 2,
+            "title": "子代理",
+            "core_question": "什么时候应该拆出子代理，什么时候不该拆。",
+            "seed_keywords": ["子代理", "任务拆分", "并行", "上下文隔离"],
+            "required_source_types": ["官方文档", "官方博客", "开源仓库"],
+            "default_work_type": "poster",
+            "teaching_points": ["边界清晰", "上下文成本", "并行收益"],
+            "source_notes": ["用真实工程任务解释拆分价值", "避免把子代理写成抽象概念"]
+          },
+          {
+            "item_no": 3,
+            "title": "工具调用",
+            "core_question": "工具调用链路怎么设计，才能既稳定又容易排错。",
+            "seed_keywords": ["工具调用", "权限", "参数", "幂等"],
+            "required_source_types": ["官方文档", "开源仓库", "技术论文/设计说明"],
+            "default_work_type": "poster"
+          },
+          {
+            "item_no": 4,
+            "title": "评审与回滚",
+            "core_question": "为什么 Agent 系统一定要留评审点和回滚点。",
+            "seed_keywords": ["评审", "回滚", "风险控制", "安全阈值"],
+            "required_source_types": ["官方博客", "官方文档", "开源仓库"],
+            "default_work_type": "article"
+          }
+        ]
+      },
+      {
+        "course_id": "deeplearning-ai-agents",
+        "track": "adult",
+        "provider": "DeepLearning.AI",
+        "course_title": "AI Agents 实战导论",
+        "catalog_source_url": "seed://deeplearning-ai-agents",
+        "source_type": "公开 syllabus",
+        "priority": 2,
+        "knowledge_strategy": [
+          "官方文档",
+          "官方博客",
+          "课程资料",
+          "技术论文/设计说明"
+        ],
+        "seed_catalog_items": [
+          {
+            "item_no": 1,
+            "title": "Agent 基本构成",
+            "core_question": "一个最小可用 Agent 至少需要哪几层能力。",
+            "seed_keywords": ["模型", "工具", "记忆", "循环"],
+            "required_source_types": ["课程资料", "官方文档", "技术论文/设计说明"],
+            "default_work_type": "poster"
+          },
+          {
+            "item_no": 2,
+            "title": "工作流与自治的边界",
+            "core_question": "工作流和自治 Agent 的边界应该怎么划。",
+            "seed_keywords": ["workflow", "autonomy", "边界", "责任"],
+            "required_source_types": ["课程资料", "官方博客", "技术论文/设计说明"],
+            "default_work_type": "article"
+          },
+          {
+            "item_no": 3,
+            "title": "多步推理与验证",
+            "core_question": "复杂任务里，为什么推理链要和验证链分开。",
+            "seed_keywords": ["多步推理", "验证", "错误恢复", "可靠性"],
+            "required_source_types": ["课程资料", "官方文档", "技术论文/设计说明"],
+            "default_work_type": "poster"
+          }
+        ]
+      },
+      {
+        "course_id": "openai-official-guides",
+        "track": "adult",
+        "provider": "官方教程",
+        "course_title": "Agent 官方教程常青课",
+        "catalog_source_url": "seed://openai-official-guides",
+        "source_type": "官方教程系列",
+        "priority": 99,
+        "evergreen": true,
+        "knowledge_strategy": [
+          "官方文档",
+          "官方博客",
+          "开源仓库"
+        ],
+        "seed_catalog_items": [
+          {
+            "item_no": 1,
+            "title": "提示设计与工具边界",
+            "core_question": "工程里怎样把提示设计和工具边界配合起来。",
+            "seed_keywords": ["prompt", "tool", "边界", "约束"],
+            "required_source_types": ["官方文档", "官方博客", "开源仓库"],
+            "default_work_type": "poster"
+          },
+          {
+            "item_no": 2,
+            "title": "评估与监控",
+            "core_question": "Agent 系统上线前后应该怎样评估和监控。",
+            "seed_keywords": ["评估", "监控", "指标", "回归"],
+            "required_source_types": ["官方文档", "官方博客", "开源仓库"],
+            "default_work_type": "article"
+          },
+          {
+            "item_no": 3,
+            "title": "可靠性和失败恢复",
+            "core_question": "当工具、模型或网络失败时，系统应该如何恢复。",
+            "seed_keywords": ["可靠性", "失败恢复", "重试", "降级"],
+            "required_source_types": ["官方文档", "官方博客", "开源仓库"],
+            "default_work_type": "article"
+          }
+        ]
+      }
+    ],
+    "portfolio": [
+      {
+        "course_id": "ai-portfolio-course",
+        "track": "portfolio",
+        "provider": "作品集课",
+        "course_title": "AI 作品集课",
+        "catalog_source_url": "seed://ai-portfolio-course",
+        "source_type": "课程目录",
+        "priority": 1,
+        "knowledge_strategy": [
+          "作品集公开课",
+          "真实案例",
+          "产品页",
+          "公开教程"
+        ],
+        "seed_catalog_items": [
+          {
+            "item_no": 1,
+            "title": "作品集定位",
+            "core_question": "AI 方向作品集第一步到底是先选技术还是先选问题。",
+            "seed_keywords": ["定位", "问题", "人群", "场景"],
+            "required_source_types": ["作品集公开课", "真实案例", "公开教程"],
+            "default_work_type": "poster"
+          },
+          {
+            "item_no": 2,
+            "title": "案例选择",
+            "core_question": "怎样选出既真实又能体现能力的案例。",
+            "seed_keywords": ["案例", "真实性", "能力展示", "筛选"],
+            "required_source_types": ["真实案例", "公开教程", "产品页"],
+            "default_work_type": "poster"
+          },
+          {
+            "item_no": 3,
+            "title": "证据链怎么写",
+            "core_question": "作品集里，如何证明项目不是只做了一个壳子。",
+            "seed_keywords": ["证据链", "过程", "指标", "对比"],
+            "required_source_types": ["真实案例", "作品集公开课", "公开教程"],
+            "default_work_type": "article"
+          }
+        ]
+      },
+      {
+        "course_id": "portfolio-evergreen",
+        "track": "portfolio",
+        "provider": "求职拆解教程",
+        "course_title": "作品集常青补位课",
+        "catalog_source_url": "seed://portfolio-evergreen",
+        "source_type": "公开教程目录",
+        "priority": 99,
+        "evergreen": true,
+        "knowledge_strategy": [
+          "真实案例",
+          "公开教程",
+          "产品页"
+        ],
+        "seed_catalog_items": [
+          {
+            "item_no": 1,
+            "title": "从需求到交付的讲述顺序",
+            "core_question": "作品集案例应该按什么顺序讲，才不会让读者看得散。",
+            "seed_keywords": ["需求", "交付", "讲述顺序", "结构"],
+            "required_source_types": ["真实案例", "公开教程", "产品页"],
+            "default_work_type": "poster"
+          },
+          {
+            "item_no": 2,
+            "title": "把失败过程写出来",
+            "core_question": "为什么适度展示失败尝试，反而更能建立可信度。",
+            "seed_keywords": ["失败", "复盘", "可信度", "反思"],
+            "required_source_types": ["真实案例", "公开教程", "产品页"],
+            "default_work_type": "article"
+          },
+          {
+            "item_no": 3,
+            "title": "作品集里的指标和结果",
+            "core_question": "没有大规模数据时，怎样写结果才不空。",
+            "seed_keywords": ["指标", "结果", "对比", "实验"],
+            "required_source_types": ["真实案例", "公开教程", "产品页"],
+            "default_work_type": "poster"
+          }
+        ]
+      }
+    ]
+  }
+}

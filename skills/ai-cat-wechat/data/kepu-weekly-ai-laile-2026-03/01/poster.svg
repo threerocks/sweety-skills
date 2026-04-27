@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#f7fbff"/>
+<rect x="0" y="0" width="1080" height="280" rx="0" fill="#2563eb"/>
+<circle cx="930" cy="145" r="86" fill="#93c5fd" opacity="0.35"/>
+<circle cx="845" cy="95" r="28" fill="#dbeafe" opacity="0.7"/>
+<text class="title" x="72" y="95" fill="#ffffff">AI来了 2026年03月 01 -</text>
+<text class="title" x="72" y="165" fill="#ffffff"> 重磅趣头条｜数字人获北京“身份证”</text>
+<rect x="72" y="340" width="936" height="240" rx="32" fill="#ffffff"/>
+<text class="body" x="110" y="418">数字人可以帮我们做很多事情，但越像真人，越要</text>
+<text class="body" x="110" y="472">学会辨认。给数字人建立身份标识，不是为了让它</text>
+<text class="body" x="110" y="526">们变成“真人”，而是为了让大家知道它是谁、从</text>
+<text class="small" x="74" y="640">本讲重点</text>
+<rect x="72" y="680" width="936" height="180" rx="32" fill="#e0f2fe"/>
+<text class="body" x="110" y="750">1. 先看它是谁</text>
+<text class="body" x="110" y="800">2. 再看它从哪来</text>
+<text class="body" x="110" y="850">3. 最后判断能不能信</text>
+<rect x="72" y="920" width="936" height="320" rx="32" fill="#ffffff"/>
+<text class="subtitle" x="110" y="985">今天先记住这句话</text>
+<text class="small" x="110" y="1045">刷短视频时，你可能见过会唱歌、会直播、会讲课的数</text>
+<text class="small" x="110" y="1089">字人。它们看起来像真人，却不一定是真人在镜头前说</text>
+<text class="small" x="110" y="1133">话。到了 2026 年，北京甚至给虚拟偶像发出了</text>
+<text class="small" x="110" y="1177">身份认证。这条新闻最有意思的地方，不是它多像科幻</text>
+<rect x="72" y="1288" width="250" height="70" rx="20" fill="#2563eb"/>
+<text class="cardTitle" x="114" y="1334" fill="#ffffff">AI CAT KIDS</text>
+</svg>

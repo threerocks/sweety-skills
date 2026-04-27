@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#f7fbff"/>
+<rect x="0" y="0" width="1080" height="280" rx="0" fill="#2563eb"/>
+<circle cx="930" cy="145" r="86" fill="#93c5fd" opacity="0.35"/>
+<circle cx="845" cy="95" r="28" fill="#dbeafe" opacity="0.7"/>
+<text class="title" x="72" y="95" fill="#ffffff">AI来了 2026年03月 14 -</text>
+<text class="title" x="72" y="165" fill="#ffffff"> 人机协作｜当AI遇上几何，就变“笨</text>
+<text class="title" x="72" y="235" fill="#ffffff">”了？</text>
+<rect x="72" y="340" width="936" height="240" rx="32" fill="#ffffff"/>
+<text class="body" x="110" y="418">会回答很多问题，不代表就能稳定处理每一种问题</text>
+<text class="body" x="110" y="472">。批判性思维的意思，不是处处怀疑，而是知道什</text>
+<text class="body" x="110" y="526">么时候该多核对一步。</text>
+<text class="small" x="74" y="640">本讲重点</text>
+<rect x="72" y="680" width="936" height="180" rx="32" fill="#e0f2fe"/>
+<text class="body" x="110" y="750">1. 会说不等于会证</text>
+<text class="body" x="110" y="800">2. 几何要看条件和图形</text>
+<text class="body" x="110" y="850">3. 关键判断仍然在人</text>
+<rect x="72" y="920" width="936" height="320" rx="32" fill="#ffffff"/>
+<text class="subtitle" x="110" y="985">今天先记住这句话</text>
+<text class="small" x="110" y="1045">有时候 AI 写作文看起来头头是道，可一碰到几何</text>
+<text class="small" x="110" y="1089">图形、空间关系和严格证明，反而会突然“卡壳”。这</text>
+<text class="small" x="110" y="1133">恰好是一个很好的提醒：机器不是在哪一项任务上都一</text>
+<text class="small" x="110" y="1177">样聪明。</text>
+<rect x="72" y="1288" width="250" height="70" rx="20" fill="#2563eb"/>
+<text class="cardTitle" x="114" y="1334" fill="#ffffff">AI CAT KIDS</text>
+</svg>

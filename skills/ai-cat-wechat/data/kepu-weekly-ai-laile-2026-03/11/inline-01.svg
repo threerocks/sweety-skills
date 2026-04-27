@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <style>
+    .title { font: 700 58px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 28px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #334155; }
+    .body { font: 400 34px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #1e293b; }
+    .small { font: 400 24px 'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif; fill: #475569; }
+    .cardTitle { font: 700 26px 'JetBrains Mono','Menlo',monospace; fill: #2563eb; }
+  </style>
+<rect width="1080" height="1440" fill="#fffdf7"/>
+<rect x="62" y="72" width="956" height="250" rx="36" fill="#dbeafe"/>
+<text class="title" x="110" y="160" font-size="52">AI来了 2026年03月 11 -</text>
+<text class="title" x="110" y="228" font-size="52"> 数智奇案｜哪幅画是 AI 的“数字</text>
+<rect x="62" y="380" width="956" height="360" rx="36" fill="#ffffff"/>
+<text class="body" x="110" y="470">如果两幅画摆在你面前，一幅是人画的，一幅是 </text>
+<text class="body" x="110" y="524">AI 生成的，你会怎么猜？很多孩子会马上进入</text>
+<text class="body" x="110" y="578">侦探模式，可越是好玩的题目，越适合顺手再学一</text>
+<text class="body" x="110" y="632">点严肃的判断力。</text>
+<rect x="62" y="810" width="956" height="430" rx="36" fill="#eef2ff"/>
+<text class="subtitle" x="110" y="885">读完带走的 3 个判断</text>
+<text class="body" x="110" y="965">1. 看起来真，不等于真。</text>
+<text class="body" x="110" y="1021">2. 辨认图像真假，要看细节和来源。</text>
+<text class="body" x="110" y="1077">3. AI 图像很有趣，也需要被认真</text>
+<text class="body" x="110" y="1133">使用。</text>
+</svg>

@@ -1,0 +1,134 @@
+/**
+ * 科技蓝主题 (tech-blue)
+ * 专业技术出版风格，深蓝色调
+ * 适合技术白皮书、研究报告、专业文档
+ */
+
+/* ==================== 一级标题 ==================== */
+h1 {
+  display: block;
+  padding: 0.5em 0;
+  border-bottom: 3px solid var(--md-primary-color);
+  margin: 2em 8px 1.5em;
+  color: var(--md-primary-color);
+  font-size: calc(var(--md-font-size) * 1.5);
+  font-weight: 700;
+  text-align: left;
+}
+
+/* ==================== 二级标题 ==================== */
+h2 {
+  display: table;
+  padding: 0.2em 1em;
+  margin: 3.5em 8px 1.5em;
+  color: #fff;
+  background: var(--md-primary-color);
+  border-radius: 4px;
+  font-size: calc(var(--md-font-size) * 1.2);
+  font-weight: 600;
+  text-align: left;
+}
+
+/* ==================== 三级标题 ==================== */
+h3 {
+  padding-left: 12px;
+  border-left: 4px solid var(--md-primary-color);
+  margin: 2em 8px 0.75em;
+  color: var(--md-primary-color);
+  font-size: calc(var(--md-font-size) * 1.1);
+  font-weight: 600;
+}
+
+/* ==================== 四级标题 ==================== */
+h4 {
+  margin: 1.5em 8px 0.5em;
+  color: #333;
+  font-weight: 600;
+}
+
+h4::before {
+  content: "▸ ";
+  color: var(--md-primary-color);
+}
+
+/* ==================== 段落 ==================== */
+p {
+  margin: 1.2em 8px;
+  letter-spacing: 0.03em;
+  color: #2d3748;
+  line-height: 1.85;
+}
+
+/* ==================== 引用块 ==================== */
+blockquote {
+  padding: 1em 1.5em;
+  border-left: 4px solid var(--md-primary-color);
+  border-radius: 0 6px 6px 0;
+  color: #4a5568;
+  background: rgba(26, 54, 93, 0.04);
+  margin-bottom: 1em;
+}
+
+/* ==================== 代码块 ==================== */
+pre.code__pre,
+.hljs.code__pre {
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+/* ==================== 行内代码 ==================== */
+code {
+  color: var(--md-primary-color);
+  background: rgba(26, 54, 93, 0.06);
+  border-radius: 3px;
+  font-size: 90%;
+}
+
+/* ==================== 图片 ==================== */
+img {
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+/* ==================== 分隔线 ==================== */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, var(--md-primary-color), #e2e8f0);
+  margin: 2.5em 0;
+}
+
+/* ==================== 表格 ==================== */
+table {
+  border-collapse: collapse;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+th {
+  background: var(--md-primary-color);
+  color: #fff;
+  border: 1px solid rgba(26, 54, 93, 0.2);
+  padding: 0.6em 1em;
+  font-weight: 600;
+}
+
+td {
+  border: 1px solid #e2e8f0;
+  padding: 0.5em 1em;
+}
+
+tr:nth-child(2n) {
+  background: rgba(26, 54, 93, 0.02);
+}
+
+/* ==================== 链接 ==================== */
+a {
+  color: var(--md-primary-color);
+  text-decoration: none;
+}
+
+/* ==================== 粗体 ==================== */
+strong {
+  color: var(--md-primary-color);
+  font-weight: 700;
+}

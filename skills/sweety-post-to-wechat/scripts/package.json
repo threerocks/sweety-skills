@@ -1,0 +1,11 @@
+{
+  "name": "sweety-post-to-wechat-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@jsquash/webp": "^1.5.0",
+    "sweety-chrome-cdp": "file:./vendor/sweety-chrome-cdp",
+    "sweety-md": "file:./vendor/sweety-md",
+    "jimp": "^1.6.0"
+  }
+}

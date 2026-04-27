@@ -1,0 +1,336 @@
+{
+  "name": "日落",
+  "description": "日落琥珀 #d37a45 温暖浓郁，渐变背景，适合故事/情感/旅行内容",
+  "colors": {
+    "primary": "#3d2c1e",
+    "accent": "#d37a45",
+    "background": "#ffffff",
+    "blockquote_bg": "#f5e6d0",
+    "code_bg": "#f5e6d0",
+    "hr_color": "#d37a45",
+    "footnote_bg": "#ffffff"
+  },
+  "styles": {
+    "wrapper": {
+      "background_color": "#ffffff",
+      "padding": "16px"
+    },
+    "h1": {
+      "font_size": "29px",
+      "font_weight": "700",
+      "color": "#8d4d2e",
+      "line_height": "1.32",
+      "margin_top": "36px",
+      "margin_bottom": "18px",
+      "letter_spacing": "-0.015em",
+      "padding": "12px 16px 11px",
+      "border_left": "5px solid #d37a45",
+      "border_radius": "13px",
+      "background": "linear-gradient(180deg, rgba(255,243,227,0.94) 0%, rgba(248,228,201,0.8) 100%)",
+      "border": "1px solid rgba(224,174,112,0.4)",
+      "box_shadow": "0 6px 16px rgba(166,102,56,0.06)"
+    },
+    "h2": {
+      "font_size": "23px",
+      "font_weight": "700",
+      "color": "#a45a33",
+      "line_height": "1.4",
+      "margin_top": "34px",
+      "margin_bottom": "18px",
+      "padding": "10px 14px",
+      "border_left": "3px solid #d78a54",
+      "border_radius": "12px",
+      "background": "linear-gradient(90deg, rgba(236,191,132,0.24) 0%, rgba(236,191,132,0.08) 72%, rgba(236,191,132,0) 100%)"
+    },
+    "h3": {
+      "font_size": "21px",
+      "font_weight": "600",
+      "color": "#5c402b",
+      "line_height": "1.45",
+      "margin_top": "28px",
+      "margin_bottom": "14px",
+      "padding_left": "12px",
+      "border_left": "3px solid rgba(215,138,84,0.9)",
+      "padding": "0 0 6px 12px"
+    },
+    "p": {
+      "font_size": "15px",
+      "color": "#3d2c1e",
+      "line_height": "1.75",
+      "margin_top": "0",
+      "margin_bottom": "18px",
+      "letter_spacing": "0.02em",
+      "text_align": "left"
+    },
+    "blockquote": {
+      "border_left": "4px solid #d78a54",
+      "background": "linear-gradient(180deg, rgba(249,236,217,0.96) 0%, rgba(247,228,204,0.88) 100%)",
+      "padding": "16px 20px",
+      "border_radius": "12px",
+      "margin_top": "24px",
+      "margin_bottom": "24px",
+      "font_size": "15px",
+      "color": "rgba(211,122,69,0.7)",
+      "line_height": "1.75"
+    },
+    "blockquote_p": {
+      "font_size": "15px",
+      "color": "#3d2c1e",
+      "line_height": "1.75",
+      "margin_bottom": "0",
+      "letter_spacing": "0.02em",
+      "background": "transparent"
+    },
+    "strong": {
+      "font_weight": "700",
+      "color": "#a45a33",
+      "background": "linear-gradient(180deg, rgba(212,122,69,0) 0%, rgba(212,122,69,0) 60%, rgba(236,191,132,0.35) 60%, rgba(236,191,132,0.35) 100%)",
+      "padding": "0 2px"
+    },
+    "em": {
+      "font_style": "italic",
+      "color": "#8a6d4b"
+    },
+    "a": {
+      "color": "#d37a45",
+      "text_decoration": "none"
+    },
+    "img": {
+      "max_width": "100%",
+      "border_radius": "8px",
+      "display": "block",
+      "box_shadow": "0 4px 12px rgba(0,0,0,0.08)"
+    },
+    "img_wrapper": {
+      "background": "#ffffff",
+      "border_radius": "10px",
+      "padding": "4px",
+      "margin_top": "10px",
+      "margin_bottom": "10px"
+    },
+    "hr": {
+      "margin_top": "38px",
+      "margin_bottom": "38px",
+      "height": "2px",
+      "width": "58%",
+      "background": "linear-gradient(90deg, rgba(232,212,184,0) 0%, rgba(215,138,84,0.22) 20%, rgba(215,138,84,0.75) 50%, rgba(215,138,84,0.22) 80%, rgba(232,212,184,0) 100%)",
+      "border": "none"
+    },
+    "code": {
+      "background": "#f5e6d0",
+      "padding": "3px 6px",
+      "border_radius": "4px",
+      "font_size": "90%",
+      "color": "#d37a45",
+      "font_family": "Menlo, Monaco, Consolas, 'Courier New', monospace"
+    },
+    "code_block": {
+      "background": "#f5e6d0",
+      "border_radius": "8px",
+      "margin_top": "24px",
+      "margin_bottom": "24px",
+      "overflow": "hidden"
+    },
+    "code_header": {
+      "display": "flex",
+      "align_items": "center",
+      "height": "36px",
+      "padding": "0 12px",
+      "background": "rgba(211,122,69,0.15)"
+    },
+    "pre": {
+      "background": "#f5e6d0",
+      "color": "#c0582a",
+      "padding": "20px",
+      "border_radius": "0",
+      "overflow_x": "auto",
+      "margin_top": "0",
+      "margin_bottom": "0",
+      "font_size": "14px",
+      "line_height": "1.5",
+      "white_space": "pre-wrap",
+      "word_wrap": "break-word",
+      "word_break": "break-all"
+    },
+    "pre_code": {
+      "background": "none",
+      "padding": "0",
+      "color": "#c0582a",
+      "font_size": "14px",
+      "font_family": "Menlo, Monaco, Consolas, 'Courier New', monospace"
+    },
+    "table": {
+      "width": "100%",
+      "border_collapse": "separate",
+      "margin_top": "16px",
+      "margin_bottom": "16px",
+      "font_size": "15px",
+      "border_spacing": "0",
+      "border_radius": "8px",
+      "overflow": "hidden"
+    },
+    "th": {
+      "background": "#f5e6d0",
+      "padding": "12px 16px",
+      "text_align": "left",
+      "font_weight": "600",
+      "color": "#3d2c1e",
+      "border": "1px solid #e8d4b8"
+    },
+    "td": {
+      "padding": "12px 16px",
+      "border": "1px solid #e8d4b8",
+      "color": "#3d2c1e"
+    },
+    "list_item_bullet": {
+      "color": "#d37a45",
+      "margin_right": "8px",
+      "font_weight": "bold"
+    },
+    "ol_item_bullet": {
+      "display": "inline-flex",
+      "align_items": "center",
+      "justify_content": "center",
+      "width": "22px",
+      "height": "22px",
+      "min_width": "22px",
+      "background": "rgba(211,122,69,0.1)",
+      "color": "#d37a45",
+      "border_radius": "50%",
+      "font_size": "13px",
+      "font_weight": "bold",
+      "margin_right": "10px",
+      "margin_top": "4px"
+    },
+    "list_item_text": {
+      "font_size": "15px",
+      "color": "#3d2c1e",
+      "line_height": "1.75",
+      "letter_spacing": "0.5px"
+    },
+    "list_wrapper": {
+      "margin_top": "15px",
+      "margin_bottom": "15px"
+    },
+    "list_item_row": {
+      "display": "flex",
+      "margin_bottom": "8px",
+      "align_items": "flex-start"
+    },
+    "footnote_section": {
+      "margin_top": "32px",
+      "padding_top": "16px",
+      "border_top": "1px dashed #e5e5e5"
+    },
+    "footnote_title": {
+      "font_size": "14px",
+      "font_weight": "bold",
+      "color": "#999999",
+      "margin_bottom": "12px"
+    },
+    "footnote_item": {
+      "font_size": "12px",
+      "color": "#999999",
+      "margin_bottom": "6px",
+      "line_height": "1.6",
+      "word_break": "break-all"
+    },
+    "footnote_sup": {
+      "font_size": "12px",
+      "color": "#d37a45",
+      "vertical_align": "super",
+      "margin_left": "2px"
+    },
+    "callout": {
+      "background": "rgba(211,122,69,0.08)",
+      "border_left": "4px solid #d37a45",
+      "padding": "16px",
+      "margin_top": "16px",
+      "margin_bottom": "16px",
+      "border_radius": "0 12px 12px 0"
+    },
+    "callout_title": {
+      "font_weight": "bold",
+      "color": "#d37a45",
+      "margin_bottom": "8px",
+      "font_size": "15px"
+    },
+    "callout_content": {
+      "font_size": "14px",
+      "color": "#3d2c1e",
+      "line_height": "1.8",
+      "letter_spacing": "0.3px"
+    },
+    "h4": {
+      "font_size": "20px",
+      "font_weight": "bold",
+      "color": "#5c402b",
+      "border_left": "2px solid #d37a45",
+      "padding": "0 0 0 8px",
+      "margin_top": "24px",
+      "margin_bottom": "8px",
+      "line_height": "1.3"
+    },
+    "h5": {
+      "font_size": "19px",
+      "font_weight": "bold",
+      "color": "#555555",
+      "padding": "0",
+      "margin_top": "20px",
+      "margin_bottom": "6px",
+      "line_height": "1.3"
+    },
+    "h6": {
+      "font_size": "15px",
+      "font_weight": "bold",
+      "color": "#888888",
+      "padding": "0",
+      "margin_top": "16px",
+      "margin_bottom": "6px",
+      "line_height": "1.3"
+    }
+  },
+  "dark_mode": {
+    "wrapper": {
+      "bgcolor": "#1e1e1e"
+    },
+    "h1": {
+      "color": "#d37a45"
+    },
+    "h2": {
+      "color": "#d37a45"
+    },
+    "code_block": {
+      "bgcolor": "#1e1e1e"
+    },
+    "code_header": {
+      "bgcolor": "#171717"
+    },
+    "pre": {
+      "bgcolor": "#1e1e1e",
+      "color": "#d4d4d4"
+    },
+    "pre_code": {
+      "color": "#d4d4d4"
+    },
+    "code": {
+      "bgcolor": "#2a2a2a",
+      "color": "#d4d4d4"
+    },
+    "blockquote": {
+      "bgcolor": "rgba(255,255,255,0.05)"
+    },
+    "img_wrapper": {
+      "bgcolor": "#262626"
+    },
+    "th": {
+      "bgcolor": "#262626"
+    },
+    "callout": {
+      "bgcolor": "rgba(211,122,69, 0.12)"
+    },
+    "ol_item_bullet": {
+      "bgcolor": "rgba(211,122,69, 0.2)"
+    }
+  }
+}
