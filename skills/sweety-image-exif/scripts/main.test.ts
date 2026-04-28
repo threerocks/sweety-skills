@@ -7,6 +7,7 @@ import test from "node:test";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const CLI_TEST_TIMEOUT = { timeout: 30000 };
 
 function runOrThrow(cmd: string, args: string[]) {
   const result = spawnSync(cmd, args, { encoding: "utf8" });
@@ -24,7 +25,7 @@ function createTestJpeg(tempDir: string) {
   return jpgPath;
 }
 
-test("cli writes Apple and iPhone EXIF metadata to image files", async () => {
+test("cli writes Apple and iPhone EXIF metadata to image files", CLI_TEST_TIMEOUT, async () => {
   const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-exif-"));
 
   try {
@@ -48,7 +49,7 @@ test("cli writes Apple and iPhone EXIF metadata to image files", async () => {
   }
 });
 
-test("cli removes macOS Where Froms attributes", async () => {
+test("cli removes macOS Where Froms attributes", CLI_TEST_TIMEOUT, async () => {
   const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-exif-"));
 
   try {
@@ -72,7 +73,7 @@ test("cli removes macOS Where Froms attributes", async () => {
   }
 });
 
-test("cli deletes full macOS source xattr names that contain colons", async () => {
+test("cli deletes full macOS source xattr names that contain colons", CLI_TEST_TIMEOUT, async () => {
   const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-exif-"));
 
   try {
@@ -126,6 +127,64 @@ exit 0
     });
 
     assert.equal(result.status, 0);
+    const deletedAttrs = readFileSync(logPath, "utf8").trim().split(/\r?\n/);
+    assert.ok(deletedAttrs.includes("com.apple.metadata:kMDItemWhereFroms"));
+    assert.ok(deletedAttrs.includes("com.apple.quarantine"));
+  } finally {
+    rmSync(tempDir, { recursive: true, force: true });
+  }
+});
+
+test("cli falls back to deleting source xattrs when clearing all xattrs is too large", CLI_TEST_TIMEOUT, async () => {
+  const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-exif-"));
+
+  try {
+    const inputPath = createTestJpeg(tempDir);
+    const scriptPath = join(__dirname, "main.ts");
+    const fakeBin = join(tempDir, "bin");
+    const logPath = join(tempDir, "xattr-calls.log");
+    const whereFromsState = join(tempDir, "wherefroms-present");
+    const quarantineState = join(tempDir, "quarantine-present");
+    runOrThrow("mkdir", ["-p", fakeBin]);
+    writeFileSync(whereFromsState, "present");
+    writeFileSync(quarantineState, "present");
+
+    const fakeXattr = join(fakeBin, "xattr");
+    writeFileSync(fakeXattr, `#!/bin/sh
+if [ "$#" = "1" ]; then
+  if [ -f "${whereFromsState}" ]; then
+    echo "com.apple.metadata:kMDItemWhereFroms"
+  fi
+  if [ -f "${quarantineState}" ]; then
+    echo "com.apple.quarantine"
+  fi
+  exit 0
+fi
+if [ "$1" = "-c" ]; then
+  echo "xattr: [Errno 34] Result too large: '$2'" >&2
+  exit 1
+fi
+if [ "$1" = "-d" ]; then
+  echo "$2" >> "${logPath}"
+  if [ "$2" = "com.apple.metadata:kMDItemWhereFroms" ]; then
+    rm -f "${whereFromsState}"
+  fi
+  if [ "$2" = "com.apple.quarantine" ]; then
+    rm -f "${quarantineState}"
+  fi
+  exit 0
+fi
+exit 0
+`);
+    chmodSync(fakeXattr, 0o755);
+
+    const result = spawnSync(process.execPath, [scriptPath, inputPath], {
+      encoding: "utf8",
+      env: { ...process.env, PATH: `${fakeBin}:${process.env.PATH ?? ""}` },
+    });
+
+    assert.equal(result.status, 0);
+    assert.equal(result.stderr, "");
     const deletedAttrs = readFileSync(logPath, "utf8").trim().split(/\r?\n/);
     assert.ok(deletedAttrs.includes("com.apple.metadata:kMDItemWhereFroms"));
     assert.ok(deletedAttrs.includes("com.apple.quarantine"));

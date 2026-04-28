@@ -555,11 +555,11 @@ git pull
 /sweety-post-to-wechat 贴图 --title "标题" --content "内容" --image img1.png --submit
 ```
 
-**文章模式** - 完整 markdown/HTML 富文本格式：
+**文章模式** - 完整 markdown/HTML 富文本格式。Markdown 渲染现在由 `sweety-markdown-to-html` 统一处理，因此文章模式共享公众号主题、内联样式、图片占位符、预览页和主题画廊输出契约。
 
 ```bash
 /sweety-post-to-wechat 文章 --markdown article.md
-/sweety-post-to-wechat 文章 --markdown article.md --theme grace
+/sweety-post-to-wechat 文章 --markdown article.md --theme newspaper
 /sweety-post-to-wechat 文章 --html article.html
 ```
 
@@ -596,7 +596,7 @@ mkdir -p .sweety-skills/sweety-post-to-wechat
 
 ```yaml
 # 全局设置（所有账号共享）
-default_theme: default
+default_theme: newspaper
 default_color: blue
 
 # 账号列表
@@ -770,6 +770,10 @@ AI 驱动的生成后端。
 
 内容处理工具。
 
+#### sweety-karpathy-writing-style
+
+Karpathy 风格英文技术写作指南，适用于 AI 技术随笔、年度回顾、行业分析和观点文章。支持从 `original` 与 `final` 两版稿件 diff 中学习可复用规则并更新 `SKILL.md`。
+
 #### sweety-youtube-transcript
 
 下载 YouTube 视频字幕/转录文本和封面图片。支持多语言、翻译、章节分段和说话人识别。缓存原始数据以便快速重新格式化。
@@ -906,17 +910,17 @@ AI 驱动的生成后端。
 
 #### sweety-markdown-to-html
 
-将 Markdown 文件转换为样式化 HTML，支持微信公众号兼容主题、代码高亮，以及可选的外链底部引用。
+纯微信公众号排版 skill。把 Markdown、纯文本笔记或 Obsidian 风格文章转换为微信公众号兼容的内联样式 HTML，支持 30 套主题、主题画廊、AI 排版增强、CJK 修复、脚注、图片处理和容器语法。它也是 `sweety-post-to-wechat` 的 Markdown 渲染契约来源。
 
 ```bash
 # 基础转换
-/sweety-markdown-to-html article.md
+/sweety-markdown-to-html article.md --theme newspaper --no-open
 
-# 主题 + 颜色
-/sweety-markdown-to-html article.md --theme grace --color red
+# 生成主题画廊
+/sweety-markdown-to-html article.md --gallery --recommend newspaper magazine ink --no-open
 
-# 将普通外链转换为文末引用
-/sweety-markdown-to-html article.md --cite
+# 旧主题别名仍然可用
+/sweety-markdown-to-html article.md --theme grace --color #A93226 --no-open
 ```
 
 #### sweety-translate

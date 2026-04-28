@@ -859,9 +859,14 @@ export function convertListsToSections(html: string, styleMap: Record<string, st
   const olBulletStyle = styleMap.ol_item_bullet || bulletStyle;
   const indent = depth > 0 ? `padding-left:${16 * depth}px;` : "";
 
-  const processListItem = (itemHtml: string, bullet: string, bulletCss: string): string => {
-    const nestedUl = itemHtml.match(/<ul>([\s\S]*?)<\/ul>/);
-    const nestedOl = itemHtml.match(/<ol>([\s\S]*?)<\/ol>/);
+  const stripLegacyListPrefix = (value: string, ordered: boolean): string => {
+    const pattern = ordered ? /^\s*\d+[.)]\s*/ : /^\s*[•*-]\s*/;
+    return value.replace(pattern, "");
+  };
+
+  const processListItem = (itemHtml: string, bullet: string, bulletCss: string, ordered: boolean): string => {
+    const nestedUl = itemHtml.match(/<ul\b[^>]*>([\s\S]*?)<\/ul>/);
+    const nestedOl = itemHtml.match(/<ol\b[^>]*>([\s\S]*?)<\/ol>/);
     let mainText = itemHtml;
     if (nestedUl?.index !== undefined) {
       mainText = itemHtml.slice(0, nestedUl.index);
@@ -869,6 +874,7 @@ export function convertListsToSections(html: string, styleMap: Record<string, st
       mainText = itemHtml.slice(0, nestedOl.index);
     }
     mainText = mainText.replace(/<\/?p[^>]*>/g, "").trim();
+    mainText = stripLegacyListPrefix(mainText, ordered);
 
     let result = `<section style="${rowStyle}${indent}"><span style="${bulletCss}">${bullet}</span><span style="${textStyle}">${mainText}</span></section>`;
     if (nestedUl) result += convertListsToSections(`<ul>${nestedUl[1]}</ul>`, styleMap, depth + 1);
@@ -876,15 +882,15 @@ export function convertListsToSections(html: string, styleMap: Record<string, st
     return result;
   };
 
-  const replacedUl = html.replace(/<ul>([\s\S]*?)<\/ul>/g, (match) => {
-    const items = [...match.matchAll(/<li>([\s\S]*?)<\/li>/g)];
-    const rows = items.map((item) => processListItem(item[1]!, "•", bulletStyle)).join("");
+  const replacedUl = html.replace(/<ul\b[^>]*>([\s\S]*?)<\/ul>/g, (match) => {
+    const items = [...match.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)];
+    const rows = items.map((item) => processListItem(item[1]!, "•", bulletStyle, false)).join("");
     return `<section style="${wrapperStyle}${indent}">${rows}</section>`;
   });
 
-  return replacedUl.replace(/<ol>([\s\S]*?)<\/ol>/g, (match) => {
-    const items = [...match.matchAll(/<li>([\s\S]*?)<\/li>/g)];
-    const rows = items.map((item, index) => processListItem(item[1]!, String(index + 1), olBulletStyle)).join("");
+  return replacedUl.replace(/<ol\b[^>]*>([\s\S]*?)<\/ol>/g, (match) => {
+    const items = [...match.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/g)];
+    const rows = items.map((item, index) => processListItem(item[1]!, String(index + 1), olBulletStyle, true)).join("");
     return `<section style="${wrapperStyle}${indent}">${rows}</section>`;
   });
 }

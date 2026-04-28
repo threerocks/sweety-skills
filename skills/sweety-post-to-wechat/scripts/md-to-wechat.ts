@@ -1,8 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 
-import { renderMarkdownToWechatHtml } from "../../wechat-markdown-to-html/scripts/engine.ts";
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 interface ImageInfo {
   placeholder: string;
@@ -15,20 +17,54 @@ interface ParsedResult {
   author: string;
   summary: string;
   htmlPath: string;
+  articlePath?: string;
   contentImages: ImageInfo[];
+}
+
+function resolveMarkdownToHtmlCli(): string {
+  const candidates = [
+    path.resolve(__dirname, "../../sweety-markdown-to-html/scripts/main.ts"),
+  ];
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  throw new Error("找不到 sweety-markdown-to-html/scripts/main.ts。请先安装 sweety-markdown-to-html skill。");
+}
+
+function runMarkdownToHtml(markdownPath: string, options?: { theme?: string; color?: string }): ParsedResult {
+  const cliPath = resolveMarkdownToHtmlCli();
+  const args = [
+    cliPath,
+    markdownPath,
+    "--format",
+    "wechat",
+    "--no-open",
+  ];
+  if (options?.theme) args.push("--theme", options.theme);
+  if (options?.color) args.push("--color", options.color);
+
+  const result = spawnSync(process.execPath, args, {
+    cwd: path.dirname(markdownPath),
+    stdio: ["inherit", "pipe", "pipe"],
+    encoding: "utf-8",
+  });
+
+  if (result.status !== 0) {
+    throw new Error(`sweety-markdown-to-html 转换失败: ${result.stderr || result.stdout}`);
+  }
+
+  try {
+    return JSON.parse(result.stdout.trim()) as ParsedResult;
+  } catch (error) {
+    throw new Error(`sweety-markdown-to-html 输出不是合法 JSON: ${error instanceof Error ? error.message : String(error)}\n${result.stdout}`);
+  }
 }
 
 export async function convertMarkdown(
   markdownPath: string,
   options?: { title?: string; theme?: string; color?: string; citeStatus?: boolean },
 ): Promise<ParsedResult> {
-  const result = renderMarkdownToWechatHtml({
-    inputPath: markdownPath,
-    theme: options?.theme,
-    color: options?.color,
-    format: "wechat",
-    noOpen: true,
-  });
+  const result = runMarkdownToHtml(markdownPath, options);
 
   return {
     title: options?.title || result.title,
@@ -47,7 +83,7 @@ function printUsage(): never {
 
 选项:
   --title <title>     覆盖标题
-  --theme <name>      主题名（支持 wechat-markdown-to-html 的 30 套主题和 legacy alias）
+  --theme <name>      主题名（由 sweety-markdown-to-html 处理）
   --color <name|hex>  强调色覆盖（建议十六进制值）
   --no-cite           保留兼容参数，当前仅保留接口，不单独改变行为
   --help              显示此帮助

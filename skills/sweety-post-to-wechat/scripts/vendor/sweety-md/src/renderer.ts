@@ -263,7 +263,6 @@ export function initRenderer(opts: IOpts = {}): RendererAPI {
       const ordered = listOrderedStack[listOrderedStack.length - 1];
       const idx = listCounters[listCounters.length - 1]!;
       listCounters[listCounters.length - 1] = idx + 1;
-      const prefix = ordered ? `${idx}. ` : "• ";
       let content: string;
       try {
         content = this.parser.parseInline(token.tokens);
@@ -272,7 +271,7 @@ export function initRenderer(opts: IOpts = {}): RendererAPI {
           .parse(token.tokens)
           .replace(/^<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/, "$1");
       }
-      return styledContent("listitem", `${prefix}${content}`, "li");
+      return styledContent("listitem", content, "li");
     },
 
     image({ href, title, text }: Tokens.Image): string {

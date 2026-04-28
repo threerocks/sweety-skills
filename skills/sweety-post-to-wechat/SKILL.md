@@ -26,7 +26,7 @@ metadata:
 | `scripts/wechat-browser.ts` | 贴图发表（浏览器 fallback） |
 | `scripts/wechat-article.ts` | 文章发表（浏览器方式） |
 | `scripts/wechat-api.ts` | 文章 / 贴图发表（API 方式，`--type newspic` 可直接发贴图） |
-| `scripts/md-to-wechat.ts` | Markdown → 微信适配 HTML（含图片占位符） |
+| `scripts/md-to-wechat.ts` | 兼容适配层：调用 `sweety-markdown-to-html` 完成 Markdown → 微信适配 HTML（含图片占位符） |
 | `scripts/check-permissions.ts` | 检查环境与权限 |
 
 ## 偏好设置 (EXTEND.md)

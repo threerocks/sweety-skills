@@ -1,4 +1,4 @@
-# wechat-markdown-to-html
+# sweety-markdown-to-html
 
 纯公众号文章排版 skill。
 

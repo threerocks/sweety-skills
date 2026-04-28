@@ -102,17 +102,18 @@ async function clearMacSourceMetadata(path: string): Promise<void> {
 
     if (MAC_SOURCE_XATTRS.some((attr) => attrs.has(attr))) {
       const clearAllResult = await runCmd("xattr", ["-c", path]);
-      if (clearAllResult.code !== 0) {
+      if (clearAllResult.code === 0) {
+        const refreshedListResult = await runCmd("xattr", [path]);
+        if (refreshedListResult.code !== 0) {
+          throw new Error(`Failed to list macOS metadata from ${path}: ${refreshedListResult.stderr.trim() || "xattr failed"}`);
+        }
+        attrs = new Set(refreshedListResult.stdout
+          .split(/\r?\n/)
+          .map((line) => line.trim())
+          .filter(Boolean));
+      } else if (!clearAllResult.stderr.includes("Result too large")) {
         throw new Error(`Failed to clear macOS metadata from ${path}: ${clearAllResult.stderr.trim() || "xattr failed"}`);
       }
-      const refreshedListResult = await runCmd("xattr", [path]);
-      if (refreshedListResult.code !== 0) {
-        throw new Error(`Failed to list macOS metadata from ${path}: ${refreshedListResult.stderr.trim() || "xattr failed"}`);
-      }
-      attrs = new Set(refreshedListResult.stdout
-        .split(/\r?\n/)
-        .map((line) => line.trim())
-        .filter(Boolean));
     }
 
     for (const attr of MAC_SOURCE_XATTRS) {

@@ -555,11 +555,11 @@ Post content to WeChat Official Account (微信公众号). Two modes available:
 /sweety-post-to-wechat 贴图 --title "标题" --content "内容" --image img1.png --submit
 ```
 
-**Article (文章)** - Full markdown/HTML with rich formatting:
+**Article (文章)** - Full markdown/HTML with rich formatting. Markdown rendering is delegated to `sweety-markdown-to-html`, so article mode supports the shared WeChat themes, inline styles, image placeholders, and preview/gallery output contract.
 
 ```bash
 /sweety-post-to-wechat 文章 --markdown article.md
-/sweety-post-to-wechat 文章 --markdown article.md --theme grace
+/sweety-post-to-wechat 文章 --markdown article.md --theme newspaper
 /sweety-post-to-wechat 文章 --html article.html
 ```
 
@@ -596,7 +596,7 @@ Create `.sweety-skills/sweety-post-to-wechat/EXTEND.md`:
 
 ```yaml
 # Global settings (shared across all accounts)
-default_theme: default
+default_theme: newspaper
 default_color: blue
 
 # Account list
@@ -770,6 +770,10 @@ Interacts with Gemini Web to generate text and images.
 
 Utility tools for content processing.
 
+#### sweety-karpathy-writing-style
+
+Karpathy-inspired English technical writing guide for AI essays, year-in-review posts, industry analysis, and opinion pieces. Can learn reusable rules from `original` vs `final` drafts and update its `SKILL.md`.
+
 #### sweety-youtube-transcript
 
 Download YouTube video transcripts/subtitles and cover images. Supports multiple languages, translation, chapters, and speaker identification. Caches raw data for fast re-formatting.
@@ -906,17 +910,17 @@ Format plain text or markdown files with proper frontmatter, titles, summaries, 
 
 #### sweety-markdown-to-html
 
-Convert markdown files into styled HTML with WeChat-compatible themes, syntax highlighting, and optional bottom citations for external links.
+Pure WeChat Official Account layout skill. Converts Markdown, plain text notes, and Obsidian-style articles into WeChat-compatible inline-styled HTML with 30 themes, gallery previews, AI layout cleanup, CJK fixes, footnotes, image handling, and container syntax. It also provides the Markdown rendering contract used by `sweety-post-to-wechat`.
 
 ```bash
 # Basic conversion
-/sweety-markdown-to-html article.md
+/sweety-markdown-to-html article.md --theme newspaper --no-open
 
-# Theme + color
-/sweety-markdown-to-html article.md --theme grace --color red
+# Generate a theme gallery
+/sweety-markdown-to-html article.md --gallery --recommend newspaper magazine ink --no-open
 
-# Convert ordinary external links to bottom citations
-/sweety-markdown-to-html article.md --cite
+# Legacy theme aliases still work
+/sweety-markdown-to-html article.md --theme grace --color #A93226 --no-open
 ```
 
 #### sweety-translate

@@ -58,3 +58,33 @@ summary: 兼容摘要
   assert.match(html, /参考链接/);
   assert.match(html, /#A93226/i);
 });
+
+test("md-to-wechat renders ordered and unordered lists without duplicate markers", async () => {
+  const root = await makeTempDir("md-to-wechat-list-");
+  const markdownPath = path.join(root, "article.md");
+
+  await fs.writeFile(
+    markdownPath,
+    `# 列表测试
+
+1. 第一项
+2. 第二项
+
+- 无序一
+- 无序二
+`,
+    "utf-8",
+  );
+
+  const { stdout } = await execFileAsync("npx", ["-y", "bun", SCRIPT_PATH, markdownPath, "--theme", "magazine"]);
+  const parsed = JSON.parse(stdout.trim()) as { htmlPath: string };
+  const html = await fs.readFile(parsed.htmlPath, "utf-8");
+
+  assert.doesNotMatch(html, /<ol\b/i);
+  assert.doesNotMatch(html, /<ul\b/i);
+  assert.doesNotMatch(html, /<li\b/i);
+  assert.doesNotMatch(html, />\s*1\.\s*第一项/);
+  assert.doesNotMatch(html, />\s*•\s*无序一/);
+  assert.match(html, />1<\/span><span[^>]*>第一项/);
+  assert.match(html, />•<\/span><span[^>]*>无序一/);
+});

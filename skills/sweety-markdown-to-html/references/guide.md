@@ -1,8 +1,8 @@
-# wechat-markdown-to-html 使用与验收手册
+# sweety-markdown-to-html 使用与验收手册
 
 ## 1. 定位
 
-`wechat-markdown-to-html` 是一个只负责公众号文章排版的 skill。
+`sweety-markdown-to-html` 是一个只负责公众号文章排版的 skill。
 
 它不处理：
 
@@ -24,7 +24,7 @@
 ## 2. 目录结构
 
 ```text
-wechat-markdown-to-html/
+sweety-markdown-to-html/
 ├── SKILL.md
 ├── README_CN.md
 ├── config.example.json
@@ -49,7 +49,7 @@ wechat-markdown-to-html/
 执行命令统一用 Bun：
 
 ```bash
-npx -y bun skills/wechat-markdown-to-html/scripts/main.ts article.md --theme newspaper
+npx -y bun skills/sweety-markdown-to-html/scripts/main.ts article.md --theme newspaper
 ```
 
 ## 4. 配置
@@ -79,7 +79,7 @@ npx -y bun skills/wechat-markdown-to-html/scripts/main.ts article.md --theme new
 ## 5. CLI 参数
 
 ```bash
-npx -y bun skills/wechat-markdown-to-html/scripts/main.ts <markdown_path> [options]
+npx -y bun skills/sweety-markdown-to-html/scripts/main.ts <markdown_path> [options]
 ```
 
 参数：
@@ -297,7 +297,7 @@ npx -y bun skills/wechat-markdown-to-html/scripts/main.ts <markdown_path> [optio
 
 它已经切换为调用：
 
-- `skills/wechat-markdown-to-html/scripts/engine.ts`
+- `skills/sweety-markdown-to-html/scripts/engine.ts`
 
 兼容策略：
 
@@ -313,7 +313,7 @@ npx -y bun skills/wechat-markdown-to-html/scripts/main.ts <markdown_path> [optio
 1. `tujie-wanwu-wechat/scripts/publish-draft.ts`
 2. `sweety-post-to-wechat/scripts/wechat-api.ts`
 3. `sweety-post-to-wechat/scripts/md-to-wechat.ts`
-4. `wechat-markdown-to-html/scripts/engine.ts`
+4. `sweety-markdown-to-html/scripts/engine.ts`
 
 因此验收重点不是修改 `tujie-wanwu-wechat` 本身，而是确认这条链路在 `--theme`、`--color`、`--no-cite`、HTML 路径和图片占位符上不回归。
 
@@ -322,7 +322,7 @@ npx -y bun skills/wechat-markdown-to-html/scripts/main.ts <markdown_path> [optio
 运行新 skill 测试：
 
 ```bash
-npx -y bun test skills/wechat-markdown-to-html/scripts/engine.test.ts
+npx -y bun test skills/sweety-markdown-to-html/scripts/engine.test.ts
 ```
 
 运行兼容层测试：
