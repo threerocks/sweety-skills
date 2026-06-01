@@ -1,0 +1,4 @@
+interface:
+  display_name: "去AI味写作"
+  short_description: "中文去AI味写作，清理模板腔、空话、客服腔和机器节奏"
+  default_prompt: "Use $sweety-humanize-writing to rewrite this Chinese draft so it reads natural, concrete, and less template-like."
