@@ -13,6 +13,42 @@ const REQUIRED_MAC_SOURCE_XATTRS = [
   "com.apple.metadata:kMDItemWhereFroms",
   "com.apple.quarantine",
 ];
+const SOURCE_EXIF_TAGS = [
+  "-Software",
+  "-Source",
+  "-SourceFile",
+  "-ImageDescription",
+  "-Comment",
+  "-UserComment",
+  "-Copyright",
+  "-Artist",
+  "-Creator",
+];
+
+interface PrivacyAudit {
+  gpsPresent: boolean;
+  sourceExifPresent: boolean;
+  macSourceXattrsPresent: string[];
+  requiredMacSourceXattrsPresent: string[];
+}
+
+interface CameraAudit {
+  make: string;
+  model: string;
+  hostComputer: string;
+  lensModel: string;
+  focalLength: string;
+  focalLengthIn35mmFormat: string;
+  fNumber: string;
+}
+
+interface ProcessResult {
+  input: string;
+  output: string;
+  used: string;
+  camera: CameraAudit;
+  privacy: PrivacyAudit;
+}
 
 function commandExists(cmd: string): Promise<boolean> {
   return new Promise((resolve) => {
@@ -41,6 +77,7 @@ function sleep(ms: number): Promise<void> {
 async function modifyWithExiftool(input: string, output?: string): Promise<string> {
   const args = [
     "-all=",
+    "-GPS:all=",
     "-Source=",
     "-SourceFile=",
     "-ImageDescription=",
@@ -52,6 +89,16 @@ async function modifyWithExiftool(input: string, output?: string): Promise<strin
     "-Software=",
     `-Make=Apple`,
     `-Model=iPhone 16 Pro Max`,
+    `-HostComputer=iPhone 16 Pro Max`,
+    `-LensModel=iPhone 16 Pro Max back triple camera 6.765mm f/1.78`,
+    `-FocalLength=6.765 mm`,
+    `-FocalLengthIn35mmFormat=24 mm`,
+    `-FNumber=1.78`,
+    `-ExposureProgram=Program AE`,
+    `-MeteringMode=Multi-segment`,
+    `-Flash=Off, Did not fire`,
+    `-WhiteBalance=Auto`,
+    `-ColorSpace=Uncalibrated`,
   ];
   if (output) {
     const temp = output + ".tmp";
@@ -77,11 +124,75 @@ async function modifyWithSharp(input: string, output: string): Promise<string> {
       IFD0: {
         Make: "Apple",
         Model: "iPhone 16 Pro Max",
+        HostComputer: "iPhone 16 Pro Max",
+        LensModel: "iPhone 16 Pro Max back triple camera 6.765mm f/1.78",
       },
     })
     .toFile(tempOutput);
   renameSync(tempOutput, output);
   return output;
+}
+
+async function listMacXattrs(path: string): Promise<string[]> {
+  const hasXattr = await commandExists("xattr");
+  if (!hasXattr) return [];
+  const result = await runCmd("xattr", [path]);
+  if (result.code !== 0) {
+    throw new Error(`Failed to list macOS metadata from ${path}: ${result.stderr.trim() || "xattr failed"}`);
+  }
+  return result.stdout
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+async function readExifLines(path: string, tags: string[]): Promise<string[]> {
+  const result = await runCmd("exiftool", ["-s3", ...tags, path]);
+  if (result.code !== 0) {
+    throw new Error(`Failed to read EXIF from ${path}: ${result.stderr.trim() || "exiftool failed"}`);
+  }
+  return result.stdout.split(/\r?\n/).map((line) => line.trim());
+}
+
+async function auditImage(path: string): Promise<{ camera: CameraAudit; privacy: PrivacyAudit }> {
+  const [
+    make = "",
+    model = "",
+    hostComputer = "",
+    lensModel = "",
+    focalLength = "",
+    focalLengthIn35mmFormat = "",
+    fNumber = "",
+  ] = await readExifLines(path, [
+    "-Make",
+    "-Model",
+    "-HostComputer",
+    "-LensModel",
+    "-FocalLength",
+    "-FocalLengthIn35mmFormat",
+    "-FNumber",
+  ]);
+  const gpsLines = await readExifLines(path, ["-GPSLatitude", "-GPSLongitude"]);
+  const sourceLines = await readExifLines(path, SOURCE_EXIF_TAGS);
+  const macXattrs = await listMacXattrs(path);
+
+  return {
+    camera: {
+      make,
+      model,
+      hostComputer,
+      lensModel,
+      focalLength,
+      focalLengthIn35mmFormat,
+      fNumber,
+    },
+    privacy: {
+      gpsPresent: gpsLines.some(Boolean),
+      sourceExifPresent: sourceLines.some(Boolean),
+      macSourceXattrsPresent: MAC_SOURCE_XATTRS.filter((attr) => macXattrs.includes(attr)),
+      requiredMacSourceXattrsPresent: REQUIRED_MAC_SOURCE_XATTRS.filter((attr) => macXattrs.includes(attr)),
+    },
+  };
 }
 
 async function clearMacSourceMetadata(path: string): Promise<void> {
@@ -271,25 +382,28 @@ function getDefaultOutputPath(input: string, keep: boolean): string {
   return input;
 }
 
-async function processOne(input: string, opts: Options): Promise<{ input: string; output: string; used: string }> {
+async function processOne(input: string, opts: Options): Promise<ProcessResult> {
   const abs = resolve(input);
   const output = opts.output ? resolve(opts.output) : getDefaultOutputPath(abs, opts.keep);
   const useExiftool = await commandExists("exiftool");
   await clearMacSourceMetadata(abs);
+  let resultPath = output;
+  let used = "sharp";
   if (useExiftool) {
     const targetOutput = opts.output || (opts.keep ? output : undefined);
-    const resultPath = await modifyWithExiftool(abs, targetOutput);
+    resultPath = await modifyWithExiftool(abs, targetOutput);
     await clearMacSourceMetadata(resultPath);
-    return { input: abs, output: resultPath, used: "exiftool" };
+    used = "exiftool";
+  } else {
+    try {
+      resultPath = await modifyWithSharp(abs, output);
+      await clearMacSourceMetadata(resultPath);
+    } catch (error) {
+      throw new Error(`Failed to modify EXIF: ${error instanceof Error ? error.message : String(error)}. Install sharp with 'bun add sharp' or 'npm install sharp'.`);
+    }
   }
-
-  try {
-    await modifyWithSharp(abs, output);
-    await clearMacSourceMetadata(output);
-    return { input: abs, output, used: "sharp" };
-  } catch (error) {
-    throw new Error(`Failed to modify EXIF: ${error instanceof Error ? error.message : String(error)}. Install sharp with 'bun add sharp' or 'npm install sharp'.`);
-  }
+  const audit = await auditImage(resultPath);
+  return { input: abs, output: resultPath, used, ...audit };
 }
 
 async function main() {
@@ -314,11 +428,15 @@ async function main() {
     taskInputs.push(input);
   }
 
-  const results: Array<{ input: string; output: string; used: string }> = [];
+  const results: ProcessResult[] = [];
   for (const file of taskInputs) {
     results.push(await processOne(file, opts));
   }
   await clearMacSourceMetadataAfterImageWrites(results.map((item) => item.output));
+  for (let i = 0; i < results.length; i += 1) {
+    const audit = await auditImage(results[i].output);
+    results[i] = { ...results[i], ...audit };
+  }
   if (opts.json) {
     console.log(JSON.stringify(results, null, 2));
     return;

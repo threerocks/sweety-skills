@@ -1,19 +1,21 @@
 ---
-name: sweety-image-exif
-description: Modifies image EXIF metadata to Apple / iPhone 16 Pro Max and removes origin/source tags. Use when user asks to rewrite photo metadata or sanitize image EXIF for mobile-camera appearance.
-version: 1.0.0
+name: sweety-image-privacy
+description: Use when sanitizing image privacy metadata, removing GPS/source traces, auditing macOS xattrs, or preparing images with iPhone-like camera metadata before publishing or AI-detection checks.
+version: 1.1.0
 metadata:
   openclaw:
-    homepage: https://github.com/sweety/sweety-skills#sweety-image-exif
+    homepage: https://github.com/sweety/sweety-skills#sweety-image-privacy
     requires:
       anyBins:
         - bun
         - npx
 ---
 
-# Image EXIF Modifier
+# Image Privacy Sanitizer
 
-Updates image metadata so the camera make/model appears as `Apple / iPhone 16 Pro Max`, clears source/origin-related EXIF fields, and removes macOS download-source metadata such as `kMDItemWhereFroms` when permissions allow.
+Sanitizes image privacy metadata before publishing or detector testing. It removes GPS and origin/source fields, clears macOS download/source extended attributes when possible, and writes an iPhone 16 Pro Max camera metadata profile.
+
+This does not guarantee an image will pass AI-generation detectors. Metadata can support a real-camera workflow, but detectors can still use pixels, compression artifacts, model fingerprints, and other signals.
 
 ## Script Directory
 
@@ -21,7 +23,7 @@ Scripts are in the `scripts/` subdirectory. `{baseDir}` = this SKILL.md file's d
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/main.ts` | CLI for rewriting image EXIF metadata |
+| `scripts/main.ts` | CLI for privacy sanitization, iPhone-like camera metadata, and JSON audit reports |
 
 ## Usage
 
@@ -47,7 +49,10 @@ When `<input>` is a directory, all supported image files within the directory (a
 - Requires `sharp` to be available in the runtime environment.
 - If `sharp` is not installed, the script will prompt to install it with `bun add sharp` or `npm install sharp`.
 - For safe in-place overwrite, the script writes to a temporary file then atomically replaces the original.
-- On macOS, the script removes all embedded metadata first, then rewrites `Make` and `Model`, and also clears Finder "Where from" download-source metadata by removing extended attributes from the processed file. This may require running outside a restrictive sandbox for files outside the writable workspace.
+- With `exiftool`, the script removes all embedded metadata first, then writes an iPhone 16 Pro Max profile: `Make`, `Model`, `HostComputer`, `LensModel`, focal length, 35mm focal length, aperture, exposure program, metering mode, flash, white balance, and color space.
+- GPS and source/origin fields are removed. The JSON report audits whether GPS, source EXIF, and required macOS source xattrs remain.
+- On macOS, the script clears Finder "Where from" and quarantine metadata. `com.apple.provenance` may be system-managed and can reappear locally; treat it as an audit signal, not a guaranteed blocker for web upload bytes.
+- Do not claim a generated image is a real camera photograph merely because metadata was rewritten.
 
 ## Examples
 
@@ -64,7 +69,7 @@ ${BUN_X} {baseDir}/scripts/main.ts /user/tmp/
 # Process directory, keep originals
 ${BUN_X} {baseDir}/scripts/main.ts /user/tmp/ --keep
 
-# JSON output
+# JSON audit output
 ${BUN_X} {baseDir}/scripts/main.ts /user/tmp/ --json
 ```
 
@@ -73,6 +78,13 @@ ${BUN_X} {baseDir}/scripts/main.ts /user/tmp/ --json
 /user/tmp/photo1.jpg → /user/tmp/photo1.jpg (exiftool)
 /user/tmp/subdir/photo2.png → /user/tmp/subdir/photo2.png (exiftool)
 ```
+
+**JSON output includes**:
+
+- `camera`: written/observed camera profile fields.
+- `privacy.gpsPresent`: whether GPS remains.
+- `privacy.sourceExifPresent`: whether source/origin EXIF fields remain.
+- `privacy.requiredMacSourceXattrsPresent`: required macOS source attributes that still remain.
 
 ## Extension Support
 

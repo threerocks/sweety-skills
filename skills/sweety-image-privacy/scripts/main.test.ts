@@ -26,7 +26,7 @@ function createTestJpeg(tempDir: string) {
 }
 
 test("cli writes Apple and iPhone EXIF metadata to image files", CLI_TEST_TIMEOUT, async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-exif-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-privacy-"));
 
   try {
     const inputPath = createTestJpeg(tempDir);
@@ -39,18 +39,35 @@ test("cli writes Apple and iPhone EXIF metadata to image files", CLI_TEST_TIMEOU
     assert.equal(result.status, 0);
     assert.equal(result.stderr, "");
 
-    const exif = runOrThrow("exiftool", ["-s3", "-Make", "-Model", "-Software", "-SourceFile", inputPath]).stdout;
+    const exif = runOrThrow("exiftool", [
+      "-s3",
+      "-Make",
+      "-Model",
+      "-HostComputer",
+      "-LensModel",
+      "-FocalLength",
+      "-FocalLengthIn35mmFormat",
+      "-FNumber",
+      "-Software",
+      "-SourceFile",
+      "-GPSLatitude",
+      inputPath,
+    ]).stdout;
     assert.match(exif, /Apple/);
     assert.match(exif, /iPhone 16 Pro Max/);
+    assert.match(exif, /back triple camera/);
+    assert.match(exif, /24 mm/);
+    assert.match(exif, /1\.8/);
     assert.doesNotMatch(exif, /Software/);
     assert.doesNotMatch(exif, /SourceFile/);
+    assert.doesNotMatch(exif, /GPS/);
   } finally {
     rmSync(tempDir, { recursive: true, force: true });
   }
 });
 
 test("cli removes macOS Where Froms attributes", CLI_TEST_TIMEOUT, async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-exif-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-privacy-"));
 
   try {
     const inputPath = createTestJpeg(tempDir);
@@ -74,7 +91,7 @@ test("cli removes macOS Where Froms attributes", CLI_TEST_TIMEOUT, async () => {
 });
 
 test("cli deletes full macOS source xattr names that contain colons", CLI_TEST_TIMEOUT, async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-exif-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-privacy-"));
 
   try {
     const inputPath = createTestJpeg(tempDir);
@@ -136,7 +153,7 @@ exit 0
 });
 
 test("cli falls back to deleting source xattrs when clearing all xattrs is too large", CLI_TEST_TIMEOUT, async () => {
-  const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-exif-"));
+  const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-privacy-"));
 
   try {
     const inputPath = createTestJpeg(tempDir);
@@ -188,6 +205,42 @@ exit 0
     const deletedAttrs = readFileSync(logPath, "utf8").trim().split(/\r?\n/);
     assert.ok(deletedAttrs.includes("com.apple.metadata:kMDItemWhereFroms"));
     assert.ok(deletedAttrs.includes("com.apple.quarantine"));
+  } finally {
+    rmSync(tempDir, { recursive: true, force: true });
+  }
+});
+
+test("json output includes privacy audit after processing", CLI_TEST_TIMEOUT, async () => {
+  const tempDir = mkdtempSync(join(tmpdir(), "sweety-image-privacy-"));
+
+  try {
+    const inputPath = createTestJpeg(tempDir);
+    const scriptPath = join(__dirname, "main.ts");
+
+    runOrThrow("exiftool", [
+      "-overwrite_original",
+      "-GPSLatitude=39.80035",
+      "-GPSLatitudeRef=N",
+      "-GPSLongitude=116.50708",
+      "-GPSLongitudeRef=E",
+      "-Software=AI Generator",
+      inputPath,
+    ]);
+
+    const result = spawnSync(process.execPath, [scriptPath, inputPath, "--json"], {
+      encoding: "utf8",
+    });
+
+    assert.equal(result.status, 0);
+    assert.equal(result.stderr, "");
+
+    const report = JSON.parse(result.stdout);
+    assert.equal(report[0].privacy.gpsPresent, false);
+    assert.equal(report[0].privacy.sourceExifPresent, false);
+    assert.deepEqual(report[0].privacy.requiredMacSourceXattrsPresent, []);
+    assert.equal(report[0].camera.make, "Apple");
+    assert.equal(report[0].camera.model, "iPhone 16 Pro Max");
+    assert.match(report[0].camera.lensModel, /iPhone 16 Pro Max back triple camera/);
   } finally {
     rmSync(tempDir, { recursive: true, force: true });
   }
