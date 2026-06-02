@@ -73,6 +73,7 @@ test -f "$HOME/.sweety-skills/sweety-humanize-writing/EXTEND.md" && echo "user"
 - 客服腔：希望本文对您有所帮助、期待您的反馈、感谢阅读。
 - 伪人味：硬塞“你懂的”“说白了”“老实说”，但没有真实判断或细节。
 - 语言指纹：高频“最/真正/本质上”、否定式煽情、虚假范围、过度拔高、没有证据链的论证。
+- 过度规整：连接词密度异常高、标点过于统一、句式结构太完美、段落排版像模板。
 - 风格稀释：用户明明提供了个人样本，输出却回到通用公文腔、营销腔或知乎腔。
 
 详细规则见 [references/rules.md](references/rules.md)。示例见 [references/examples.md](references/examples.md)。
@@ -145,6 +146,7 @@ test -f "$HOME/.sweety-skills/sweety-humanize-writing/EXTEND.md" && echo "user"
 - 不为了去 AI 味而牺牲准确性、逻辑和可读性。
 - 不保留来源不明的绝对化判断；必要时改成“可能”“更像是”“在多数情况下”。
 - 不把本 skill 用作规避检测、伪装来源或证明“不是 AI”的工具；目标是改善表达质量和事实可靠性。
+- 不故意制造错别字、半角标点混用、异常空格或排版错误来假装“人工痕迹”。
 
 ## Extension Support
 
