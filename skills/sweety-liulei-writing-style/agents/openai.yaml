@@ -1,0 +1,4 @@
+interface:
+  display_name: "刘磊写作风格"
+  short_description: "跨项目学习人工改稿样本，并按刘磊个人风格写作或改写中文内容"
+  default_prompt: "Use $sweety-liulei-writing-style with the closest profile to revise this draft toward my writing style and record learning if I provide a human edit."
