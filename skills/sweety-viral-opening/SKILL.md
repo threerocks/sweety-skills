@@ -1,32 +1,32 @@
 ---
-name: sweety-trustworthy-opening
-description: 中文公众号和自媒体文章可信开头写作技能。用于生成、改写、冷审文章前三句话、公众号开头、社媒长文开场、标题后承接段和阅读钩子，要求开头与标题和正文强相关，在 3 秒内完成清楚对象、真实情绪、价值承诺和阅读牵引，避免震惊体、恐吓体、悬空好奇、虚假投稿、硬蹭热点和无法兑现的爆款套路。
+name: sweety-viral-opening
+description: 中文公众号和自媒体爆款开头写作技能。用于生成、改写、冷审文章开头前三句话、首段、公众号黄金 3 秒开场、标题后的阅读承接和口播开头；以问句、对话、互动、自我表达、题文呼应、名言解构、热点和投稿等 8 种开头模板为核心，完成情绪引爆、价值承诺和阅读牵引，同时避免虚假投稿、硬蹭热点、悬空好奇、恐吓式开场和正文无法兑现的承诺。
 metadata:
   openclaw:
-    homepage: https://github.com/sweety/sweety-skills#sweety-trustworthy-opening
+    homepage: https://github.com/sweety/sweety-skills#sweety-viral-opening
 ---
 
-# 可信开头写作
+# 爆款开头写作
 
-这个 skill 用于写中文文章开头，尤其是公众号前三句话。目标不是制造短期点击，而是让读者快速知道这篇文章和自己有什么关系、为什么值得继续读、正文会兑现什么。
+这个 skill 用于写中文文章开头，尤其是公众号前三句话或首段。目标是在开篇 3 秒内完成“情绪抓手 + 价值承诺 + 阅读牵引”，让读者知道为什么要继续读。
 
-适用场景：公众号文章开头、中文长文开场、小红书长图首屏文案、视频口播开头、标题后第一段、开头冷审、批量开头候选。
+适用场景：公众号文章开头、标题后第一段、社媒长文开场、小红书长图首屏文案、视频口播开头、开头冷审、批量开头候选。
 
 ## 偏好设置 (EXTEND.md)
 
 先检查 EXTEND.md，优先级如下：
 
 ```bash
-test -f .sweety-skills/sweety-trustworthy-opening/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/sweety-skills/sweety-trustworthy-opening/EXTEND.md" && echo "xdg"
-test -f "$HOME/.sweety-skills/sweety-trustworthy-opening/EXTEND.md" && echo "user"
+test -f .sweety-skills/sweety-viral-opening/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/sweety-skills/sweety-viral-opening/EXTEND.md" && echo "xdg"
+test -f "$HOME/.sweety-skills/sweety-viral-opening/EXTEND.md" && echo "user"
 ```
 
 | 路径 | 位置 |
 |------|------|
-| `.sweety-skills/sweety-trustworthy-opening/EXTEND.md` | 项目目录 |
-| `$XDG_CONFIG_HOME/sweety-skills/sweety-trustworthy-opening/EXTEND.md` | XDG 配置目录 |
-| `$HOME/.sweety-skills/sweety-trustworthy-opening/EXTEND.md` | 用户目录 |
+| `.sweety-skills/sweety-viral-opening/EXTEND.md` | 项目目录 |
+| `$XDG_CONFIG_HOME/sweety-skills/sweety-viral-opening/EXTEND.md` | XDG 配置目录 |
+| `$HOME/.sweety-skills/sweety-viral-opening/EXTEND.md` | 用户目录 |
 
 | 结果 | 操作 |
 |------|------|
@@ -45,19 +45,19 @@ test -f "$HOME/.sweety-skills/sweety-trustworthy-opening/EXTEND.md" && echo "use
 | 目标读者 | 必需 | 谁会读、为什么在乎 |
 | 内容类型 | 必需 | 深度文章、故事、观点、方法、复盘、口播等 |
 | 真实支撑 | 必需 | 正文实际能交付的事实、经历、案例、清单、方法或结论 |
-| 希望语气 | 可选 | 克制、尖锐、亲近、故事感、专业、轻松等 |
+| 希望语气 | 可选 | 尖锐、亲近、故事感、专业、克制、轻松等 |
 | 需要规避 | 可选 | 禁用词、敏感点、已用模板、平台风险 |
 
-## 标题协同
+## 生成流程
 
-若任务同时涉及标题，先使用 `sweety-trustworthy-title` 或其规则确定标题是否可信，再写开头。开头必须承接标题，但不能替标题补不存在的证据。
-
-标题和开头要满足：
-
-- 标题说清对象、动作或判断；开头补充进入正文的理由。
-- 标题留下的问题，开头前三句话内给出方向，不继续悬空。
-- 标题承诺的事实、方法、清单或故事，开头不能扩大成正文无法兑现的收益。
-- 若标题命中标题党硬门禁，先改标题，再写开头。
+1. 先确认标题或标题方向；若用户还没有标题，可建议先用 `sweety-trustworthy-title` 产出标题候选。
+2. 将正文压成一句“对象 + 问题/冲突 + 结果/判断”。
+3. 写出标题承接点：标题制造了哪种疑问、情绪或期待。
+4. 列出正文能兑现的 3-5 个真实阅读理由：痛点、故事、反差、方法、选择、误解纠正、结果或收藏用途。
+5. 从 [references/opening-patterns.md](references/opening-patterns.md) 选择 2-4 种开头模板，不要所有候选只换同义词。
+6. 生成候选开头：默认 8 个，每个控制在 1-3 句话；用户要少量时也先内部扩散，再筛出指定数量。
+7. 对每个候选跑硬门禁，删除悬空、夸大、错配标题、错配正文和同质化开头。
+8. 最终输出优先给差异明显的候选；如果用户要“直接给一个”，先给首选开头，再给 1 句选择理由。
 
 ## 开头硬门禁
 
@@ -76,19 +76,9 @@ test -f "$HOME/.sweety-skills/sweety-trustworthy-opening/EXTEND.md" && echo "use
 
 额外禁用：
 
-- 不用“爆款”“全网都在”“内幕”“颠覆认知”“再不看就晚了”等虚高词，除非正文有强证据。
+- 不用“全网都在”“内幕”“再不看就晚了”“封神”“炸裂”等虚高词，除非正文有强证据。
 - 不把开头写成谜语、口号或营销话术。
 - 不为了模板牺牲真实语气；模板只是路径，不是最终口吻。
-
-## 生成流程
-
-1. 将正文压成一句“对象 + 问题/冲突 + 结果/判断”。
-2. 写出标题承接点：标题制造了哪种疑问、情绪或期待。
-3. 列出正文能兑现的 3-5 个真实阅读理由：痛点、故事、反差、方法、选择、误解纠正、结果或收藏用途。
-4. 从 [references/opening-patterns.md](references/opening-patterns.md) 选择 2-4 种开头思路，不要所有候选只换同义词。
-5. 生成候选开头：默认 8 个，每个控制在 1-3 句话；用户要少量时也先内部扩散，再筛出指定数量。
-6. 对每个候选跑硬门禁，删除悬空、夸大、错配标题、错配正文和同质化开头。
-7. 最终输出优先给差异明显的候选；如果用户要“直接给一个”，先给首选开头，再给 1 句选择理由。
 
 ## 写法要求
 
@@ -133,14 +123,14 @@ test -f "$HOME/.sweety-skills/sweety-trustworthy-opening/EXTEND.md" && echo "use
 
 ## 与其他写作 skill 的关系
 
-- 与 `sweety-trustworthy-title` 同用时：先保证标题清楚可信，再用本文写开头承接；开头不能修补标题党标题。
+- 与 `sweety-trustworthy-title` 同用时：先用 title skill 定标题，再用本文写标题后的前三句或首段；本文不替代标题生成。
 - 与 `sweety-humanize-writing` 同用时：先用本文确定开头结构，再用 humanize 清掉模板腔、客服腔和空泛副词。
-- 与 `sweety-liulei-writing-style` 同用时：先用本文保证开头可信，再套用用户个人语气、节奏和判断方式。
+- 与 `sweety-liulei-writing-style` 同用时：先用本文保证开头抓手，再套用用户个人语气、节奏和判断方式。
 - 在项目 `AGENTS.md` 明确要求使用本 skill 时，所有中文文章开头生成、改写和冷审都必须先加载本 skill。
 
 ## 来源原则
 
-本 skill 结合 `sweety-trustworthy-title` 的可信标题门禁，以及用户提供的公众号开头方法论整理。需要查看 8 种开头模板和高级技巧时，读取 [references/opening-patterns.md](references/opening-patterns.md)。
+本 skill 来源于用户提供的公众号爆款开头写作指南。需要查看 8 种开头模板、高级技巧和自检清单时，读取 [references/opening-patterns.md](references/opening-patterns.md)。
 
 ## Extension Support
 

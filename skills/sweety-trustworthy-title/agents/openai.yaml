@@ -1,0 +1,4 @@
+interface:
+  display_name: "可信标题生成"
+  short_description: "生成清楚可信、不标题党的中文标题候选"
+  default_prompt: "Use $sweety-trustworthy-title to generate 20 clear Chinese title candidates that avoid clickbait."

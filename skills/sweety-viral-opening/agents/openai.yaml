@@ -1,0 +1,4 @@
+interface:
+  display_name: "爆款开头写作"
+  short_description: "用模板写出公众号前三句和文章首段"
+  default_prompt: "Use $sweety-viral-opening to draft 8 WeChat article openings from this title and outline."
