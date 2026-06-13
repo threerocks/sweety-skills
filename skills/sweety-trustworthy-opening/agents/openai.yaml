@@ -1,0 +1,4 @@
+interface:
+  display_name: "可信开头写作"
+  short_description: "写出承接标题且不透支信任的中文开头"
+  default_prompt: "Use $sweety-trustworthy-opening to draft 10 trustworthy WeChat article openings that match the title."
