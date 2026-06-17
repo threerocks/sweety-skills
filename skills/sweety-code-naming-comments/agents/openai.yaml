@@ -1,0 +1,4 @@
+interface:
+  display_name: "代码命名与注释规范"
+  short_description: "跨技术栈的代码命名和注释可读性规范"
+  default_prompt: "Use $sweety-code-naming-comments to review and improve naming and comments in this code."
