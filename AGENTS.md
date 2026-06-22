@@ -66,6 +66,8 @@ TypeScript, no comments, async/await, short variable names, type-safe interfaces
 
 All skills MUST use `sweety-` prefix. Details: [docs/creating-skills.md](docs/creating-skills.md)
 
+When adapting external hook, headline, or social growth skills, do not import their growth framing unchanged. Create a `sweety-` skill only if it adds a local safety and platform layer: Chinese readability, title trustworthiness, platform risk boundaries, and an explicit rule that hook generation produces candidates rather than final publishable copy.
+
 ## Reference Docs
 
 | Topic | File |

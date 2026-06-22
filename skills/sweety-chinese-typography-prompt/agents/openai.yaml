@@ -1,0 +1,4 @@
+interface:
+  display_name: "中文字体提示词"
+  short_description: "为中文标题字和封面字组装生图提示词"
+  default_prompt: "Use $sweety-chinese-typography-prompt to write a precise prompt for Chinese title typography in an image."

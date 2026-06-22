@@ -1,0 +1,4 @@
+interface:
+  display_name: "泛热点获取"
+  short_description: "使用本地NewsNow和DailyHotApi获取泛热点并判断各内容项目是否适合借势"
+  default_prompt: "使用泛热点获取，读取今日泛热点，并判断哪些热点适合我的内容项目自然借势。"

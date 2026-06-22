@@ -1,0 +1,4 @@
+interface:
+  display_name: "发布到掘金"
+  short_description: "将Markdown原文安全填入掘金草稿并补齐封面标签简介"
+  default_prompt: "使用 $sweety-post-to-juejin 把这篇 Markdown 准备成掘金草稿，补齐封面、分类、标签和简介，但先不要最终发布。"

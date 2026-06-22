@@ -45,13 +45,15 @@ interface MarkdownRenderResult {
 type ArticleType = "news" | "newspic";
 
 interface ArticleOptions {
-  title: string;
+  title?: string;
   author?: string;
   digest?: string;
   content: string;
   thumbMediaId: string;
   articleType: ArticleType;
   imageMediaIds?: string[];
+  picCrop2351?: string;
+  picCrop11?: string;
   needOpenComment?: number;
   onlyFansCanComment?: number;
 }
@@ -357,7 +359,6 @@ async function publishToDraft(
     }
     article = {
       article_type: "newspic",
-      title: options.title,
       content: options.content,
       need_open_comment: noc,
       only_fans_can_comment: ofcc,
@@ -365,11 +366,12 @@ async function publishToDraft(
         image_list: options.imageMediaIds.map(id => ({ image_media_id: id })),
       },
     };
+    if (options.title) article.title = options.title;
     if (options.author) article.author = options.author;
   } else {
     article = {
       article_type: "news",
-      title: options.title,
+      title: options.title || "",
       content: options.content,
       thumb_media_id: options.thumbMediaId,
       need_open_comment: noc,
@@ -377,6 +379,8 @@ async function publishToDraft(
     };
     if (options.author) article.author = options.author;
     if (options.digest) article.digest = options.digest;
+    if (options.picCrop2351) article.pic_crop_235_1 = options.picCrop2351;
+    if (options.picCrop11) article.pic_crop_1_1 = options.picCrop11;
   }
 
   const res = await fetch(url, {
@@ -415,6 +419,39 @@ function parseFrontmatter(content: string): { frontmatter: Record<string, string
   }
 
   return { frontmatter, body: match[2]! };
+}
+
+const CROP_RATIO_TOLERANCE = 0.02;
+const WIDE_COVER_RATIO = 2.35;
+
+function validateCoverCrop(value: string | undefined, fieldName: string, expectedRatios: number[]): string | undefined {
+  if (!value) return undefined;
+  const parts = value.split("_");
+  if (parts.length !== 4) {
+    throw new Error(`${fieldName} 必须是 X1_Y1_X2_Y2 格式`);
+  }
+  if (!parts.every(part => /^(?:0(?:\.\d+)?|1(?:\.0+)?|\.\d+)$/.test(part))) {
+    throw new Error(`${fieldName} 必须包含 4 个 0-1 区间数字`);
+  }
+
+  const nums = parts.map(part => Number(part));
+  if (nums.some(num => !Number.isFinite(num) || num < 0 || num > 1)) {
+    throw new Error(`${fieldName} 必须包含 4 个 0-1 区间数字`);
+  }
+
+  const [x1, y1, x2, y2] = nums as [number, number, number, number];
+  if (!(x1 < x2 && y1 < y2)) {
+    throw new Error(`${fieldName} 必须满足 0 <= X1 < X2 <= 1 且 0 <= Y1 < Y2 <= 1`);
+  }
+
+  const ratio = (x2 - x1) / (y2 - y1);
+  const matched = expectedRatios.some(expected => Math.abs(ratio - expected) <= CROP_RATIO_TOLERANCE);
+  if (!matched) {
+    const expected = expectedRatios.map(item => item.toFixed(4)).join(" 或 ");
+    throw new Error(`${fieldName} 裁剪区域宽高比应接近 ${expected}，当前为 ${ratio.toFixed(4)}`);
+  }
+
+  return value;
 }
 
 function renderMarkdownWithPlaceholders(
@@ -483,6 +520,8 @@ function printUsage(): never {
   --theme <name>      Markdown 主题（支持 wechat-markdown-to-html 的 30 套主题和 legacy alias，默认: default）
   --color <name|hex>  主色调 (blue, green, vermilion 等或十六进制值)
   --cover <path>      封面图片路径（本地或 URL）
+  --cover-crop-235 <X1_Y1_X2_Y2>  2.35:1 头条封面裁剪坐标
+  --cover-crop-1 <X1_Y1_X2_Y2>    1:1 分享封面裁剪坐标
   --account <alias>   按别名选择账号（多账号设置时使用）
   --no-cite           禁用 Markdown 模式下外部链接的底部引用
   --dry-run           仅解析和渲染，不发布
@@ -493,6 +532,8 @@ Frontmatter 字段 (markdown):
   author              作者名
   digest/summary      文章摘要
   coverImage/featureImage/cover/image   封面图片路径
+  pic_crop_235_1/coverCrop235           2.35:1 头条封面裁剪坐标
+  pic_crop_1_1/coverCrop1               1:1 分享封面裁剪坐标
 
 评论:
   默认开启评论，对所有用户开放。
@@ -508,7 +549,7 @@ Frontmatter 字段 (markdown):
 
 示例:
   npx -y bun wechat-api.ts article.md
-  npx -y bun wechat-api.ts article.md --theme elegant-blue --cover cover.png
+  npx -y bun wechat-api.ts article.md --theme elegant-blue --cover cover.png --cover-crop-235 0_0_1_0.4255 --cover-crop-1 0.287_0_0.713_1
   npx -y bun wechat-api.ts article.md --theme default --color '#A93226'
   npx -y bun wechat-api.ts article.md --author "作者名" --summary "简介"
   npx -y bun wechat-api.ts article.html --title "我的文章"
@@ -530,6 +571,8 @@ interface CliArgs {
   theme: string;
   color?: string;
   cover?: string;
+  coverCrop235?: string;
+  coverCrop1?: string;
   account?: string;
   citeStatus: boolean;
   dryRun: boolean;
@@ -570,6 +613,10 @@ function parseArgs(argv: string[]): CliArgs {
       args.color = argv[++i];
     } else if (arg === "--cover" && argv[i + 1]) {
       args.cover = argv[++i];
+    } else if (arg === "--cover-crop-235" && argv[i + 1]) {
+      args.coverCrop235 = argv[++i];
+    } else if (arg === "--cover-crop-1" && argv[i + 1]) {
+      args.coverCrop1 = argv[++i];
     } else if (arg === "--account" && argv[i + 1]) {
       args.account = argv[++i];
     } else if (arg === "--cite") {
@@ -647,7 +694,7 @@ async function main(): Promise<void> {
       process.exit(1);
     }
 
-    title = title || path.basename(filePath);
+    if (args.title) title = args.title;
     htmlPath = "";
     htmlContent = args.content || "";
     console.error(`[wechat-api] Using newspic image directory: ${filePath}, images=${newspicImages.length}`);
@@ -693,7 +740,7 @@ async function main(): Promise<void> {
     htmlContent = extractHtmlContent(htmlPath);
   }
 
-  if (!title) {
+  if (args.articleType !== "newspic" && !title) {
     console.error("错误: 未找到标题。请通过 --title、frontmatter 或 <title> 标签提供。");
     process.exit(1);
   }
@@ -709,7 +756,7 @@ async function main(): Promise<void> {
     console.error(`[wechat-api] Digest truncated to ${digest.length} chars`);
   }
 
-  console.error(`[wechat-api] Title: ${title}`);
+  if (title) console.error(`[wechat-api] Title: ${title}`);
   if (author) console.error(`[wechat-api] Author: ${author}`);
   if (digest) console.error(`[wechat-api] Digest: ${digest.slice(0, 50)}...`);
   console.error(`[wechat-api] Type: ${args.articleType}`);
@@ -724,12 +771,25 @@ async function main(): Promise<void> {
 
   if (!author && resolved.default_author) author = resolved.default_author;
 
+  const picCrop2351 = validateCoverCrop(
+    args.coverCrop235 || frontmatter.pic_crop_235_1 || frontmatter.coverCrop235,
+    "pic_crop_235_1",
+    [WIDE_COVER_RATIO],
+  );
+  const picCrop11 = validateCoverCrop(
+    args.coverCrop1 || frontmatter.pic_crop_1_1 || frontmatter.coverCrop1,
+    "pic_crop_1_1",
+    [1, 1 / WIDE_COVER_RATIO],
+  );
+
   if (args.dryRun) {
     console.log(JSON.stringify({
       articleType: args.articleType,
-      title,
+      title: title || undefined,
       author: author || undefined,
       digest: digest || undefined,
+      picCrop2351,
+      picCrop11,
       htmlPath,
       content: newspicImages.length > 0 ? htmlContent : undefined,
       contentLength: htmlContent.length,
@@ -809,13 +869,15 @@ async function main(): Promise<void> {
 
   console.error("[wechat-api] 正在发布到草稿箱...");
   const result = await publishToDraft({
-    title,
+    title: title || undefined,
     author: author || undefined,
     digest: digest || undefined,
     content: htmlContent,
     thumbMediaId,
     articleType: args.articleType,
     imageMediaIds: args.articleType === "newspic" ? imageMediaIds : undefined,
+    picCrop2351,
+    picCrop11,
     needOpenComment: resolved.need_open_comment,
     onlyFansCanComment: resolved.only_fans_can_comment,
   }, accessToken);

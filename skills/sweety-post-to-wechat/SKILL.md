@@ -406,6 +406,17 @@ WECHAT_APP_SECRET=<user_input>
    3. Else check article directory default path: `imgs/cover.png`.
    4. Else fallback to first inline content image.
    5. If still missing, stop and request a cover image before publishing.
+   6. If cover crop metadata is provided, validate it as `X1_Y1_X2_Y2` coordinates in the 0-1 range before publishing.
+
+**Cover crop metadata**:
+- WeChat uses one uploaded cover image (`thumb_media_id`), not two cover images.
+- Optional CLI fields:
+  - `--cover-crop-235 <X1_Y1_X2_Y2>` → `pic_crop_235_1`
+  - `--cover-crop-1 <X1_Y1_X2_Y2>` → `pic_crop_1_1`
+- Optional frontmatter fields:
+  - `pic_crop_235_1` or `coverCrop235`
+  - `pic_crop_1_1` or `coverCrop1`
+- Use these to specify separate crop regions for WeChat's 2.35:1 headline cover and 1:1 share cover.
 
 ### Step 4: Publish to WeChat
 
@@ -419,7 +430,7 @@ WECHAT_APP_SECRET=<user_input>
 **API method** (accepts `.md`, `.html`, or an image directory with `--type newspic`):
 
 ```bash
-${BUN_X} {baseDir}/scripts/wechat-api.ts <file> --theme <theme> [--color <color>] [--title <title>] [--summary <summary>] [--author <author>] [--cover <cover_path>] [--no-cite]
+${BUN_X} {baseDir}/scripts/wechat-api.ts <file> --theme <theme> [--color <color>] [--title <title>] [--summary <summary>] [--author <author>] [--cover <cover_path>] [--cover-crop-235 <X1_Y1_X2_Y2>] [--cover-crop-1 <X1_Y1_X2_Y2>] [--no-cite]
 ${BUN_X} {baseDir}/scripts/wechat-api.ts <images_dir> --type newspic --title <title> --content <content>
 ```
 
@@ -429,6 +440,7 @@ ${BUN_X} {baseDir}/scripts/wechat-api.ts <images_dir> --type newspic --title <ti
 - Use endpoint: `POST https://api.weixin.qq.com/cgi-bin/draft/add?access_token=ACCESS_TOKEN`
 - `article_type`: `news` (default) or `newspic`
 - For `news`, include `thumb_media_id` (cover is required)
+- For `news`, include `pic_crop_235_1` and `pic_crop_1_1` when cover crop coordinates are provided
 - For `newspic`, include `image_info.image_list[].image_media_id`; upload local images through `material/add_material?type=image` to get permanent MediaIDs
 - Always resolve and send:
   - `need_open_comment` (default `1`)

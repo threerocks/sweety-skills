@@ -12,6 +12,16 @@ Use Codex skill authoring conventions: keep `SKILL.md` concise, put only trigger
 | **SKILL.md body** | Keep under 500 lines; use `references/` for additional content |
 | **References** | One level deep from SKILL.md; avoid nested references |
 
+## Adapting External Hook Skills
+
+External hook, headline, or social growth skills can be used as source material, but a Sweety skill must add the missing local contract before publishing:
+
+- Output candidates, not final publishable titles.
+- Preserve Chinese readability and platform-specific trust boundaries.
+- Require downstream title trust checks such as `sweety-trustworthy-title` when the target platform is WeChat, Xiaohongshu, or other public distribution.
+- Convert contrarian, bold-claim, confession, and conflict patterns into evidence-backed user problems, use cases, or safe comment prompts.
+- Reject hooks that rely on shock, fear, vague curiosity, sexualized attention, unsupported promises, or platform-risky engagement bait.
+
 ## SKILL.md Frontmatter Template
 
 ```yaml

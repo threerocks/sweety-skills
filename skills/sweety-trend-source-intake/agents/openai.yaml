@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trend Source Intake"
+  short_description: "Collects trend and source evidence with Firecrawl."
+  default_prompt: "Collect source evidence for this content idea using Firecrawl."

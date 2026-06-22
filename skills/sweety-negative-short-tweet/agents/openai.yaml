@@ -1,0 +1,4 @@
+interface:
+  display_name: "生产负能量短推"
+  short_description: "根据人设输入热点天气和日期玄学生成反鸡汤中文短推候选池"
+  default_prompt: "Use $sweety-negative-short-tweet to generate three directions of Chinese negative-energy short tweet candidates from my persona and topic."
