@@ -124,8 +124,8 @@ test -f "$HOME/.sweety-skills/sweety-viral-opening/EXTEND.md" && echo "user"
 ## 与其他写作 skill 的关系
 
 - 与 `sweety-trustworthy-title` 同用时：先用 title skill 定标题，再用本文写标题后的前三句或首段；本文不替代标题生成。
-- 与 `sweety-humanize-writing` 同用时：先用本文确定开头结构，再用 humanize 清掉模板腔、客服腔和空泛副词。
-- 与 `sweety-liulei-writing-style` 同用时：先用本文保证开头抓手，再套用用户个人语气、节奏和判断方式。
+- 与 `sweety-humanizer-zh` 同用时：先用本文确定开头结构，再用 humanize 清掉模板腔、客服腔和空泛副词。
+- 与 `sweety-liulei-writer` 同用时：先用本文保证开头抓手，再套用用户个人语气、节奏和判断方式。
 - 在项目 `AGENTS.md` 明确要求使用本 skill 时，所有中文文章开头生成、改写和冷审都必须先加载本 skill。
 
 ## 来源原则
