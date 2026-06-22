@@ -543,6 +543,15 @@ git pull
 /sweety-post-to-x --article path/to/article.md
 ```
 
+#### sweety-negative-short-tweet
+
+生产负能量中文短推候选。根据人设、用户输入、日期/天气/热点/记忆，从反鸡汤方向池里选择 3 个合适方向，产出冷幽默、自嘲、现实感短句，并过滤外貌羞辱、群体攻击、造谣和自伤风险。
+
+```bash
+/sweety-negative-short-tweet "今天周一，想发一条关于上班的负能量短推"
+/sweety-negative-short-tweet "按我的人设，结合最近热点给 3 个方向"
+```
+
 #### sweety-post-to-wechat
 
 发布内容到微信公众号，支持两种模式：
@@ -773,6 +782,22 @@ AI 驱动的生成后端。
 #### sweety-karpathy-writing-style
 
 Karpathy 风格英文技术写作指南，适用于 AI 技术随笔、年度回顾、行业分析和观点文章。支持从 `original` 与 `final` 两版稿件 diff 中学习可复用规则并更新 `SKILL.md`。
+
+#### sweety-image-naturalizer
+
+“生图去除AI味”视觉 brief 指南，用于减少生成图片的 AI 模板感。将图片需求改写成有真实场景约束的创作 brief 和提示词，结合 Pinterest 式视觉发现、VHTC 式教育图解结构，以及解剖、物理、功能、文字和场景合理性检查。
+
+#### sweety-liulei-writer
+
+以 liulei 风格写中文初稿的写作技能（自己动手解决问题的工程型老手，重成本、反营销、认边界）。提供一句话人格锚、价值观底色、从授权真实语料提取的签名词库与配对示例、AI 腔红线清单和人格自检。写作流水线第一棒。用于公众号发布时只产“毛坯”供作者用自己的话收尾——因为稳过 AI 检测靠的是真人写的文本。
+
+#### sweety-humanizer-zh
+
+通用中文去 AI 味，流水线第二棒。改造自 blader/humanizer 及其汉化版：删掉英文专用规则、对中文放轻破折号规则、补回“先宣告/装腔套话/标题后重复废话”三条、把 AI 词表换成真实中文商业黑话，并加了一条“保留作者故意的口癖、别清成中性维基腔”的红线。
+
+#### sweety-four-layer-review
+
+发布前四层自检终审（事实逻辑 → 残留 AI 腔 → 节奏 → 像不像作者本人），流水线第三棒。只做判定、把问题指回上游（AI 腔回 sweety-humanizer-zh，像不像本人回 sweety-liulei-writer），不重写、不发明新规则，输出带判定和修复优先级的质检报告。
 
 #### sweety-youtube-transcript
 
