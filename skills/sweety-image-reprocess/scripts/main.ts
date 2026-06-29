@@ -11,29 +11,45 @@ import { basename, dirname, extname, join, resolve } from "path";
 import { spawn } from "child_process";
 
 type Engine = "imagemagick" | "sips";
-type Intensity = "light" | "medium" | "strong";
 
 interface Options {
   input: string;
   output?: string;
-  intensity: Intensity;
+  level: number;        // 1-10 处理强度
   keepMetadata: boolean;
   json: boolean;
 }
 
 interface Preset {
-  attenuate: number; // 噪声强度
+  attenuate: number; // 高斯噪声强度
   resize: number;    // 重采样比例 (非整数，破坏原始网格)
   unsharp: string;   // IM unsharp 参数
   quality: number;   // JPEG 质量
-  modulate?: string; // 轻微亮度扰动 (strong)
+  modulate?: string; // 轻微饱和度扰动 (高等级)
 }
 
-const PRESETS: Record<Intensity, Preset> = {
-  light:  { attenuate: 0.25, resize: 0.96, unsharp: "0x0.4+0.3+0", quality: 88 },
-  medium: { attenuate: 0.45, resize: 0.92, unsharp: "0x0.5+0.4+0", quality: 80 },
-  strong: { attenuate: 0.70, resize: 0.87, unsharp: "0x0.7+0.5+0", quality: 74, modulate: "100,98,100" },
-};
+// 命名别名 → 等级，向后兼容旧的 light/medium/strong
+const INTENSITY_ALIAS: Record<string, number> = { light: 2, medium: 5, strong: 8 };
+
+const round2 = (n: number) => Math.round(n * 100) / 100;
+
+// 在等级 1（最轻）与等级 10（最重）之间线性插值出处理参数。
+function presetForLevel(level: number): Preset {
+  const L = Math.min(10, Math.max(1, Math.round(level)));
+  const t = (L - 1) / 9;
+  const lerp = (a: number, b: number) => a + (b - a) * t;
+  const sigma = round2(lerp(0.30, 0.80));
+  const amount = round2(lerp(0.25, 0.60));
+  const p: Preset = {
+    attenuate: round2(lerp(0.12, 0.90)), // 噪声 0.12 → 0.90
+    resize: round2(lerp(0.98, 0.82)),    // 重采样 98% → 82%
+    quality: Math.round(lerp(92, 66)),   // JPEG 92 → 66
+    unsharp: `0x${sigma}+${amount}+0`,
+  };
+  // 等级 ≥7 才引入轻微饱和度扰动 (100 → ~97.2)
+  if (L >= 7) p.modulate = `100,${round2(100 - (L - 6) * 0.7)},100`;
+  return p;
+}
 
 function sh(cmd: string, args: string[]): Promise<{ code: number; out: string; err: string }> {
   return new Promise((res) => {
@@ -59,16 +75,21 @@ async function detectEngine(): Promise<{ engine: Engine; bin: string } | null> {
 }
 
 function parseArgs(argv: string[]): Options {
-  const o: Options = { input: "", intensity: "medium", keepMetadata: false, json: false };
+  const o: Options = { input: "", level: 5, keepMetadata: false, json: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
-    if (a === "--intensity" || a === "-i") o.intensity = argv[++i] as Intensity;
-    else if (a === "--output" || a === "-o") o.output = argv[++i];
+    if (a === "--level" || a === "-l") {
+      o.level = parseInt(argv[++i], 10);
+    } else if (a === "--intensity" || a === "-i") {
+      const v = argv[++i];
+      o.level = INTENSITY_ALIAS[v] ?? parseInt(v, 10);
+    } else if (a === "--output" || a === "-o") o.output = argv[++i];
     else if (a === "--keep-metadata") o.keepMetadata = true;
     else if (a === "--json") o.json = true;
     else if (!a.startsWith("-")) o.input = a;
   }
-  if (!PRESETS[o.intensity]) o.intensity = "medium";
+  if (!Number.isFinite(o.level)) o.level = 5;
+  o.level = Math.min(10, Math.max(1, Math.round(o.level)));
   return o;
 }
 
@@ -79,8 +100,7 @@ function defaultOutput(input: string): string {
   return join(dir, `${base}.reprocessed.jpg`);
 }
 
-async function runImageMagick(bin: string, o: Options, out: string): Promise<void> {
-  const p = PRESETS[o.intensity];
+async function runImageMagick(bin: string, p: Preset, o: Options, out: string): Promise<void> {
   const args = [o.input];
   // 1. 加真实高斯噪声（覆盖扩散模型的合成噪声指纹）
   args.push("-attenuate", String(p.attenuate), "+noise", "Gaussian");
@@ -99,9 +119,8 @@ async function runImageMagick(bin: string, o: Options, out: string): Promise<voi
   if (r.code !== 0) throw new Error(`imagemagick failed: ${r.err}`);
 }
 
-async function runSips(o: Options, out: string): Promise<{ warning: string }> {
+async function runSips(p: Preset, o: Options, out: string): Promise<{ warning: string }> {
   // sips 无法加噪声，只能做重采样 + JPEG 重压——降级模式，明确告警。
-  const p = PRESETS[o.intensity];
   const wInfo = await sh("sips", ["-g", "pixelWidth", o.input]);
   const m = wInfo.out.match(/pixelWidth:\s*(\d+)/);
   if (!m) throw new Error("sips: cannot read width");
@@ -117,7 +136,7 @@ async function runSips(o: Options, out: string): Promise<{ warning: string }> {
 async function main() {
   const o = parseArgs(process.argv.slice(2));
   if (!o.input) {
-    console.error("用法: main.ts <input> [-o output] [--intensity light|medium|strong] [--keep-metadata] [--json]");
+    console.error("用法: main.ts <input> [-o output] [--level 1-10 | --intensity light|medium|strong] [--keep-metadata] [--json]");
     process.exit(2);
   }
   o.input = resolve(o.input);
@@ -128,17 +147,19 @@ async function main() {
   if (!det) { console.error("未找到图像工具。请 `brew install imagemagick`。"); process.exit(1); }
 
   const inSize = statSync(o.input).size;
+  const preset = presetForLevel(o.level);
   let warning = "";
   if (det.engine === "imagemagick") {
-    await runImageMagick(det.bin, o, out);
+    await runImageMagick(det.bin, preset, o, out);
   } else {
-    ({ warning } = await runSips(o, out));
+    ({ warning } = await runSips(preset, o, out));
   }
   const outSize = statSync(out).size;
 
   const result = {
     engine: det.engine,
-    intensity: o.intensity,
+    level: o.level,
+    params: preset,
     input: o.input,
     output: out,
     inputSize: inSize,
@@ -150,7 +171,7 @@ async function main() {
   if (o.json) {
     console.log(JSON.stringify(result, null, 2));
   } else {
-    console.log(`✅ 重处理完成 [${det.engine} / ${o.intensity}]`);
+    console.log(`✅ 重处理完成 [${det.engine} / L${o.level}]`);
     console.log(`   输入: ${o.input} (${(inSize / 1024).toFixed(0)} KB)`);
     console.log(`   输出: ${out} (${(outSize / 1024).toFixed(0)} KB)`);
     console.log(`   元数据: ${o.keepMetadata ? "保留" : "已抹除"}`);

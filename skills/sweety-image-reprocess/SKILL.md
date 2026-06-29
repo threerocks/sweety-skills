@@ -1,7 +1,7 @@
 ---
 name: sweety-image-reprocess
 description: 对已生成的图片做像素层重处理（注入真实高斯噪声、非均匀锐化、非整数重采样、JPEG 重编码、抹元数据），扰乱扩散/GAN 模型在频域与噪声层留下的统计指纹，降低"半真实"内容被 AI 检测器误判的概率。适用于"图片重处理""去 AI 频域指纹""降低 AI 检测概率""real grain/翻拍替代""图片重压破指纹"等请求。本 skill 只处理像素，不写提示词、不改提示词层 AI 味。
-version: 0.1.0
+version: 0.2.0
 metadata:
   openclaw:
     homepage: https://github.com/sweety/sweety-skills#sweety-image-reprocess
@@ -35,10 +35,16 @@ metadata:
 
 1. **确认意图与合规**：确认是发布稳健性需求而非欺骗用途；提醒平台 AI 标识规定。
 2. **先验语义**：让用户确认图片无语义级破绽（手/眼/反光/背景）。有破绽 → 回去重选图，本 skill 不补救。
-3. **选强度**：
-   - `light`：日常配图、本就接近真实的图。轻噪声 + 96% 重采样 + Q88。
-   - `medium`（默认）：标准 AI 图发布前处理。
-   - `strong`：检测压力大、可接受画质轻微下降时。
+3. **选等级 `--level 1-10`（默认 5）**：数字越大处理越重、画质损失越大。各参数在等级 1↔10 间线性插值：
+
+   | 等级 | 噪声 attenuate | 重采样 | JPEG 质量 | 饱和度扰动 | 适用 |
+   |------|------|------|------|------|------|
+   | 1–2 | 0.12–0.21 | 98–96% | 92–89 | — | 日常配图、本就接近真实的图 |
+   | 5（默认） | 0.47 | 91% | 80 | — | 标准 AI 图发布前处理 |
+   | 7–8 | 0.64–0.73 | 87–86% | 75–72 | 99.3–98.6 | 检测压力大、可接受画质轻微下降 |
+   | 10 | 0.90 | 82% | 66 | 97.2 | 极限处理，画质明显下降 |
+
+   旧的命名别名仍可用：`--intensity light` = 等级 2，`medium` = 5，`strong` = 8。越界数字自动钳制到 1–10。
 4. **运行脚本**（见下）。
 5. **告知用户后续链路**：
    - 元数据进一步真实化 → `sweety-image-privacy`（注入类 iPhone EXIF）。
@@ -63,17 +69,20 @@ metadata:
 ### 运行
 
 ```bash
-${BUN_X} {baseDir}/scripts/main.ts <输入图> [-o 输出图] [--intensity light|medium|strong] [--keep-metadata] [--json]
+${BUN_X} {baseDir}/scripts/main.ts <输入图> [-o 输出图] [--level 1-10] [--intensity light|medium|strong] [--keep-metadata] [--json]
 ```
 
 示例：
 
 ```bash
-# 默认 medium，输出 <name>.reprocessed.jpg
+# 默认等级 5，输出 <name>.reprocessed.jpg
 ${BUN_X} {baseDir}/scripts/main.ts portrait.png
 
-# 强处理 + 指定输出
-${BUN_X} {baseDir}/scripts/main.ts portrait.png -o out.jpg --intensity strong
+# 指定等级 8 + 指定输出
+${BUN_X} {baseDir}/scripts/main.ts portrait.png -o out.jpg --level 8
+
+# 兼容旧别名
+${BUN_X} {baseDir}/scripts/main.ts portrait.png --intensity strong
 ```
 
 ### 引擎
