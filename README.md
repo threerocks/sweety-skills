@@ -789,15 +789,11 @@ Chinese visual brief guide for removing the AI look from image generation tasks.
 
 #### sweety-liulei-writer
 
-Writing skill for drafting articles in Liu Lei's voice (hands-on engineer, cost-aware, anti-marketing, boundary-honest). Provides a persona anchor, value baseline, a signature lexicon and paired examples extracted from real authorized corpus, an AI-cliché red-line list, and a persona self-check. First stage of the writing pipeline. For WeChat publishing it outputs a scaffold/rough draft for the author to finish in their own words, since reliably passing AI detectors requires genuinely human text.
-
-#### sweety-humanizer-zh
-
-General Chinese de-AI cleanup, second stage of the pipeline. Adapted from blader/humanizer and its Chinese port: drops English-only rules, softens the em-dash rule for Chinese, adds signposting / persuasive-authority / fragmented-header rules, rewrites the AI-vocabulary blacklist with real Chinese business jargon, and guards the author's deliberate voice tics from being scrubbed.
+Writing skill for drafting articles in Liu Lei's voice (hands-on engineer, cost-aware, anti-marketing, boundary-honest). Provides a persona anchor, value baseline, a signature lexicon and paired examples extracted from real authorized corpus, an AI-cliché red-line list, and a persona self-check. It is the single entrypoint for the writing pipeline and orchestrates external `shuorenhua` + `humanizer-zh` review before `sweety-four-layer-review`. For WeChat publishing it outputs a scaffold/rough draft or cleanup plan for the author to finish in their own words, since reliably passing AI detectors requires genuinely human text.
 
 #### sweety-four-layer-review
 
-Pre-publish four-layer review (facts/logic → residual AI-flavor → rhythm → does-it-sound-like-the-author), final stage of the pipeline. Only judges and routes issues back upstream (AI-flavor to sweety-humanizer-zh, voice to sweety-liulei-writer); it does not rewrite or invent new rules. Outputs a structured QC report with a verdict and fix priorities.
+Pre-publish four-layer review (facts/logic → residual AI-flavor → rhythm → does-it-sound-like-the-author), final stage of the pipeline. Only judges and routes issues back upstream (boundary/voice cleanup to external `shuorenhua` / `humanizer-zh`, voice to `sweety-liulei-writer`); it does not rewrite or invent new rules. Outputs a structured QC report with a verdict and fix priorities.
 
 #### sweety-youtube-transcript
 
