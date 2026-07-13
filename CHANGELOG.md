@@ -2,6 +2,17 @@
 
 English | [中文](./CHANGELOG.zh.md)
 
+## 1.80.0 - 2026-07-13
+
+### Features
+- New skill `sweety-video-gen`: generic AI video generation for services implementing the `/v1/media` open protocol (e.g. Seedance 2.0 relay). Configure host + API key via `~/.sweety-skills/.env`; supports text-to-video, reference-image-to-video, duration/aspect-ratio, status query, retry, auto-polling, result download, and a per-task cost ledger with `--usage` summary
+- New skill `sweety-image-reprocess`: pixel-layer reprocessing (noise injection, non-uniform sharpening, non-integer resampling, JPEG re-encode, metadata strip) with a 1-10 strength level to disrupt diffusion/GAN statistical fingerprints
+- `sweety-liulei-writer`: refactor writing pipeline as single entrypoint, drop `sweety-humanizer-zh`, add style examples 手法13-16 with a real learning case
+
+### Tests
+- Add liulei writing pipeline contract test
+- `sweety-video-gen`: unit tests for arg parsing, config precedence, URL joining, and cost helpers
+
 ## 1.79.2 - 2026-03-23
 
 ### Fixes

@@ -757,6 +757,24 @@ AI 驱动的生成后端。
 2. 如果只有一个 API 密钥 → 使用对应服务商
 3. 如果多个可用 → 默认使用 Google
 
+#### sweety-video-gen
+
+通用 AI 视频生成，对接实现 `/v1/media` 开放协议的服务（当前源：seedance 2.0 fast 中转）。在 `~/.sweety-skills/.env` 配置服务地址和 API Key（`VIDEO_GEN_BASE_URL` / `VIDEO_GEN_API_KEY`）；换源只需改 base URL。
+
+```bash
+# 文生视频（5 秒，完成后自动下载）
+/sweety-video-gen --prompt "窗台上的猫" --duration 5 --output out.mp4
+
+# 图生视频（本地参考图自动上传）
+/sweety-video-gen --prompt "让画面动起来" --ref 1.jpg --output out.mp4
+
+# 查询 / 续等 / 重试任务、列模型、成本汇总
+/sweety-video-gen --status 123
+/sweety-video-gen --usage
+```
+
+每个完成的任务自动记入成本台账（`~/.sweety-skills/sweety-video-gen/usage.jsonl`）。
+
 #### sweety-danger-gemini-web
 
 与 Gemini Web 交互，生成文本和图片。
@@ -786,6 +804,10 @@ Karpathy 风格英文技术写作指南，适用于 AI 技术随笔、年度回�
 #### sweety-image-naturalizer
 
 “生图去除AI味”视觉 brief 指南，用于减少生成图片的 AI 模板感。将图片需求改写成有真实场景约束的创作 brief 和提示词，结合 Pinterest 式视觉发现、VHTC 式教育图解结构，以及解剖、物理、功能、文字和场景合理性检查。
+
+#### sweety-image-reprocess
+
+对已生成图片做像素层重处理（真实高斯噪声、非均匀锐化、非整数重采样、JPEG 重编码、抹元数据），提供 1-10 强度档位。扰乱扩散/GAN 模型的频域统计指纹，降低"半真实"内容被 AI 检测器误判的概率。
 
 #### sweety-liulei-writer
 

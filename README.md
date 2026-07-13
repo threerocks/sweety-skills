@@ -757,6 +757,24 @@ AI SDK-based image generation using OpenAI, Google, OpenRouter, DashScope (Aliyu
 2. If only one API key available → use that provider
 3. If multiple available → default to Google
 
+#### sweety-video-gen
+
+Generic AI video generation for services implementing the `/v1/media` open protocol (current source: Seedance 2.0 fast relay). Configure host + API key in `~/.sweety-skills/.env` (`VIDEO_GEN_BASE_URL` / `VIDEO_GEN_API_KEY`); switching providers only requires changing the base URL.
+
+```bash
+# Text-to-video (5s, downloads on completion)
+/sweety-video-gen --prompt "A cat on a windowsill" --duration 5 --output out.mp4
+
+# Image-to-video with local reference images (auto-uploaded)
+/sweety-video-gen --prompt "Animate this scene" --ref 1.jpg --output out.mp4
+
+# Query / wait / retry a task, list models, cost summary
+/sweety-video-gen --status 123
+/sweety-video-gen --usage
+```
+
+Each finished task is appended to a cost ledger (`~/.sweety-skills/sweety-video-gen/usage.jsonl`).
+
 #### sweety-danger-gemini-web
 
 Interacts with Gemini Web to generate text and images.
@@ -786,6 +804,10 @@ Karpathy-inspired English technical writing guide for AI essays, year-in-review 
 #### sweety-image-naturalizer
 
 Chinese visual brief guide for removing the AI look from image generation tasks. Turns image requests into grounded creative briefs and prompts with Pinterest-style visual discovery, VHTC-style educational diagram structure, and artifact checks for anatomy, physics, function, text, and scene plausibility.
+
+#### sweety-image-reprocess
+
+Pixel-layer reprocessing for generated images (real Gaussian noise, non-uniform sharpening, non-integer resampling, JPEG re-encode, metadata strip) with a 1-10 strength level. Disrupts diffusion/GAN frequency-domain fingerprints to reduce false positives from AI detectors on hybrid-real content.
 
 #### sweety-liulei-writer
 

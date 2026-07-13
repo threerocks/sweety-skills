@@ -2,6 +2,17 @@
 
 [English](./CHANGELOG.md) | 中文
 
+## 1.80.0 - 2026-07-13
+
+### 新功能
+- 新增 `sweety-video-gen`：通用 AI 视频生成，对接实现 `/v1/media` 开放协议的服务（如 seedance 2.0 中转源）。通过 `~/.sweety-skills/.env` 配置服务地址和 API Key；支持文生视频、参考图生视频、时长与宽高比设置、任务查询、失败重试、自动轮询、结果下载，以及带 `--usage` 汇总的逐任务成本台账
+- 新增 `sweety-image-reprocess`：图片像素层重处理（噪声注入、非均匀锐化、非整数重采样、JPEG 重编码、抹元数据），提供 1-10 强度档位，扰乱扩散/GAN 统计指纹
+- `sweety-liulei-writer`：重构写作流水线为单一入口，移除 `sweety-humanizer-zh`，新增手法 13-16 风格样例及真实学习案例
+
+### 测试
+- 新增 liulei 写作流水线契约测试
+- `sweety-video-gen`：参数解析、配置优先级、URL 拼接、成本计算的单元测试
+
 ## 1.79.2 - 2026-03-23
 
 ### 修复
