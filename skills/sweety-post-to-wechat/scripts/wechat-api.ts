@@ -54,6 +54,7 @@ interface ArticleOptions {
   imageMediaIds?: string[];
   picCrop2351?: string;
   picCrop11?: string;
+  sourceUrl?: string;
   needOpenComment?: number;
   onlyFansCanComment?: number;
 }
@@ -381,6 +382,7 @@ async function publishToDraft(
     if (options.digest) article.digest = options.digest;
     if (options.picCrop2351) article.pic_crop_235_1 = options.picCrop2351;
     if (options.picCrop11) article.pic_crop_1_1 = options.picCrop11;
+    if (options.sourceUrl) article.content_source_url = options.sourceUrl;
   }
 
   const res = await fetch(url, {
@@ -569,6 +571,7 @@ function printUsage(): never {
   --cover <path>      封面图片路径（本地或 URL）
   --cover-crop-235 <X1_Y1_X2_Y2>  2.35:1 头条封面裁剪坐标
   --cover-crop-1 <X1_Y1_X2_Y2>    1:1 分享封面裁剪坐标
+  --source-url <url>  「阅读原文」链接（content_source_url，仅 news 类型）
   --account <alias>   按别名选择账号（多账号设置时使用）
   --no-cite           禁用 Markdown 模式下外部链接的底部引用
   --dry-run           仅解析和渲染，不发布
@@ -620,6 +623,7 @@ interface CliArgs {
   cover?: string;
   coverCrop235?: string;
   coverCrop1?: string;
+  sourceUrl?: string;
   account?: string;
   citeStatus: boolean;
   dryRun: boolean;
@@ -664,6 +668,8 @@ function parseArgs(argv: string[]): CliArgs {
       args.coverCrop235 = argv[++i];
     } else if (arg === "--cover-crop-1" && argv[i + 1]) {
       args.coverCrop1 = argv[++i];
+    } else if (arg === "--source-url" && argv[i + 1]) {
+      args.sourceUrl = argv[++i];
     } else if (arg === "--account" && argv[i + 1]) {
       args.account = argv[++i];
     } else if (arg === "--cite") {
@@ -929,6 +935,7 @@ async function main(): Promise<void> {
     imageMediaIds: args.articleType === "newspic" ? imageMediaIds : undefined,
     picCrop2351,
     picCrop11,
+    sourceUrl: args.sourceUrl || frontmatter.content_source_url || frontmatter.sourceUrl || undefined,
     needOpenComment: resolved.need_open_comment,
     onlyFansCanComment: resolved.only_fans_can_comment,
   }, accessToken);

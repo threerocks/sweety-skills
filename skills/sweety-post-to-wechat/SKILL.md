@@ -430,7 +430,7 @@ WECHAT_APP_SECRET=<user_input>
 **API method** (accepts `.md`, `.html`, or an image directory with `--type newspic`):
 
 ```bash
-${BUN_X} {baseDir}/scripts/wechat-api.ts <file> --theme <theme> [--color <color>] [--title <title>] [--summary <summary>] [--author <author>] [--cover <cover_path>] [--cover-crop-235 <X1_Y1_X2_Y2>] [--cover-crop-1 <X1_Y1_X2_Y2>] [--no-cite]
+${BUN_X} {baseDir}/scripts/wechat-api.ts <file> --theme <theme> [--color <color>] [--title <title>] [--summary <summary>] [--author <author>] [--cover <cover_path>] [--cover-crop-235 <X1_Y1_X2_Y2>] [--cover-crop-1 <X1_Y1_X2_Y2>] [--source-url <url>] [--no-cite]
 ${BUN_X} {baseDir}/scripts/wechat-api.ts <images_dir> --type newspic --title <title> --content <content>
 ```
 
@@ -441,6 +441,7 @@ ${BUN_X} {baseDir}/scripts/wechat-api.ts <images_dir> --type newspic --title <ti
 - `article_type`: `news` (default) or `newspic`
 - For `news`, include `thumb_media_id` (cover is required)
 - For `news`, include `pic_crop_235_1` and `pic_crop_1_1` when cover crop coordinates are provided
+- For `news`, include `content_source_url`（「阅读原文」链接）via CLI `--source-url` or frontmatter `content_source_url` / `sourceUrl`
 - For `newspic`, include `image_info.image_list[].image_media_id`; upload local images through `material/add_material?type=image` to get permanent MediaIDs
 - Always resolve and send:
   - `need_open_comment` (default `1`)
