@@ -12,6 +12,17 @@ function makeArticle(tmpDir: string, frontmatter: string = ""): string {
   return articlePath;
 }
 
+// 只需 PNG 魔数 + IHDR 宽高即可被 readImageSize 识别，无需完整合法 PNG。
+function writeFakePng(filePath: string, width: number, height: number): void {
+  const buffer = Buffer.alloc(24);
+  buffer.set([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a], 0);
+  buffer.writeUInt32BE(13, 8);
+  buffer.write("IHDR", 12, "ascii");
+  buffer.writeUInt32BE(width, 16);
+  buffer.writeUInt32BE(height, 20);
+  fs.writeFileSync(filePath, buffer);
+}
+
 function runWechatApiSync(args: string[], cwd: string) {
   const script = path.join(import.meta.dirname, "wechat-api.ts");
   return spawnSync(process.execPath, [script, ...args], {
@@ -40,11 +51,14 @@ function runWechatApi(args: string[], cwd: string, env: Record<string, string>):
 
 test("wechat-api dry-run resolves cover crop fields from frontmatter aliases", { timeout: 15000 }, () => {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "wechat-crop-frontmatter-"));
+  // 2.35:1 的真实尺寸封面：裁剪坐标按像素宽高比校验
+  fs.mkdirSync(path.join(tmpDir, "imgs"), { recursive: true });
+  writeFakePng(path.join(tmpDir, "imgs", "cover.png"), 2350, 1000);
   const articlePath = makeArticle(tmpDir, [
     "---",
     'title: "Crop Test"',
     'coverImage: "imgs/cover.png"',
-    'pic_crop_235_1: "0_0_1_0.4255"',
+    'pic_crop_235_1: "0_0_1_1"',
     'coverCrop1: "0.287_0_0.713_1"',
     "---",
     "",
@@ -54,7 +68,7 @@ test("wechat-api dry-run resolves cover crop fields from frontmatter aliases", {
 
   assert.equal(result.status, 0, result.stderr);
   const output = JSON.parse(result.stdout);
-  assert.equal(output.picCrop2351, "0_0_1_0.4255");
+  assert.equal(output.picCrop2351, "0_0_1_1");
   assert.equal(output.picCrop11, "0.287_0_0.713_1");
 });
 
@@ -62,19 +76,20 @@ test("wechat-api dry-run resolves cover crop fields from CLI", { timeout: 15000 
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "wechat-crop-cli-"));
   const articlePath = makeArticle(tmpDir, "---\ntitle: Crop Test\n---\n\n");
 
+  // 无封面尺寸可读时退化为相对宽高比校验
   const result = runWechatApiSync([
     articlePath,
     "--cover-crop-235",
     "0_0_1_0.4255",
     "--cover-crop-1",
-    "0.287_0_0.713_1",
+    "0.2_0.2_0.6_0.6",
     "--dry-run",
   ], tmpDir);
 
   assert.equal(result.status, 0, result.stderr);
   const output = JSON.parse(result.stdout);
   assert.equal(output.picCrop2351, "0_0_1_0.4255");
-  assert.equal(output.picCrop11, "0.287_0_0.713_1");
+  assert.equal(output.picCrop11, "0.2_0.2_0.6_0.6");
 });
 
 test("wechat-api rejects invalid cover crop coordinates", { timeout: 15000 }, () => {
@@ -97,7 +112,7 @@ test("wechat-api sends cover crop fields in news draft payload", { timeout: 1500
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "wechat-crop-payload-"));
   const articlePath = makeArticle(tmpDir, "---\ntitle: Crop Test\n---\n\n");
   const coverPath = path.join(tmpDir, "cover.png");
-  fs.writeFileSync(coverPath, "fake-png");
+  writeFakePng(coverPath, 2350, 1000);
   fs.mkdirSync(path.join(tmpDir, ".sweety-skills", "sweety-post-to-wechat"), { recursive: true });
 
   const draftPayloads: unknown[] = [];
@@ -139,7 +154,7 @@ test("wechat-api sends cover crop fields in news draft payload", { timeout: 1500
       "--cover",
       coverPath,
       "--cover-crop-235",
-      "0_0_1_0.4255",
+      "0_0_1_1",
       "--cover-crop-1",
       "0.287_0_0.713_1",
     ], tmpDir, {
@@ -150,7 +165,7 @@ test("wechat-api sends cover crop fields in news draft payload", { timeout: 1500
     assert.equal(result.status, 0, result.stderr);
     assert.equal(draftPayloads.length, 1);
     const payload = draftPayloads[0] as { articles: Array<Record<string, unknown>> };
-    assert.equal(payload.articles[0]?.pic_crop_235_1, "0_0_1_0.4255");
+    assert.equal(payload.articles[0]?.pic_crop_235_1, "0_0_1_1");
     assert.equal(payload.articles[0]?.pic_crop_1_1, "0.287_0_0.713_1");
   } finally {
     await new Promise<void>(resolve => server.close(() => resolve()));

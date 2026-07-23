@@ -424,7 +424,51 @@ function parseFrontmatter(content: string): { frontmatter: Record<string, string
 const CROP_RATIO_TOLERANCE = 0.02;
 const WIDE_COVER_RATIO = 2.35;
 
-function validateCoverCrop(value: string | undefined, fieldName: string, expectedRatios: number[]): string | undefined {
+function readImageSize(filePath: string | undefined): { width: number; height: number } | undefined {
+  if (!filePath || !fs.existsSync(filePath)) return undefined;
+  const buffer = fs.readFileSync(filePath);
+  if (
+    buffer.length >= 24 &&
+    buffer[0] === 0x89 &&
+    buffer[1] === 0x50 &&
+    buffer[2] === 0x4e &&
+    buffer[3] === 0x47
+  ) {
+    return {
+      width: buffer.readUInt32BE(16),
+      height: buffer.readUInt32BE(20),
+    };
+  }
+  if (buffer.length >= 4 && buffer[0] === 0xff && buffer[1] === 0xd8) {
+    let offset = 2;
+    while (offset + 9 < buffer.length) {
+      if (buffer[offset] !== 0xff) break;
+      const marker = buffer[offset + 1];
+      const length = buffer.readUInt16BE(offset + 2);
+      if (length < 2) break;
+      if (marker >= 0xc0 && marker <= 0xc3) {
+        return {
+          width: buffer.readUInt16BE(offset + 7),
+          height: buffer.readUInt16BE(offset + 5),
+        };
+      }
+      offset += 2 + length;
+    }
+  }
+  return undefined;
+}
+
+function resolveCoverPathForCrop(rawCoverPath: string | undefined, baseDir: string): string | undefined {
+  if (!rawCoverPath) return undefined;
+  return path.isAbsolute(rawCoverPath) ? rawCoverPath : path.resolve(baseDir, rawCoverPath);
+}
+
+function validateCoverCrop(
+  value: string | undefined,
+  fieldName: string,
+  expectedRatios: number[],
+  coverPath?: string,
+): string | undefined {
   if (!value) return undefined;
   const parts = value.split("_");
   if (parts.length !== 4) {
@@ -444,11 +488,14 @@ function validateCoverCrop(value: string | undefined, fieldName: string, expecte
     throw new Error(`${fieldName} 必须满足 0 <= X1 < X2 <= 1 且 0 <= Y1 < Y2 <= 1`);
   }
 
-  const ratio = (x2 - x1) / (y2 - y1);
+  const imageSize = readImageSize(coverPath);
+  const ratio = imageSize
+    ? ((x2 - x1) * imageSize.width) / ((y2 - y1) * imageSize.height)
+    : (x2 - x1) / (y2 - y1);
   const matched = expectedRatios.some(expected => Math.abs(ratio - expected) <= CROP_RATIO_TOLERANCE);
   if (!matched) {
     const expected = expectedRatios.map(item => item.toFixed(4)).join(" 或 ");
-    throw new Error(`${fieldName} 裁剪区域宽高比应接近 ${expected}，当前为 ${ratio.toFixed(4)}`);
+    throw new Error(`${fieldName} 裁剪后像素宽高比应接近 ${expected}，当前为 ${ratio.toFixed(4)}`);
   }
 
   return value;
@@ -771,15 +818,27 @@ async function main(): Promise<void> {
 
   if (!author && resolved.default_author) author = resolved.default_author;
 
+  const rawCoverPath = args.cover ||
+    frontmatter.coverImage ||
+    frontmatter.featureImage ||
+    frontmatter.cover ||
+    frontmatter.image;
+  const coverPath = rawCoverPath && !path.isAbsolute(rawCoverPath) && args.cover
+    ? path.resolve(process.cwd(), rawCoverPath)
+    : rawCoverPath;
+  const coverPathForCrop = resolveCoverPathForCrop(coverPath, baseDir);
+
   const picCrop2351 = validateCoverCrop(
     args.coverCrop235 || frontmatter.pic_crop_235_1 || frontmatter.coverCrop235,
     "pic_crop_235_1",
     [WIDE_COVER_RATIO],
+    coverPathForCrop,
   );
   const picCrop11 = validateCoverCrop(
     args.coverCrop1 || frontmatter.pic_crop_1_1 || frontmatter.coverCrop1,
     "pic_crop_1_1",
-    [1, 1 / WIDE_COVER_RATIO],
+    [1],
+    coverPathForCrop,
   );
 
   if (args.dryRun) {
@@ -809,14 +868,6 @@ async function main(): Promise<void> {
   console.error("[wechat-api] 正在获取访问令牌...");
   const accessToken = await fetchAccessToken(creds.appId, creds.appSecret);
 
-  const rawCoverPath = args.cover ||
-    frontmatter.coverImage ||
-    frontmatter.featureImage ||
-    frontmatter.cover ||
-    frontmatter.image;
-  const coverPath = rawCoverPath && !path.isAbsolute(rawCoverPath) && args.cover
-    ? path.resolve(process.cwd(), rawCoverPath)
-    : rawCoverPath;
   const needNewsCoverFallback = args.articleType === "news" && !coverPath;
 
   let firstCoverMediaId = "";
