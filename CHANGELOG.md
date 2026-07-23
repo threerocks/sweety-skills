@@ -2,6 +2,17 @@
 
 English | [中文](./CHANGELOG.zh.md)
 
+## 1.81.0 - 2026-07-23
+
+### Features
+- `sweety-post-to-wechat`: new `--source-url` CLI flag (with `content_source_url` / `sourceUrl` frontmatter fallback) sets the article's 阅读原文 link via the draft API — no more manual step in the MP editor before mass send
+
+### Fixes
+- `sweety-post-to-wechat`: cover crop validation now reads the cover's real pixel dimensions (PNG IHDR / JPEG SOF) and validates `pic_crop_235_1` / `pic_crop_1_1` by cropped pixel aspect ratio, falling back to relative ratio when the size is unreadable; `pic_crop_1_1` is restricted to 1:1
+
+### Tests
+- `sweety-post-to-wechat`: mock-server payload test for `content_source_url`; cover-crop fixtures upgraded to real-size covers so pixel-aware validation is exercised
+
 ## 1.80.0 - 2026-07-13
 
 ### Features

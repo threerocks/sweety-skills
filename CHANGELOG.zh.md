@@ -2,6 +2,17 @@
 
 [English](./CHANGELOG.md) | 中文
 
+## 1.81.0 - 2026-07-23
+
+### 新功能
+- `sweety-post-to-wechat`：新增 `--source-url` 参数（支持 frontmatter `content_source_url` / `sourceUrl` 回退），通过草稿 API 直接设置文章「阅读原文」链接，群发前无需再到公众号后台手动补
+
+### 修复
+- `sweety-post-to-wechat`：封面裁剪校验改为读取封面真实像素尺寸（PNG IHDR / JPEG SOF），按裁剪后像素宽高比校验 `pic_crop_235_1` / `pic_crop_1_1`，尺寸不可读时退化为相对宽高比；`pic_crop_1_1` 收紧为仅接受 1:1
+
+### 测试
+- `sweety-post-to-wechat`：新增 `content_source_url` 的 mock 服务端 payload 测试；封面裁剪测试夹具改为真实尺寸封面，确保像素级校验被真正覆盖
+
 ## 1.80.0 - 2026-07-13
 
 ### 新功能
