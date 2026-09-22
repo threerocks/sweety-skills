@@ -805,6 +805,10 @@ Karpathy-inspired English technical writing guide for AI essays, year-in-review 
 
 Chinese visual brief guide for removing the AI look from image generation tasks. Turns image requests into grounded creative briefs and prompts with Pinterest-style visual discovery, VHTC-style educational diagram structure, and artifact checks for anatomy, physics, function, text, and scene plausibility.
 
+#### sweety-image-art-direction
+
+Standalone, explicit-only art direction for portraits, real-world scenes, products, posters, infographics, and hand-drawn images. The [complete skill and input template](skills/sweety-image-art-direction/SKILL.md) are self-contained: no external configuration, other skills, or extra scripts are required. Includes a restrained default prompt, five portrait principles, and five information-design principles. Preserves the requested style, prioritizes coherent shapes and tonal hierarchy, and separates generated artwork from final text layout. Invoke with `$sweety-image-art-direction`.
+
 #### sweety-image-reprocess
 
 Pixel-layer reprocessing for generated images (real Gaussian noise, non-uniform sharpening, non-integer resampling, JPEG re-encode, metadata strip) with a 1-10 strength level. Disrupts diffusion/GAN frequency-domain fingerprints to reduce false positives from AI detectors on hybrid-real content.

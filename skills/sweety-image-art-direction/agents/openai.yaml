@@ -1,0 +1,6 @@
+interface:
+  display_name: "图像美术指导"
+  short_description: "独立的手动图像美术指导，内置专业模板、人像与信息设计规则，保留画风并减少稀碎感"
+  default_prompt: "使用 $sweety-image-art-direction，根据我提供的用途与风格独立完成美术指导；采用内置模板与题材规则，保留指定内容，先消除稀碎感，再检查材质、光影和文字。"
+policy:
+  allow_implicit_invocation: false
