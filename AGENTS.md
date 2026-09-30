@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Codex plugin bundle providing AI-powered content generation skills. Version: **1.79.2**.
+Codex plugin bundle providing AI-powered content generation skills. Version: **1.81.1**.
 
 ## Architecture
 

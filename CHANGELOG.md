@@ -2,6 +2,14 @@
 
 English | [中文](./CHANGELOG.zh.md)
 
+## 1.81.1 - 2026-09-30
+
+### Fixes
+- `sweety-image-art-direction`: clarify reference roles, preservation requirements, and iterative edits; check unintended changes, exact text, dimensions, and transparency. Keep the skill standalone and explicit-only, with no guarantee of visual improvement.
+
+### Documentation
+- Update the art-direction input template and bilingual capability descriptions to reflect the integrated image-prompting guidance.
+
 ## 1.81.0 - 2026-07-23
 
 ### Features

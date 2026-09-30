@@ -807,7 +807,7 @@ Chinese visual brief guide for removing the AI look from image generation tasks.
 
 #### sweety-image-art-direction
 
-Standalone, explicit-only art direction for portraits, real-world scenes, products, posters, infographics, and hand-drawn images. The [complete skill and input template](skills/sweety-image-art-direction/SKILL.md) are self-contained: no external configuration, other skills, or extra scripts are required. Includes a restrained default prompt, five portrait principles, and five information-design principles. Preserves the requested style, prioritizes coherent shapes and tonal hierarchy, and separates generated artwork from final text layout. Invoke with `$sweety-image-art-direction`.
+Standalone, explicit-only art direction for portraits, real-world scenes, products, posters, infographics, and hand-drawn images. The [complete skill and input template](skills/sweety-image-art-direction/SKILL.md) are self-contained: no external configuration, other skills, or extra scripts are required. Includes a restrained default prompt, five portrait principles, and five information-design principles. Derives visual requirements from the intended use, assigns roles to references, and preserves the requested style and subject features. Prioritizes coherent shapes and tonal hierarchy before material detail. Checks each edit for improvement and unintended changes, verifies text, dimensions, and transparency, and separates generated artwork from final text layout. Invoke with `$sweety-image-art-direction`.
 
 #### sweety-image-reprocess
 
